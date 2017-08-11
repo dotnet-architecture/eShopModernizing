@@ -8,11 +8,12 @@ namespace eShopCatalogMVC.Services
 {
     public class CatalogServiceMock : ICatalogService
     {
-        private static List<CatalogItem> catalogItems = GetPreconfiguredItems();
+        private static List<CatalogItem> catalogItems = GetPreconfiguredCatalogItems();
 
         public List<CatalogItem> GetCatalogItems()
         {
-            return catalogItems.OrderBy(x => x.Id).ToList();
+            var items = ComposeCatalogItems(catalogItems);
+            return items;
         }
 
         public CatalogItem FindCatalogItem(int? id)
@@ -53,7 +54,18 @@ namespace eShopCatalogMVC.Services
         {
         }
 
-        private static List<CatalogItem> GetPreconfiguredItems()
+        private static List<CatalogItem> ComposeCatalogItems(List<CatalogItem> items)
+        {
+            var catalogTypes = GetPreconfiguredCatalogTypes();
+            var catalogBrands = GetPreconfiguredCatalogBrands();
+            items.ForEach(i => i.CatalogBrand = catalogBrands.First(b => b.Id == i.CatalogBrandId));
+            items.ForEach(i => i.CatalogType = catalogTypes.First(b => b.Id == i.CatalogTypeId));
+
+            return items;
+            ;
+        }
+
+        private static List<CatalogItem> GetPreconfiguredCatalogItems()
         {
             return new List<CatalogItem>()
             {
@@ -76,11 +88,11 @@ namespace eShopCatalogMVC.Services
         {
             return new List<CatalogBrand>()
             {
-                new CatalogBrand() { Brand = "Azure"},
-                new CatalogBrand() { Brand = ".NET" },
-                new CatalogBrand() { Brand = "Visual Studio" },
-                new CatalogBrand() { Brand = "SQL Server" },
-                new CatalogBrand() { Brand = "Other" }
+                new CatalogBrand() { Id =1, Brand = "Azure"},
+                new CatalogBrand() { Id =2, Brand = ".NET" },
+                new CatalogBrand() { Id =3, Brand = "Visual Studio" },
+                new CatalogBrand() { Id =4, Brand = "SQL Server" },
+                new CatalogBrand() { Id =5, Brand = "Other" }
             };
         }
 
@@ -88,10 +100,10 @@ namespace eShopCatalogMVC.Services
         {
             return new List<CatalogType>()
             {
-                new CatalogType() { Type = "Mug"},
-                new CatalogType() { Type = "T-Shirt" },
-                new CatalogType() { Type = "Sheet" },
-                new CatalogType() { Type = "USB Memory Stick" }
+                new CatalogType() { Id =1, Type = "Mug"},
+                new CatalogType() { Id =2, Type = "T-Shirt" },
+                new CatalogType() { Id =3, Type = "Sheet" },
+                new CatalogType() { Id =4, Type = "USB Memory Stick" }
             };
         }
     }
