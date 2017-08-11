@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using eShopCatalogMVC.Models;
 using eShopCatalogMVC.Services;
-using System.Configuration;
 
 namespace eShopCatalogMVC.Controllers
 {
     public class CatalogController : Controller
     {
-        private ICatalogService service = new CatalogServiceMock();
+        private ICatalogService service;
+
+        public CatalogController(ICatalogService service)
+        {
+            this.service = service;
+        }
 
         // GET: Catalog
         public ActionResult Index()

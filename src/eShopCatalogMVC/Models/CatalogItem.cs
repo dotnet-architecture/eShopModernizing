@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace eShopCatalogMVC.Models
+﻿namespace eShopCatalogMVC.Models
 {
     public class CatalogItem
     {
