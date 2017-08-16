@@ -17,12 +17,13 @@ namespace eShopCatalogMVC.Modules
             {
                 builder.RegisterType<CatalogServiceMock>()
                     .As<ICatalogService>()
-                    .InstancePerLifetimeScope();
+                    .SingleInstance();
             }
             else
             {
                 builder.RegisterType<CatalogService>()
-                    .As<ICatalogService>();
+                    .As<ICatalogService>()
+                    .InstancePerLifetimeScope();
             }
 
         }
