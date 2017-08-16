@@ -1,6 +1,7 @@
 ﻿using eShopCatalogMVC.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 
 namespace eShopCatalogMVC.Services
@@ -30,8 +31,20 @@ namespace eShopCatalogMVC.Services
 
         public void CreateCatalogItem(CatalogItem catalogItem)
         {
-            db.CatalogItems.Add(catalogItem);
-            db.SaveChanges();
+            var rawCommand = "INSERT dbo.Catalog(Id, CatalogBrandId, CatalogTypeId, Description, Name, PictureFileName, Price, AvailableStock, MaxStockThreshold, OnReorder, RestockThreshold) " +
+                             "VALUES(NEXT VALUE FOR catalog_hilo, @CatalogBrandId, @CatalogTypeId, @Description, @Name, @PictureFileName, @Price, @AvailableStock, @MaxStockThreshold, @OnReorder, @RestockThreshold); ";
+            db.Database.ExecuteSqlCommand(
+                rawCommand,
+                new SqlParameter("@CatalogBrandId", catalogItem.CatalogBrandId),
+                new SqlParameter("@CatalogTypeId", catalogItem.CatalogTypeId),
+                new SqlParameter("@Description", catalogItem.Description),
+                new SqlParameter("@Name", catalogItem.Name),
+                new SqlParameter("@PictureFileName", catalogItem.PictureFileName),
+                new SqlParameter("@Price", catalogItem.Price),
+                new SqlParameter("@AvailableStock", catalogItem.AvailableStock),
+                new SqlParameter("@MaxStockThreshold", catalogItem.MaxStockThreshold),
+                new SqlParameter("@OnReorder", catalogItem.OnReorder),
+                new SqlParameter("@RestockThreshold", catalogItem.RestockThreshold));
         }
 
         public void UpdateCatalogItem(CatalogItem catalogItem)
