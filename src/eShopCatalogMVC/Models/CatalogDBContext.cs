@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
@@ -61,7 +62,10 @@ namespace eShopCatalogMVC.Models
         {
             builder.ToTable("Catalog");
 
+            builder.HasKey(ci => ci.Id);
+
             builder.Property(ci => ci.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None)
                 .IsRequired();
 
             builder.Property(ci => ci.Name)

@@ -1,4 +1,5 @@
-﻿using eShopCatalogMVC.Models;
+﻿using System;
+using eShopCatalogMVC.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.SqlClient;
@@ -8,7 +9,14 @@ namespace eShopCatalogMVC.Services
 {
     public class CatalogService : ICatalogService
     {
-        private CatalogDBContext db = new CatalogDBContext();
+        private CatalogDBContext db;
+        private CatalogItemHiLoGenerator indexGenerator;
+
+        public CatalogService(CatalogDBContext db, CatalogItemHiLoGenerator indexGenerator)
+        {
+            this.db = db;
+            this.indexGenerator = indexGenerator;
+        }
 
         public List<CatalogItem> GetCatalogItems()
         {
@@ -31,20 +39,9 @@ namespace eShopCatalogMVC.Services
 
         public void CreateCatalogItem(CatalogItem catalogItem)
         {
-            var rawCommand = "INSERT dbo.Catalog(Id, CatalogBrandId, CatalogTypeId, Description, Name, PictureFileName, Price, AvailableStock, MaxStockThreshold, OnReorder, RestockThreshold) " +
-                             "VALUES(NEXT VALUE FOR catalog_hilo, @CatalogBrandId, @CatalogTypeId, @Description, @Name, @PictureFileName, @Price, @AvailableStock, @MaxStockThreshold, @OnReorder, @RestockThreshold); ";
-            db.Database.ExecuteSqlCommand(
-                rawCommand,
-                new SqlParameter("@CatalogBrandId", catalogItem.CatalogBrandId),
-                new SqlParameter("@CatalogTypeId", catalogItem.CatalogTypeId),
-                new SqlParameter("@Description", catalogItem.Description),
-                new SqlParameter("@Name", catalogItem.Name),
-                new SqlParameter("@PictureFileName", catalogItem.PictureFileName),
-                new SqlParameter("@Price", catalogItem.Price),
-                new SqlParameter("@AvailableStock", catalogItem.AvailableStock),
-                new SqlParameter("@MaxStockThreshold", catalogItem.MaxStockThreshold),
-                new SqlParameter("@OnReorder", catalogItem.OnReorder),
-                new SqlParameter("@RestockThreshold", catalogItem.RestockThreshold));
+            catalogItem.Id = indexGenerator.GetNextSequenceValue(db);
+            db.CatalogItems.Add(catalogItem);
+            db.SaveChanges();
         }
 
         public void UpdateCatalogItem(CatalogItem catalogItem)

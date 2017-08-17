@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using eShopCatalogMVC.Models;
 using eShopCatalogMVC.Services;
 
 namespace eShopCatalogMVC.Modules
@@ -25,6 +26,12 @@ namespace eShopCatalogMVC.Modules
                     .As<ICatalogService>()
                     .InstancePerLifetimeScope();
             }
+
+            builder.RegisterType<CatalogDBContext>()
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<CatalogItemHiLoGenerator>()
+                .SingleInstance();
 
         }
     }
