@@ -41,13 +41,12 @@ namespace eShopCatalogMVC.Services
             catalogItems.Add(catalogItem);
         }
 
-        public void UpdateCatalogItem(CatalogItem catalogItem)
+        public void UpdateCatalogItem(CatalogItem modifiedItem)
         {
-            var item = FindCatalogItem(catalogItem.Id);
-            if (item != null)
+            var originalItem = FindCatalogItem(modifiedItem.Id);
+            if (originalItem != null)
             {
-                catalogItems.Remove(item);
-                catalogItems.Add(catalogItem);
+                catalogItems[catalogItems.IndexOf(originalItem)] = modifiedItem;
             }
         }
 

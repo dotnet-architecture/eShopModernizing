@@ -76,7 +76,7 @@ namespace eShopCatalogMVC.Controllers
                 return HttpNotFound();
             }
             ViewBag.CatalogBrandId = new SelectList(service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
-            ViewBag.CatalogTypeId = new SelectList(service.GetCatalogItems(), "Id", "Type", catalogItem.CatalogTypeId);
+            ViewBag.CatalogTypeId = new SelectList(service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
             return View(catalogItem);
         }
 
