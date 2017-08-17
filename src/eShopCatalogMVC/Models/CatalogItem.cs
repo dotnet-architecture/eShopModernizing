@@ -11,7 +11,7 @@ namespace eShopCatalogMVC.Models
         public string Description { get; set; }
 
         // decimal(18,2)
-        [RegularExpression(@"^\d+\.\d{0,2}$", ErrorMessage = "The field Price must be a positive number with maximum two decimals.")]
+        [RegularExpression(@"^\d+(\.\d{0,2})*$", ErrorMessage = "The field Price must be a positive number with maximum two decimals.")]
         [Range(0, 9999999999999999.99)] 
         public decimal Price { get; set; }
 
