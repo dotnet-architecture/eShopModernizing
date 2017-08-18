@@ -1,0 +1,86 @@
+﻿.esh-app-footer {
+    background-color: #000000;
+    border-top: 1px solid #EEEEEE;
+    margin-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+    width: 100%;
+}
+
+.esh-app-footer-brand {
+    height: 50px;
+    width: 230px;
+}
+
+.esh-app-hero {
+    background-image: url("../images/main_banner.png");
+    background-size: cover;
+    height: 260px;
+    width: 100%;
+}
+
+.esh-catalog-title {
+    position: relative;
+    top: 74.28571px;
+}
+
+.esh-table {
+    max-width: 1440px;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.esh-table-header {
+    background-color: #00A69C;
+}
+
+.esh-table th {
+    font-size: 1.70rem;
+    color: #FFFFFF;
+}
+
+.esh-table td {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.esh-table-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+    .esh-table-price::before {
+        content: '$';
+    }
+
+.esh-table-link {
+    color: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.35s;
+}
+
+    .esh-table-link:hover {
+        color: #75b918;
+        transition: color 0.35s;
+    }
+
+.esh-link-wrapper {
+    line-height: 3rem;
+    position: relative;
+    text-align: left;
+}
+
+.esh-link-item {
+    color: inherit;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.35s;
+}
+
+    .esh-link-item:hover {
+        color: #75b918;
+        transition: color 0.35s;
+    }

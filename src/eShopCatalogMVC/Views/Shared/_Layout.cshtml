@@ -3,37 +3,45 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Microsoft.eShopLegacyWebMVCApp</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <header class="navbar navbar-light navbar-static-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+            <article class="row">
+                <section class="col-lg-7 col-md-6 col-xs-12">
+                    <a class="navbar-brand" routerLink="catalog">
+                        <a asp-area="" asp-controller="Catalog" asp-action="Index">
+                            <img src="~/images/brand.png" />
+                        </a>
+                </section>
+            </article>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </header>
+    <section class="esh-app-hero">
+        <div class="container">
+            <img class="esh-catalog-title" src="~/images/main_banner_text.png" />
+        </div>
+    </section>
+
+    @RenderBody()
+
+    <footer class="esh-app-footer">
+        <div class="container">
+            <article class="row">
+                <section class="col-sm-6">
+                    <img class="esh-app-footer-brand" src="~/images/brand_dark.png" />
+                </section>
+
+                <section class="col-sm-6">
+                    <img class="esh-app-footer-text hidden-xs" src="~/images/main_footer_text.png" width="335" height="26" alt="footer text image" />
+                </section>
+
+            </article>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

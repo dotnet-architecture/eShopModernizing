@@ -1,6 +1,10 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 10px;
     padding-bottom: 20px;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    z-index: 10;
 }
 
 /* Set padding to keep content from hitting the edges */
