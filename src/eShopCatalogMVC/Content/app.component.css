@@ -19,9 +19,20 @@
     width: 100%;
 }
 
-.esh-catalog-title {
+.esh-header-title {
     position: relative;
     top: 74.28571px;
+}
+
+.esh-body-title{
+	padding-left: 3rem;
+	padding-top: 1rem;
+	padding-bottom: 1.5rem;
+	margin: 0px;
+	margin-bottom: 2rem;
+	background-color: #00A69C;
+	font-size: 3rem;
+    color: #FFFFFF;
 }
 
 .esh-table {
@@ -80,7 +91,16 @@
     transition: color 0.35s;
 }
 
-    .esh-link-item:hover {
-        color: #75b918;
-        transition: color 0.35s;
-    }
+.esh-link-item--margin {
+	margin-left: 1rem;
+}
+
+.esh-link-list {
+	font-size: 2rem;
+	margin-left: 1rem;
+}
+
+.esh-link-item:hover {
+    color: #75b918;
+    transition: color 0.35s;
+}

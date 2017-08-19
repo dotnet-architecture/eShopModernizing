@@ -4,11 +4,9 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 class="esh-body-title">Details</h2>
 
 <div>
-    <h4>CatalogItem</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.CatalogBrand.Brand)
@@ -92,7 +90,7 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+<p class="esh-link-list esh-link-item--margin">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new {@class = "esh-link-item" }) |
+    @Html.ActionLink("Back to List", "Index", null, new {@class = "esh-link-item" })
 </p>

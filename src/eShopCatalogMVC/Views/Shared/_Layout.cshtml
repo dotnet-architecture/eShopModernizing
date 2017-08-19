@@ -12,8 +12,7 @@
         <div class="container">
             <article class="row">
                 <section class="col-lg-7 col-md-6 col-xs-12">
-                    <a class="navbar-brand" routerLink="catalog">
-                        <a asp-area="" asp-controller="Catalog" asp-action="Index">
+                        <a href="@Url.Action("index", "catalog")">
                             <img src="~/images/brand.png" />
                         </a>
                 </section>
@@ -22,7 +21,7 @@
     </header>
     <section class="esh-app-hero">
         <div class="container">
-            <img class="esh-catalog-title" src="~/images/main_banner_text.png" />
+            <img class="esh-header-title" src="~/images/main_banner_text.png" />
         </div>
     </section>
 
@@ -34,11 +33,9 @@
                 <section class="col-sm-6">
                     <img class="esh-app-footer-brand" src="~/images/brand_dark.png" />
                 </section>
-
                 <section class="col-sm-6">
                     <img class="esh-app-footer-text hidden-xs" src="~/images/main_footer_text.png" width="335" height="26" alt="footer text image" />
                 </section>
-
             </article>
         </div>
     </footer>
