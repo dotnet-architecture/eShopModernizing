@@ -12,7 +12,7 @@ namespace eShopCatalogMVC.Models
     {
         public CatalogDBContext() : base("name=CatalogDBContext")
         {
-            Database.SetInitializer<CatalogDBContext>(null);
+            Database.SetInitializer<CatalogDBContext>(new CatalogDBInitializer());
         }
 
         public System.Data.Entity.DbSet<CatalogItem> CatalogItems { get; set; }
