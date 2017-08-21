@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using eShopCatalogMVC.Models.Infrastructure;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Web;
 
 namespace eShopCatalogMVC.Models
 {
     public class CatalogDBContext : DbContext
     {
-        public CatalogDBContext() : base("name=CatalogDBContext")
+        public CatalogDBContext(CatalogDBInitializer dBInitializer) : base("name=CatalogDBContext")
         {
-            Database.SetInitializer<CatalogDBContext>(new CatalogDBInitializer());
+            Database.SetInitializer<CatalogDBContext>(dBInitializer);
         }
 
         public System.Data.Entity.DbSet<CatalogItem> CatalogItems { get; set; }
