@@ -7,16 +7,15 @@ namespace eShopCatalogMVC.Models
 {
     public class CatalogDBContext : DbContext
     {
-        public CatalogDBContext(CatalogDBInitializer dBInitializer) : base("name=CatalogDBContext")
+        public CatalogDBContext() : base("name=CatalogDBContext")
         {
-            Database.SetInitializer<CatalogDBContext>(dBInitializer);
         }
 
-        public System.Data.Entity.DbSet<CatalogItem> CatalogItems { get; set; }
+        public DbSet<CatalogItem> CatalogItems { get; set; }
 
-        public System.Data.Entity.DbSet<CatalogBrand> CatalogBrands { get; set; }
+        public DbSet<CatalogBrand> CatalogBrands { get; set; }
 
-        public System.Data.Entity.DbSet<CatalogType> CatalogTypes { get; set; }
+        public DbSet<CatalogType> CatalogTypes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder builder)
         {
