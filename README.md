@@ -2,9 +2,9 @@
 Modernizing (Lift and Shift scenario) hypothetical legacy eShop web apps (traditional ASP.NET WebForms and MVC) with Windows Containers and Azure Cloud
 
 
-# eshopLegacy
+## eShopLegacyMVC
 
-## Select in memory data or database connection
+### Select in memory data or database connection
 The program allows either to connect to the database to get the catalog or to use mock data if one database is not available. The option to select one or the another is in the `Web.config` file:
 >```
 ><add key="UseMockData" value="true" />
