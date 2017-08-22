@@ -1,4 +1,17 @@
-﻿.esh-app-footer {
+﻿.table thead > tr > th, 
+.table tbody > tr > th, 
+.table tfoot > tr > th, 
+.table thead > tr > td, 
+.table tbody > tr > td, 
+.table tfoot > tr > td {
+    border: none
+}
+
+.table thead > tr > th {
+    border: none;
+}
+
+.esh-app-footer {
     background-color: #000000;
     border-top: 1px solid #EEEEEE;
     margin-top: 2.5rem;
@@ -20,18 +33,23 @@
 }
 
 .esh-header-title {
+    font-family: Montserrat, sans-serif;
     position: relative;
-    top: 74.28571px;
+    font-size: 6rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    top: 75px;
 }
 
-.esh-body-title{
-	padding-left: 3rem;
-	padding-top: 1rem;
-	padding-bottom: 1.5rem;
-	margin: 0px;
-	margin-bottom: 2rem;
-	background-color: #00A69C;
-	font-size: 3rem;
+.esh-body-title {
+    font-family: Montserrat, sans-serif;
+    padding-left: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    margin: 0px;
+    margin-bottom: 2rem;
+    background-color: #00A69C;
+    font-size: 3rem;
     color: #FFFFFF;
 }
 
@@ -43,21 +61,21 @@
 }
 
 .esh-table-header {
-    background-color: #00A69C;
+    border-bottom: none;
 }
 
 .esh-table th {
-    font-size: 1.70rem;
-    color: #FFFFFF;
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 .esh-table td {
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 300;
 }
 
 .esh-table-price {
-    font-size: 1.25rem;
+    font-size: 1em;
     font-weight: 600;
 }
 
@@ -92,34 +110,36 @@
 }
 
     .esh-link-item:hover {
-    	color: #75b918;
-    	transition: color 0.35s;
+        color: #75b918;
+        transition: color 0.35s;
     }
 
 .esh-link-item--margin {
-	margin-left: 1rem;
+    margin-left: 1rem;
 }
 
 .esh-link-list {
-	font-size: 2rem;
-	margin-left: 1rem;
+    font-size: 2rem;
+    margin-left: 1rem;
 }
 
 .esh-button {
     background-color: #83D01B;
-    border: none;
+    border: 0;
+    border-radius: 0;
     color: #FFFFFF;
-    cursor: pointer;
-    font-size: 2rem;
-    height: 3rem;
-    padding-left: 1rem;
-	padding-right: 1rem;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
     transition: all 0.35s;
-    width: auto;
-	border-radius: 4px;
 }
 
     .esh-button:hover {
         background-color: #4a760f;
         transition: all 0.35s;
     }
+
