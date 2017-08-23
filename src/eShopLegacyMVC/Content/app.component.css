@@ -1,14 +1,15 @@
-﻿.table thead > tr > th, 
-.table tbody > tr > th, 
-.table tfoot > tr > th, 
-.table thead > tr > td, 
-.table tbody > tr > td, 
+﻿.table thead > tr > th,
+.table tbody > tr > th,
+.table tfoot > tr > th,
+.table thead > tr > td,
+.table tbody > tr > td,
 .table tfoot > tr > td {
     border: none
 }
 
-.table thead > tr > th {
-    border: none;
+.table tbody tr > td {
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
 }
 
 .esh-app-footer {
@@ -95,6 +96,12 @@
         transition: color 0.35s;
     }
 
+.esh-thumbnail {
+    max-width: 120px;
+    height: auto;
+    width: 100%;
+}
+
 .esh-link-wrapper {
     line-height: 3rem;
     position: relative;
@@ -143,3 +150,7 @@
         transition: all 0.35s;
     }
 
+.esh-form-information {
+    padding-top: 7px;
+    color: #888888;
+}

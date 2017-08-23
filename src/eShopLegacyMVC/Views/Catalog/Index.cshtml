@@ -12,6 +12,8 @@
         <thead>
             <tr class="esh-table-header">
                 <th>
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Name)
                 </th>
                 <th>
@@ -46,16 +48,19 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CatalogBrand.Brand)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CatalogType.Type)
+                        <img class="esh-thumbnail" src="@item.PictureUri" />
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CatalogBrand.Brand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CatalogType.Type)
                     </td>
                     <td class="esh-table-price">
                         @Html.DisplayFor(modelItem => item.Price)

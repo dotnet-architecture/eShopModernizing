@@ -74,6 +74,8 @@ namespace eShopCatalogMVC.Models
             builder.Property(ci => ci.PictureFileName)
                 .IsRequired();
 
+            builder.Ignore(ci => ci.PictureUri);
+
             builder.HasRequired<CatalogBrand>(ci => ci.CatalogBrand)
                 .WithMany()
                 .HasForeignKey(ci => ci.CatalogBrandId);

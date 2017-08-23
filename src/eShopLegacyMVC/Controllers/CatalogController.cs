@@ -19,6 +19,7 @@ namespace eShopCatalogMVC.Controllers
         public ActionResult Index()
         {
             List<CatalogItem> catalogItems = service.GetCatalogItems();
+            ChangeUriPlaceholder(catalogItems);
             return View(catalogItems);
         }
 
@@ -42,7 +43,7 @@ namespace eShopCatalogMVC.Controllers
         {
             ViewBag.CatalogBrandId = new SelectList(service.GetCatalogBrands(), "Id", "Brand");
             ViewBag.CatalogTypeId = new SelectList(service.GetCatalogTypes(), "Id", "Type");
-            return View();
+            return View(new CatalogItem());
         }
 
         // POST: Catalog/Create
@@ -129,6 +130,16 @@ namespace eShopCatalogMVC.Controllers
                 service.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private List<CatalogItem> ChangeUriPlaceholder(List<CatalogItem> items)
+        {
+            items.ForEach(catalogItem =>
+            {
+                catalogItem.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new { catalogItemId = catalogItem.Id }, this.Request.Url.Scheme);
+            });
+
+            return items;
         }
     }
 }
