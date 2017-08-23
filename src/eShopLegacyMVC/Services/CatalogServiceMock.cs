@@ -21,10 +21,11 @@ namespace eShopCatalogMVC.Services
             return items;
         }
 
-        public CatalogItem FindCatalogItem(int? id)
+        public CatalogItem FindCatalogItem(int id)
         {
             return catalogItems.FirstOrDefault(x => x.Id == id);
         }
+
         public IEnumerable<CatalogType> GetCatalogTypes()
         {
             return PreconfiguredData.GetPreconfiguredCatalogTypes();

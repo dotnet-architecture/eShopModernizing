@@ -81,7 +81,7 @@
 }
 
     .esh-table-price::before {
-        content: '$';
+        /*content: '$';*/
     }
 
 .esh-table-link {

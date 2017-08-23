@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 
 namespace eShopCatalogMVC.Models
-{    
+{
     public class CatalogItem
     {
         public const string DefaultPictureName = "dummy.png";
@@ -23,16 +23,18 @@ namespace eShopCatalogMVC.Models
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
-        [Display(Name = "Picture name")]        
+        [Display(Name = "Picture name")]
         public string PictureFileName { get; set; }
 
         public string PictureUri { get; set; }
 
+        [Display(Name = "Type")]
         public int CatalogTypeId { get; set; }
 
         [Display(Name = "Type")]
         public CatalogType CatalogType { get; set; }
 
+        [Display(Name = "Brand")]
         public int CatalogBrandId { get; set; }
 
         [Display(Name = "Brand")]

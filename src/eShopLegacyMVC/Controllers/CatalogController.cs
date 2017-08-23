@@ -30,7 +30,7 @@ namespace eShopCatalogMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CatalogItem catalogItem = service.FindCatalogItem(id);
+            CatalogItem catalogItem = service.FindCatalogItem(id.Value);
             if (catalogItem == null)
             {
                 return HttpNotFound();
@@ -71,7 +71,7 @@ namespace eShopCatalogMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CatalogItem catalogItem = service.FindCatalogItem(id);
+            CatalogItem catalogItem = service.FindCatalogItem(id.Value);
             if (catalogItem == null)
             {
                 return HttpNotFound();
@@ -105,7 +105,7 @@ namespace eShopCatalogMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CatalogItem catalogItem = service.FindCatalogItem(id);
+            CatalogItem catalogItem = service.FindCatalogItem(id.Value);
             if (catalogItem == null)
             {
                 return HttpNotFound();

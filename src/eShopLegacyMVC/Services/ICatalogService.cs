@@ -6,7 +6,7 @@ namespace eShopCatalogMVC.Services
 {
     public interface ICatalogService : IDisposable
     {
-        CatalogItem FindCatalogItem(int? id);
+        CatalogItem FindCatalogItem(int id);
         IEnumerable<CatalogBrand> GetCatalogBrands();
         List<CatalogItem> GetCatalogItems();
         IEnumerable<CatalogType> GetCatalogTypes();
