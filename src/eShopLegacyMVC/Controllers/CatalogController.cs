@@ -35,6 +35,8 @@ namespace eShopCatalogMVC.Controllers
             {
                 return HttpNotFound();
             }
+            AddUriPlaceHolder(catalogItem);
+
             return View(catalogItem);
         }
 
@@ -76,6 +78,7 @@ namespace eShopCatalogMVC.Controllers
             {
                 return HttpNotFound();
             }
+            AddUriPlaceHolder(catalogItem);
             ViewBag.CatalogBrandId = new SelectList(service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
             ViewBag.CatalogTypeId = new SelectList(service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
             return View(catalogItem);
@@ -110,6 +113,8 @@ namespace eShopCatalogMVC.Controllers
             {
                 return HttpNotFound();
             }
+            AddUriPlaceHolder(catalogItem);
+
             return View(catalogItem);
         }
 
@@ -134,12 +139,14 @@ namespace eShopCatalogMVC.Controllers
 
         private List<CatalogItem> ChangeUriPlaceholder(List<CatalogItem> items)
         {
-            items.ForEach(catalogItem =>
-            {
-                catalogItem.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new { catalogItemId = catalogItem.Id }, this.Request.Url.Scheme);
-            });
+            items.ForEach(catalogItem => AddUriPlaceHolder(catalogItem));
 
             return items;
+        }
+
+        private void AddUriPlaceHolder(CatalogItem item)
+        {
+            item.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new { catalogItemId = item.Id }, this.Request.Url.Scheme);            
         }
     }
 }

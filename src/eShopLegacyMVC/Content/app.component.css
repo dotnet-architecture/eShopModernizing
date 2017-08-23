@@ -19,6 +19,7 @@
     padding-bottom: 2.5rem;
     padding-top: 2.5rem;
     width: 100%;
+    float:left;
 }
 
 .esh-app-footer-brand {
@@ -80,10 +81,6 @@
     font-weight: 600;
 }
 
-    .esh-table-price::before {
-        /*content: '$';*/
-    }
-
 .esh-table-link {
     color: inherit;
     font-weight: 600;
@@ -98,6 +95,12 @@
 
 .esh-thumbnail {
     max-width: 120px;
+    height: auto;
+    width: 100%;
+}
+
+.esh-picture {
+    max-width: 370px;
     height: auto;
     width: 100%;
 }
