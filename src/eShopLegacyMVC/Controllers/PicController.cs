@@ -31,8 +31,7 @@ namespace eShopCatalogMVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var item = service.GetCatalogItems()
-                .SingleOrDefault(ci => ci.Id == catalogItemId);
+            var item = service.FindCatalogItem(catalogItemId);
 
             if (item != null)
             {

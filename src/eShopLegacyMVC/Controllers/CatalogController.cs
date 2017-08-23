@@ -15,12 +15,12 @@ namespace eShopCatalogMVC.Controllers
             this.service = service;
         }
 
-        // GET: Catalog
-        public ActionResult Index()
+        // GET /[?pageSize=3&pageIndex=10]
+        public ActionResult Index(int pageSize = 10, int pageIndex = 0)
         {
-            List<CatalogItem> catalogItems = service.GetCatalogItems();
-            ChangeUriPlaceholder(catalogItems);
-            return View(catalogItems);
+            var paginatedItems = service.GetCatalogItemsPaginated(pageSize, pageIndex);
+            ChangeUriPlaceholder(paginatedItems.Data);
+            return View(paginatedItems);
         }
 
         // GET: Catalog/Details/5
@@ -137,9 +137,12 @@ namespace eShopCatalogMVC.Controllers
             base.Dispose(disposing);
         }
 
-        private List<CatalogItem> ChangeUriPlaceholder(List<CatalogItem> items)
+        private IEnumerable<CatalogItem> ChangeUriPlaceholder(IEnumerable<CatalogItem> items)
         {
-            items.ForEach(catalogItem => AddUriPlaceHolder(catalogItem));
+            foreach (var catalogItem in items)
+            {
+                AddUriPlaceHolder(catalogItem);
+            }
 
             return items;
         }

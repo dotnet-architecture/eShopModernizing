@@ -171,6 +171,7 @@
     <Compile Include="Services\CatalogService.cs" />
     <Compile Include="Services\CatalogServiceMock.cs" />
     <Compile Include="Services\ICatalogService.cs" />
+    <Compile Include="ViewModel\PaginatedItemsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\app.component.css" />
@@ -248,6 +249,7 @@
     <Content Include="Views\Catalog\Details.cshtml" />
     <Content Include="Views\Catalog\Edit.cshtml" />
     <Content Include="Views\Catalog\Index.cshtml" />
+    <Content Include="Views\Catalog\CatalogTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
