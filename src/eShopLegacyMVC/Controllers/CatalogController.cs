@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Web.Mvc;
-using eShopCatalogMVC.Models;
-using eShopCatalogMVC.Services;
+using eShopLegacyMVC.Models;
+using eShopLegacyMVC.Services;
 
-namespace eShopCatalogMVC.Controllers
+namespace eShopLegacyMVC.Controllers
 {
     public class CatalogController : Controller
     {

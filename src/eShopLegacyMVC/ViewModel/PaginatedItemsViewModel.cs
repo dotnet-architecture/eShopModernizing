@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace eShopCatalogMVC.ViewModel
+namespace eShopLegacyMVC.ViewModel
 {
     public class PaginatedItemsViewModel<TEntity> where TEntity : class
     {

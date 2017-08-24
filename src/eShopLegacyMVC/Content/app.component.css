@@ -166,6 +166,7 @@
 
 .esh-pager-item {
     margin: 0 5vw;
+    color: #333333;
 }
 
     .esh-pager-item.is-disabled {

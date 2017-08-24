@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace eShopCatalogMVC
+namespace eShopLegacyMVC
 {
     public class BundleConfig
     {
