@@ -174,14 +174,15 @@
     <Compile Include="ViewModel\PaginatedItemsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\app.component.css" />
+    <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\Montserrat-Bold.svg" />
     <Content Include="fonts\Montserrat-Regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Images\brand.png" />
     <Content Include="Images\brand_dark.png" />
     <Content Include="Images\main_footer_text.png" />
