@@ -29,3 +29,49 @@ textarea {
         padding: 0;
     }
 }
+
+/* Slider */
+.esh-app-hero {
+    background-image: url("../images/main_banner.png");
+    background-size: cover;
+    height: 12.5vw;
+    width: 100%;
+}
+
+/* Header */
+.esh-header {
+    height: 100%;
+}
+
+.esh-header:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.esh-header-title {
+    font-family: Montserrat, sans-serif;
+    position: relative;
+    font-size: 4vw;
+    font-weight: 600;
+    color: #FFFFFF;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Footer */
+.esh-app-footer {
+    background-color: #000000;
+    border-top: 1px solid #EEEEEE;
+    margin-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+    width: 100%;
+    float: left;
+}
+
+.esh-app-footer-brand {
+    height: 50px;
+    width: 230px;
+}

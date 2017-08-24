@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="eShopLegacyWebForms.SiteMaster" %>
+﻿<%@ master language="C#" autoeventwireup="true" codebehind="Site.master.cs" inherits="eShopLegacyWebForms.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -12,7 +12,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -39,33 +39,42 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <header class="navbar navbar-light navbar-static-top">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                    </ul>
-                </div>
+                <article class="row">
+                    <section class="col-lg-7 col-md-6 col-xs-12">
+                        <a runat="server" href="~/">
+                            <img src="/images/brand.png" />
+                        </a>
+                    </section>
+                </article>
             </div>
-        </div>
+        </header>
+
+        <section class="esh-app-hero">
+            <div class="container">
+                <h1 class="esh-header-title">Catalog editor</h1>
+            </div>
+        </section>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-            </footer>
         </div>
+
+        <footer class="esh-app-footer">
+            <div class="container">
+                <article class="row">
+                    <section class="col-sm-6">
+                        <img class="esh-app-footer-brand" src="/images/brand_dark.png" />
+                    </section>
+                    <section class="col-sm-6">
+                        <img class="esh-app-footer-text hidden-xs" src="/images/main_footer_text.png" width="335" height="26" alt="footer text image" />
+                    </section>
+                </article>
+            </div>
+        </footer>
 
     </form>
 </body>
