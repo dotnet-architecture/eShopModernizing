@@ -47,6 +47,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.5\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -129,12 +135,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="catalog\WebForm1.aspx" />
     <Content Include="Contact.aspx" />
+    <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="Content\site.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
@@ -152,6 +159,22 @@
     <Content Include="images\main_banner.png" />
     <Content Include="images\main_banner_text.png" />
     <Content Include="images\main_footer_text.png" />
+    <Content Include="Models\Infrastructure\dbo.catalog_brand_hilo.Sequence.sql" />
+    <Content Include="Models\Infrastructure\dbo.catalog_hilo.Sequence.sql" />
+    <Content Include="Models\Infrastructure\dbo.catalog_type_hilo.Sequence.sql" />
+    <Content Include="Pics\1.png" />
+    <Content Include="Pics\10.png" />
+    <Content Include="Pics\11.png" />
+    <Content Include="Pics\12.png" />
+    <Content Include="Pics\2.png" />
+    <Content Include="Pics\3.png" />
+    <Content Include="Pics\4.png" />
+    <Content Include="Pics\5.png" />
+    <Content Include="Pics\6.png" />
+    <Content Include="Pics\7.png" />
+    <Content Include="Pics\8.png" />
+    <Content Include="Pics\9.png" />
+    <Content Include="Pics\dummy.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -196,13 +219,6 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="catalog\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="catalog\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,7 +236,17 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CatalogBrand.cs" />
+    <Compile Include="Models\CatalogDBContext.cs" />
+    <Compile Include="Models\CatalogItem.cs" />
+    <Compile Include="Models\CatalogItemHiLoGenerator.cs" />
+    <Compile Include="Models\CatalogType.cs" />
+    <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
+    <Compile Include="Models\Infrastructure\PreconfiguredData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CatalogService.cs" />
+    <Compile Include="Services\CatalogServiceMock.cs" />
+    <Compile Include="Services\ICatalogService.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,6 +261,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\PaginatedItemsViewModel.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
