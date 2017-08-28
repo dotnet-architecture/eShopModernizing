@@ -13,8 +13,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>eShopCatalogMVC</RootNamespace>
-    <AssemblyName>eShopCatalogMVC</AssemblyName>
+    <RootNamespace>eShopLegacyMVC</RootNamespace>
+    <AssemblyName>eShopLegacyMVC</AssemblyName>
     <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -153,10 +154,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\PicController.cs" />
     <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
     <Compile Include="Models\CatalogItemHiLoGenerator.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -170,16 +171,18 @@
     <Compile Include="Services\CatalogService.cs" />
     <Compile Include="Services\CatalogServiceMock.cs" />
     <Compile Include="Services\ICatalogService.cs" />
+    <Compile Include="ViewModel\PaginatedItemsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\app.component.css" />
+    <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\custom.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\Montserrat-Bold.svg" />
     <Content Include="fonts\Montserrat-Regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Images\brand.png" />
     <Content Include="Images\brand_dark.png" />
     <Content Include="Images\main_footer_text.png" />
@@ -192,6 +195,18 @@
     <Content Include="Models\Infrastructure\dbo.catalog_type_hilo.Sequence.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Pics\1.png" />
+    <Content Include="Pics\10.png" />
+    <Content Include="Pics\11.png" />
+    <Content Include="Pics\12.png" />
+    <Content Include="Pics\2.png" />
+    <Content Include="Pics\3.png" />
+    <Content Include="Pics\4.png" />
+    <Content Include="Pics\5.png" />
+    <Content Include="Pics\6.png" />
+    <Content Include="Pics\7.png" />
+    <Content Include="Pics\8.png" />
+    <Content Include="Pics\9.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -230,14 +245,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Catalog\Create.cshtml" />
     <Content Include="Views\Catalog\Delete.cshtml" />
     <Content Include="Views\Catalog\Details.cshtml" />
     <Content Include="Views\Catalog\Edit.cshtml" />
     <Content Include="Views\Catalog\Index.cshtml" />
+    <Content Include="Views\Catalog\CatalogTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

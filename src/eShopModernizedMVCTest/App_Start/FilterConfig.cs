@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace eShopCatalogMVC
+namespace eShopLegacyMVC
 {
     public class FilterConfig
     {

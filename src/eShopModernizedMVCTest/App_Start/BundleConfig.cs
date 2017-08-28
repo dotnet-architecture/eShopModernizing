@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace eShopCatalogMVC
+namespace eShopLegacyMVC
 {
     public class BundleConfig
     {
@@ -25,8 +25,9 @@ namespace eShopCatalogMVC
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css",
-                      "~/Content/app.component.css"));
+                      "~/Content/custom.css",
+                      "~/Content/base.css",
+                      "~/Content/site.css"));
         }
     }
 }

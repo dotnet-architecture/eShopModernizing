@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
-using eShopCatalogMVC.Models;
-using eShopCatalogMVC.Models.Infrastructure;
-using eShopCatalogMVC.Modules;
+using eShopLegacyMVC.Models;
+using eShopLegacyMVC.Models.Infrastructure;
+using eShopLegacyMVC.Modules;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,7 +13,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-namespace eShopCatalogMVC
+namespace eShopLegacyMVC
 {
     public class MvcApplication : System.Web.HttpApplication
     {

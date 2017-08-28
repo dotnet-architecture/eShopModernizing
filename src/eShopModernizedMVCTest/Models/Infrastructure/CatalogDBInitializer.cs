@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace eShopCatalogMVC.Models.Infrastructure
+namespace eShopLegacyMVC.Models.Infrastructure
 {
     public class CatalogDBInitializer : CreateDatabaseIfNotExists<CatalogDBContext>
     {

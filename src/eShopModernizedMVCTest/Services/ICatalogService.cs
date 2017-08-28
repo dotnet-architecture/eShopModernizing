@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
-using eShopCatalogMVC.Models;
+using eShopLegacyMVC.Models;
 using System;
+using eShopLegacyMVC.ViewModel;
 
-namespace eShopCatalogMVC.Services
+namespace eShopLegacyMVC.Services
 {
     public interface ICatalogService : IDisposable
     {
-        CatalogItem FindCatalogItem(int? id);
+        CatalogItem FindCatalogItem(int id);
         IEnumerable<CatalogBrand> GetCatalogBrands();
-        List<CatalogItem> GetCatalogItems();
+        PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize, int pageIndex);
         IEnumerable<CatalogType> GetCatalogTypes();
         void CreateCatalogItem(CatalogItem catalogItem);
         void UpdateCatalogItem(CatalogItem catalogItem);

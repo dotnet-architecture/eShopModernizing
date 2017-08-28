@@ -137,14 +137,12 @@ namespace eShopLegacyMVC.Controllers
             base.Dispose(disposing);
         }
 
-        private IEnumerable<CatalogItem> ChangeUriPlaceholder(IEnumerable<CatalogItem> items)
+        private void ChangeUriPlaceholder(IEnumerable<CatalogItem> items)
         {
             foreach (var catalogItem in items)
             {
                 AddUriPlaceHolder(catalogItem);
             }
-
-            return items;
         }
 
         private void AddUriPlaceHolder(CatalogItem item)
