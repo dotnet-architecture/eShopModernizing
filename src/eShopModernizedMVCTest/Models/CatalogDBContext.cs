@@ -1,9 +1,9 @@
-﻿using eShopCatalogMVC.Models.Infrastructure;
+﻿using eShopLegacyMVC.Models.Infrastructure;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 
-namespace eShopCatalogMVC.Models
+namespace eShopLegacyMVC.Models
 {
     public class CatalogDBContext : DbContext
     {
@@ -73,6 +73,8 @@ namespace eShopCatalogMVC.Models
 
             builder.Property(ci => ci.PictureFileName)
                 .IsRequired();
+
+            builder.Ignore(ci => ci.PictureUri);
 
             builder.HasRequired<CatalogBrand>(ci => ci.CatalogBrand)
                 .WithMany()

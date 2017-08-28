@@ -1,9 +1,9 @@
 ﻿using Autofac;
-using eShopCatalogMVC.Models;
-using eShopCatalogMVC.Models.Infrastructure;
-using eShopCatalogMVC.Services;
+using eShopLegacyMVC.Models;
+using eShopLegacyMVC.Models.Infrastructure;
+using eShopLegacyMVC.Services;
 
-namespace eShopCatalogMVC.Modules
+namespace eShopLegacyMVC.Modules
 {
     public class ApplicationModule : Module
     {

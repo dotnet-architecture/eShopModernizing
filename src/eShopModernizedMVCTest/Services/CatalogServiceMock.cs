@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using eShopCatalogMVC.Models;
-using eShopCatalogMVC.Models.Infrastructure;
+using eShopLegacyMVC.Models;
+using eShopLegacyMVC.Models.Infrastructure;
+using eShopLegacyMVC.ViewModel;
 
-namespace eShopCatalogMVC.Services
+namespace eShopLegacyMVC.Services
 {
     public class CatalogServiceMock : ICatalogService
     {
@@ -15,16 +16,25 @@ namespace eShopCatalogMVC.Services
             catalogItems = new List<CatalogItem>(PreconfiguredData.GetPreconfiguredCatalogItems());
         }
 
-        public List<CatalogItem> GetCatalogItems()
+        public PaginatedItemsViewModel<CatalogItem> GetCatalogItemsPaginated(int pageSize = 10, int pageIndex = 0)
         {
             var items = ComposeCatalogItems(catalogItems);
-            return items;
+            
+            var itemsOnPage = items
+                .OrderBy(c => c.Id)
+                .Skip(pageSize * pageIndex)
+                .Take(pageSize)
+                .ToList();
+
+            return new PaginatedItemsViewModel<CatalogItem>(
+                pageIndex, pageSize, items.Count, itemsOnPage);
         }
 
-        public CatalogItem FindCatalogItem(int? id)
+        public CatalogItem FindCatalogItem(int id)
         {
             return catalogItems.FirstOrDefault(x => x.Id == id);
         }
+
         public IEnumerable<CatalogType> GetCatalogTypes()
         {
             return PreconfiguredData.GetPreconfiguredCatalogTypes();
