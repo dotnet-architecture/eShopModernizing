@@ -59,12 +59,12 @@
                             </td>
                             <td>
                                 <p>
-                                    <%#:Item.CatalogBrand%>
+                                    <%#:Item.CatalogBrand.Brand%>
                                 </p>
                             </td>
                             <td>
                                 <p>
-                                    <%#:Item.CatalogType%>
+                                    <%#:Item.CatalogType.Type%>
                                 </p>
                             </td>
                             <td>
