@@ -103,21 +103,16 @@
         <div class="container">
             <article class="esh-pager-wrapper row">
                 <nav>
-                    
-                    <% if (Model.ActualPage > 0) { %>
-                        @Html.ActionLink("Previous", "Index", new { pageSize = Model.ItemsPerPage, pageIndex = Model.ActualPage - 1 }, new { @class = "esh-pager-item esh-pager-item--navigable" })
-                    <% } %>
+                    <asp:HyperLink ID="PaginationPrevious" runat="server" CssClass="esh-pager-item esh-pager-item--navigable">
+                        Previous
+                    </asp:HyperLink>
 
-                    <span class="esh-pager-item">
-                        Showing @Model.ItemsPerPage of @Model.TotalItems products - Page @(Model.ActualPage + 1) - @Model.TotalPages
+                    <span class="esh-pager-item">Showing <%: Model.ItemsPerPage%> of <%: Model.TotalItems%> products - Page <%: (Model.ActualPage + 1)%> - <%: Model.TotalPages%>
                     </span>
-
-                    <%--@if(Model.ActualPage < Model.TotalPages -1)
-                    {--%>
-                        @Html.ActionLink("Next", "Index", new { pageSize = Model.ItemsPerPage, pageIndex = Model.ActualPage + 1 }, new { @class = "esh-pager-item esh-pager-item--navigable" })
-                        <a runat="server" class="esh-pager-item esh-pager-item--navigable" href="~/Contact">
-                    <%--}--%>
                     
+                    <asp:HyperLink ID="PaginationNext" runat="server" CssClass="esh-pager-item esh-pager-item--navigable">
+                        Next
+                    </asp:HyperLink>
                 </nav>
             </article>
         </div>
