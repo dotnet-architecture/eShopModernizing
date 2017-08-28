@@ -14,30 +14,30 @@ namespace eShopLegacyWebForms
 {
     public partial class _Default : Page
     {
-        public PaginatedItemsViewModel<CatalogItem> Model { get; set; }
+        public const int  DefaultPageIndex = 0;
+        public const int DefaultPageSize = 10;
 
-        public int Size { get; set; }
-        public int Index { get; set; }
+        public ICatalogService CatalogService { get; set; }
+
+        protected PaginatedItemsViewModel<CatalogItem> Model { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var service = new CatalogServiceMock();
-
             if (PaginationParamsAreSet())
             {
                 var size = Convert.ToInt32(Page.RouteData.Values["size"]);
                 var index = Convert.ToInt32(Page.RouteData.Values["index"]);
-                Model = service.GetCatalogItemsPaginated(size, index);
+                Model = CatalogService.GetCatalogItemsPaginated(size, index);
             }
             else
             {
-                Model = service.GetCatalogItemsPaginated();
+                Model = CatalogService.GetCatalogItemsPaginated(DefaultPageSize, DefaultPageIndex);
             }
-            
+
             productList.DataSource = Model.Data;
             productList.DataBind();
             ConfigurePagination();
-           
+
         }
 
         private bool PaginationParamsAreSet()
