@@ -4,7 +4,8 @@
 
     <div class="esh-table">
         <p class="esh-link-wrapper">
-            @Html.ActionLink("Create New", "Create", null, new { @class = "btn esh-button" })
+            <%--@Html.ActionLink("Create New", "Create", null, new { @class = "btn esh-button" })--%>
+            <asp:Button Text="Create New" CssClass="btn esh-button" runat="server" />
         </p>
 
         <asp:ListView ID="productList" runat="server" ItemType="eShopLegacyWebForms.Models.CatalogItem">
@@ -43,7 +44,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <image class="esh-thumbnail" src='/Pics/<%#:Item.PictureFileName%>'/>
+                                <image class="esh-thumbnail" src='/Pics/<%#:Item.PictureFileName%>' />
                                 </a>
                             </td>
                             <td>
@@ -96,5 +97,29 @@
                 </table>
             </ItemTemplate>
         </asp:ListView>
+    </div>
+
+    <div class="esh-pager">
+        <div class="container">
+            <article class="esh-pager-wrapper row">
+                <nav>
+                    
+                    <% if (Model.ActualPage > 0) { %>
+                        @Html.ActionLink("Previous", "Index", new { pageSize = Model.ItemsPerPage, pageIndex = Model.ActualPage - 1 }, new { @class = "esh-pager-item esh-pager-item--navigable" })
+                    <% } %>
+
+                    <span class="esh-pager-item">
+                        Showing @Model.ItemsPerPage of @Model.TotalItems products - Page @(Model.ActualPage + 1) - @Model.TotalPages
+                    </span>
+
+                    <%--@if(Model.ActualPage < Model.TotalPages -1)
+                    {--%>
+                        @Html.ActionLink("Next", "Index", new { pageSize = Model.ItemsPerPage, pageIndex = Model.ActualPage + 1 }, new { @class = "esh-pager-item esh-pager-item--navigable" })
+                        <a runat="server" class="esh-pager-item esh-pager-item--navigable" href="~/Contact">
+                    <%--}--%>
+                    
+                </nav>
+            </article>
+        </div>
     </div>
 </asp:Content>

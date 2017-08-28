@@ -11,12 +11,12 @@
     height: 100%;
 }
 
-.esh-header:before {
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%;
-}
+    .esh-header:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
 
 .esh-header-title {
     font-family: Montserrat, sans-serif;
@@ -91,15 +91,14 @@
     transition: color 0.35s;
 }
 
-.esh-table-link:hover {
-    color: #75b918;
-    transition: color 0.35s;
-}
+    .esh-table-link:hover {
+        color: #75b918;
+        transition: color 0.35s;
+    }
 
 .esh-thumbnail {
     max-width: 120px;
     height: auto;
-    width: 100%;
 }
 
 .esh-picture {
@@ -122,10 +121,10 @@
     transition: color 0.35s;
 }
 
-.esh-link-item:hover {
-    color: #75b918;
-    transition: color 0.35s;
-}
+    .esh-link-item:hover {
+        color: #75b918;
+        transition: color 0.35s;
+    }
 
 .esh-link-item--margin {
     margin-left: 1rem;
@@ -151,10 +150,10 @@
     transition: all 0.35s;
 }
 
-.esh-button:hover {
-    background-color: #4a760f;
-    transition: all 0.35s;
-}
+    .esh-button:hover {
+        background-color: #4a760f;
+        transition: all 0.35s;
+    }
 
 .esh-form-information {
     padding-top: 7px;
@@ -172,19 +171,19 @@
     color: #333333;
 }
 
-.esh-pager-item.is-disabled {
-    opacity: 0;
-    pointer-events: none;
-}
+    .esh-pager-item.is-disabled {
+        opacity: 0;
+        pointer-events: none;
+    }
 
 .esh-pager-item--navigable {
     cursor: pointer;
     display: inline-block;
 }
 
-.esh-pager-item--navigable:hover {
-    color: #83D01B;
-}
+    .esh-pager-item--navigable:hover {
+        color: #83D01B;
+    }
 
 @media screen and (max-width: 1280px) {
     .esh-pager-item {
@@ -201,4 +200,3 @@
         height: 20vw;
     }
 }
-
