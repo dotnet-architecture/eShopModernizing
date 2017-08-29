@@ -11,12 +11,18 @@
     height: 100%;
 }
 
-    .esh-header:before {
-        content: '';
-        display: inline-block;
-        vertical-align: middle;
-        height: 100%;
-    }
+.esh-header:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.esh-header-brand {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .esh-header-title {
     font-family: Montserrat, sans-serif;
@@ -26,6 +32,10 @@
     color: #FFFFFF;
     display: inline-block;
     vertical-align: middle;
+}
+
+.esh-header-title > span {
+    font-weight: 300;
 }
 
 /* Footer */
