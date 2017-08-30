@@ -20,6 +20,11 @@ namespace eShopLegacyWebForms
                 "Default/index/{index}/size/{size}",
                 "~/Default.aspx"
                 );
+            routes.MapPageRoute(
+                "CreateProductRoute",
+                "Catalog/Create",
+                "~/Catalog/Create.aspx"
+                );
         }
     }
 }

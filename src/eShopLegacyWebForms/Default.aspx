@@ -4,8 +4,9 @@
 
     <div class="esh-table">
         <p class="esh-link-wrapper">
-            <%--@Html.ActionLink("Create New", "Create", null, new { @class = "btn esh-button" })--%>
-            <asp:Button Text="Create New" CssClass="btn esh-button" runat="server" />
+            <a runat="server" href="<%$RouteUrl:RouteName=CreateProductRoute%>" class="btn esh-button">
+                Create New
+            </a>
         </p>
 
         <asp:ListView ID="productList" runat="server" ItemType="eShopLegacyWebForms.Models.CatalogItem">

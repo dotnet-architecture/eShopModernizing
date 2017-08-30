@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - Catalog manager (Web Forms)</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -40,24 +40,20 @@
         </asp:ScriptManager>
 
         <header class="navbar navbar-light navbar-static-top">
-            <div class="container">
-                <article class="row">
-                    <section class="col-lg-7 col-md-6 col-xs-12">
-                        <a runat="server" href="~/">
-                            <img src="/images/brand.png" />
-                        </a>
-                    </section>
-                </article>
+            <div class="esh-header-brand">
+                <a runat="server" href="~/">
+                    <img src="/images/brand.png" />
+                </a>
             </div>
         </header>
 
         <section class="esh-app-hero">
             <div class="container">
-                <h1 class="esh-header-title">Catalog editor</h1>
+                <h1 class="esh-header-title">Catalog manager <span>(Web Forms)</span></h1>
             </div>
         </section>
 
-        <div class="container body-content">
+        <div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
