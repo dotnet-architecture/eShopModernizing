@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="eShopLegacyWebForms.Catalog.Create" %>
+﻿<%@ Page Title="Create" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="eShopLegacyWebForms.Catalog.Create" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Create" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2 class="esh-body-title">Create</h2>
 

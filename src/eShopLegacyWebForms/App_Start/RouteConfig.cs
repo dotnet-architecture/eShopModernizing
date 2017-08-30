@@ -25,6 +25,21 @@ namespace eShopLegacyWebForms
                 "Catalog/Create",
                 "~/Catalog/Create.aspx"
                 );
+            routes.MapPageRoute(
+                "EditProductRoute",
+                "Catalog/Edit/{id}",
+                "~/Catalog/Edit.aspx"
+                );
+            routes.MapPageRoute(
+                "ProductDetailsRoute",
+                "Catalog/Details/{id}",
+                "~/Catalog/Details.aspx"
+                );
+            routes.MapPageRoute(
+                "DeleteProductRoute",
+                "Catalog/Delete/{id}",
+                "~/Catalog/Delete.aspx"
+                );
         }
     }
 }

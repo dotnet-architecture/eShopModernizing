@@ -4,7 +4,8 @@
 
     <div class="esh-table">
         <p class="esh-link-wrapper">
-            <a runat="server" href="<%$RouteUrl:RouteName=CreateProductRoute%>" class="btn esh-button">Create New
+            <a runat="server" href="<%$RouteUrl:RouteName=CreateProductRoute%>" class="btn esh-button">
+                Create New
             </a>
         </p>
 
@@ -96,6 +97,19 @@
                         <p>
                             <%#:Item.MaxStockThreshold%>
                         </p>
+                    </td>
+                    <td>
+                        <asp:HyperLink NavigateUrl='<%# GetRouteUrl("EditProductRoute", new {id =Item.Id}) %>' runat="server" CssClass="esh-table-link">
+                            Edit
+                        </asp:HyperLink>
+                        |
+                        <asp:HyperLink NavigateUrl='<%# GetRouteUrl("ProductDetailsRoute", new {id =Item.Id}) %>' runat="server" CssClass="esh-table-link">
+                            Details
+                        </asp:HyperLink>
+                        |
+                        <asp:HyperLink NavigateUrl='<%# GetRouteUrl("DeleteProductRoute", new {id =Item.Id}) %>' runat="server" CssClass="esh-table-link">
+                            Delete
+                        </asp:HyperLink>
                     </td>
                 </tr>
             </ItemTemplate>
