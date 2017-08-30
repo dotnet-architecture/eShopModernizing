@@ -10,8 +10,8 @@
                 <label class="control-label col-md-2">Name</label>
                 <div class="col-md-10">
                     <asp:TextBox ID="Name" runat="server" CssClass="form-control"></asp:TextBox>
-                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Name"
-                        CssClass="text-danger" ErrorMessage="The Name field is required." />
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="Name" Display="Dynamic"
+                        CssClass="field-validation-valid text-danger" ErrorMessage="The Name field is required." />
                 </div>
             </div>
 
@@ -52,7 +52,7 @@
                 <label class="control-label col-md-2">Price</label>
                 <div class="col-md-10">
                     <asp:TextBox ID="Price" runat="server" CssClass="form-control">0.00</asp:TextBox>
-                    <asp:RangeValidator runat="server" ControlToValidate="Price" Type="Currency" CssClass="text-danger"
+                    <asp:RangeValidator runat="server" ControlToValidate="Price" Type="Currency" CssClass="text-danger" Display="Dynamic"
                         MinimumValue="0" MaximumValue="1000000" ErrorMessage="The Price must be a positive number with maximum two decimals between 0 and 1 million." />
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <label class="control-label col-md-2">Stock</label>
                 <div class="col-md-10">
                     <asp:TextBox ID="Stock" runat="server" CssClass="form-control">0</asp:TextBox>
-                    <asp:RangeValidator runat="server" ControlToValidate="Stock" Type="Integer" CssClass="text-danger"
+                    <asp:RangeValidator runat="server" ControlToValidate="Stock" Type="Integer" CssClass="text-danger" Display="Dynamic"
                         MinimumValue="0" MaximumValue="10000000" ErrorMessage="The field Stock must be between 0 and 10 million." />
                 </div>
             </div>
@@ -77,7 +77,7 @@
                 <label class="control-label col-md-2">Restock</label>
                 <div class="col-md-10">
                     <asp:TextBox ID="Restock" runat="server" CssClass="form-control">0</asp:TextBox>
-                    <asp:RangeValidator runat="server" ControlToValidate="Restock" Type="Integer" CssClass="text-danger"
+                    <asp:RangeValidator runat="server" ControlToValidate="Restock" Type="Integer" CssClass="text-danger" Display="Dynamic"
                         MinimumValue="0" MaximumValue="10000000" ErrorMessage="The field Restock must be between 0 and 10 million." />
                 </div>
             </div>
@@ -86,7 +86,7 @@
                 <label class="control-label col-md-2">Max stock</label>
                 <div class="col-md-10">
                     <asp:TextBox ID="Maxstock" runat="server" CssClass="form-control">0</asp:TextBox>
-                    <asp:RangeValidator runat="server" ControlToValidate="Maxstock" Type="Integer" CssClass="text-danger"
+                    <asp:RangeValidator runat="server" ControlToValidate="Maxstock" Type="Integer" CssClass="text-danger" Display="Dynamic"
                         MinimumValue="0" MaximumValue="10000000" ErrorMessage="The field Max stock must be between 0 and 10 million." />
                 </div>
             </div>
