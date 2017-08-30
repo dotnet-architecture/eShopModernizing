@@ -13,13 +13,14 @@ namespace eShopLegacyMVC.Models
         }
         public int Id { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
         public string Description { get; set; }
 
         // decimal(18,2)
         [RegularExpression(@"^\d+(\.\d{0,2})*$", ErrorMessage = "The field Price must be a positive number with maximum two decimals.")]
-        [Range(0, 9999999999999999.99)]
+        [Range(0, 1000000)]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
 
