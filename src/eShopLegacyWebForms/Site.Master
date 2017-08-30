@@ -53,7 +53,7 @@
             </div>
         </section>
 
-        <div class="container body-content">
+        <div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
