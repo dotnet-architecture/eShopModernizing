@@ -40,7 +40,7 @@
                 </dt>
 
                 <dd>
-                    <asp:Label runat="server" Text='<%#productToDelete.Price%>' />
+                    <asp:Label CssClass="esh-price" runat="server" Text='<%#productToDelete.Price%>' />
                 </dd>
 
                 <dt>Picture name

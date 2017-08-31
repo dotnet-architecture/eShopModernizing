@@ -75,7 +75,7 @@
                     </td>
                     <td>
                         <p>
-                            <%#:Item.Price%>
+                            <span class="esh-price"><%#:Item.Price%></span>
                         </p>
                     </td>
                     <td>
