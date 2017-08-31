@@ -143,6 +143,7 @@
     <Content Include="About.aspx" />
     <Content Include="Catalog\Create.aspx" />
     <Content Include="Catalog\Delete.aspx" />
+    <Content Include="Catalog\Details.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap.css" />
@@ -252,6 +253,13 @@
     </Compile>
     <Compile Include="Catalog\Delete.aspx.designer.cs">
       <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
