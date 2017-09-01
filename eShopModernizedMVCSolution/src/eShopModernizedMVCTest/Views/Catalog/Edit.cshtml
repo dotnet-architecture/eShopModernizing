@@ -90,24 +90,12 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.OnReorder, htmlAttributes: new { @class = "control-label col-md-4" })
-                    <div class="col-md-8">
-                        <div class="checkbox">
-                            @Html.EditorFor(model => model.OnReorder)
-                            @Html.ValidationMessageFor(model => model.OnReorder, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-offset-4 col-md-8">
-                        <input type="submit" value="[ Save ]" class="btn esh-button" />
+                    <div class="col-md-12 text-right esh-button-actions">
+                        @Html.ActionLink("[ Cancel ]", "Index", null, new { @class = "btn esh-button esh-button-secondary" })
+                        <button type="submit" class="btn esh-button esh-button-primary">[ Save ]</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            @Html.ActionLink("Back to List", "Index", null, new { @class = "esh-link-item esh-link-item--margin" })
         </div>
     </div>
 }
