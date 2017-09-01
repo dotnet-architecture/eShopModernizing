@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.Entity;
 using System.Globalization;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
@@ -37,6 +38,7 @@ namespace eShopLegacyWebForms.Models.Infrastructure
             AddCatalogTypes(context);
             AddCatalogBrands(context);
             AddCatalogItems(context);
+            AddCatalogItemPictures();
         }
 
         private void AddCatalogTypes(CatalogDBContext context)
@@ -331,6 +333,23 @@ namespace eShopLegacyWebForms.Models.Infrastructure
         {
             var scriptFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, scriptFile);
             context.Database.ExecuteSqlCommand(File.ReadAllText(scriptFilePath));
+        }
+
+        private void AddCatalogItemPictures()
+        {
+            if (!useCustomizationData)
+            {
+                return;
+            }
+            var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
+            DirectoryInfo picturePath = new DirectoryInfo(Path.Combine(contentRootPath, "Pics"));
+            foreach (FileInfo file in picturePath.GetFiles())
+            {
+                file.Delete();
+            }
+
+            string zipFileCatalogItemPictures = Path.Combine(contentRootPath, "Setup", "CatalogItems.zip");
+            ZipFile.ExtractToDirectory(zipFileCatalogItemPictures, picturePath.ToString());
         }
     }
 }

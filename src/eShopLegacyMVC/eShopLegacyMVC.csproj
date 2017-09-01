@@ -68,6 +68,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -255,6 +259,7 @@
     <Content Include="Setup\CatalogBrands.csv" />
     <Content Include="Setup\CatalogItems.csv" />
     <Content Include="Setup\CatalogTypes.csv" />
+    <Content Include="Setup\CatalogItems.zip" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
