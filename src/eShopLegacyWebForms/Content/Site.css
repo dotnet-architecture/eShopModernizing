@@ -67,6 +67,11 @@
     color: #FFFFFF;
 }
 
+/*Price*/
+.esh-price:before {
+    content: '$';
+}
+
 /* Table */
 .esh-table {
     max-width: 1440px;

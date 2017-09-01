@@ -10,7 +10,7 @@
 namespace eShopLegacyWebForms.Catalog {
     
     
-    public partial class Create {
+    public partial class Edit {
         
         /// <summary>
         /// Name control.
@@ -31,22 +31,22 @@ namespace eShopLegacyWebForms.Catalog {
         protected global::System.Web.UI.WebControls.TextBox Description;
         
         /// <summary>
-        /// Brand control.
+        /// BrandDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Brand;
+        protected global::System.Web.UI.WebControls.DropDownList BrandDropDownList;
         
         /// <summary>
-        /// Type control.
+        /// TypeDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Type;
+        protected global::System.Web.UI.WebControls.DropDownList TypeDropDownList;
         
         /// <summary>
         /// Price control.
@@ -56,6 +56,15 @@ namespace eShopLegacyWebForms.Catalog {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Price;
+        
+        /// <summary>
+        /// PictureFileName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PictureFileName;
         
         /// <summary>
         /// Stock control.

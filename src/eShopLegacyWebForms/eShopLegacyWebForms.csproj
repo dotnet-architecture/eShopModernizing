@@ -142,6 +142,9 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Catalog\Create.aspx" />
+    <Content Include="Catalog\Delete.aspx" />
+    <Content Include="Catalog\Details.aspx" />
+    <Content Include="Catalog\Edit.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap.css" />
@@ -244,6 +247,27 @@
     </Compile>
     <Compile Include="Catalog\Create.aspx.designer.cs">
       <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Catalog\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Catalog\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
