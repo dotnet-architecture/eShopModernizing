@@ -41,12 +41,12 @@ namespace eShopLegacyWebForms.Services
         }
         public IEnumerable<CatalogType> GetCatalogTypes()
         {
-            return db.CatalogTypes;
+            return db.CatalogTypes.ToList();
         }
 
         public IEnumerable<CatalogBrand> GetCatalogBrands()
         {
-            return db.CatalogBrands;
+            return db.CatalogBrands.ToList();
         }
 
         public void CreateCatalogItem(CatalogItem catalogItem)

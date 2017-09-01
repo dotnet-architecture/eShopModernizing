@@ -145,8 +145,11 @@
     margin-left: 1rem;
 }
 
+.esh-button-actions .esh-button + .esh-button {
+    margin-left: 1rem;
+}
+
 .esh-button {
-    background-color: #83D01B;
     border: 0;
     border-radius: 0;
     color: #FFFFFF;
@@ -160,7 +163,25 @@
     transition: all 0.35s;
 }
 
-.esh-button:hover {
+.esh-button-primary {
+    background-color: #83D01B;
+}
+
+.esh-button-primary:hover {
+    background-color: #4a760f;
+    color: white;
+}
+
+.esh-button-secondary {
+    background-color: #E52638;
+}
+
+.esh-button-secondary:hover {
+    background-color: #b20000;
+    color: white;
+}
+
+.esh-button-primary:hover {
     background-color: #4a760f;
     transition: all 0.35s;
 }
@@ -181,7 +202,7 @@
     color: #333333;
 }
 
-.esh-pager-item.is-disabled {
+.esh-pager-item--hidden {
     opacity: 0;
     pointer-events: none;
 }

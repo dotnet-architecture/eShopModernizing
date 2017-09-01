@@ -94,16 +94,13 @@
                 </div>
 
                 <div class="form-group">
-                    <div class="col-md-offset-4 col-md-8">
-                        <asp:Button CssClass="btn esh-button" runat="server" Text="[ Save ]"
-                            OnClick="Save_Click" />
+                    <div class="col-md-12 text-right esh-button-actions">
+                        <a runat="server" href="~" class="btn esh-button esh-button-secondary">[ Cancel ]
+                        </a>
+                        <asp:Button CssClass="btn esh-button esh-button-primary" runat="server" Text="[ Save ]" OnClick="Save_Click" />
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <a runat="server" href="~" class="esh-link-item esh-link-item--margin">Back to list
-            </a>
         </div>
     </div>
 

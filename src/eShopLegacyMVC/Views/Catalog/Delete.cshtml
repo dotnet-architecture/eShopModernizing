@@ -85,20 +85,17 @@
             <dt>
             </dt>
 
-            <dd>
+            <dd class="text-right esh-button-actions">
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
-                    <input type="submit" value="[ Delete ]" class="btn esh-button" />
+                    @Html.ActionLink("[ Cancel ]", "Index", null, new { @class = "btn esh-button esh-button-secondary" })
+                    <button type="submit" class="btn esh-button esh-button-primary">[ Delete ]</button>
                 }
             </dd>
 
         </dl>
 
-    </div>
-
-    <div class="form-actions no-color esh-link-list">
-        @Html.ActionLink("Back to List", "Index", null, new { @class = "esh-link-item" })
     </div>
 
 </div>

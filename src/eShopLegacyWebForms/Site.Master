@@ -48,7 +48,7 @@
         </header>
 
         <section class="esh-app-hero">
-            <div class="container">
+            <div class="container esh-header">
                 <h1 class="esh-header-title">Catalog manager <span>(Web Forms)</span></h1>
             </div>
         </section>

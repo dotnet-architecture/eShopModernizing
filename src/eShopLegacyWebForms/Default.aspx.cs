@@ -14,7 +14,7 @@ namespace eShopLegacyWebForms
 {
     public partial class _Default : Page
     {
-        public const int  DefaultPageIndex = 0;
+        public const int DefaultPageIndex = 0;
         public const int DefaultPageSize = 10;
 
         public ICatalogService CatalogService { get; set; }
@@ -48,9 +48,12 @@ namespace eShopLegacyWebForms
         private void ConfigurePagination()
         {
             PaginationNext.NavigateUrl = GetRouteUrl("ProductsByPageRoute", new { index = Model.ActualPage + 1, size = Model.ItemsPerPage });
-            PaginationNext.Visible = Model.ActualPage < Model.TotalPages - 1;
+            var pagerNextExtraStyles = Model.ActualPage < Model.TotalPages - 1 ? "" : " esh-pager-item--hidden";
+            PaginationNext.CssClass = PaginationNext.CssClass + pagerNextExtraStyles;
+
             PaginationPrevious.NavigateUrl = GetRouteUrl("ProductsByPageRoute", new { index = Model.ActualPage - 1, size = Model.ItemsPerPage });
-            PaginationPrevious.Visible = Model.ActualPage > 0;
+            var pagerPreviousExtraStyles = Model.ActualPage > 0 ? "" : " esh-pager-item--hidden";
+            PaginationPrevious.CssClass = PaginationPrevious.CssClass + pagerPreviousExtraStyles;
         }
     }
 }

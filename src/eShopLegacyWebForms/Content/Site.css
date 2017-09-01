@@ -106,10 +106,10 @@
     transition: color 0.35s;
 }
 
-    .esh-table-link:hover {
-        color: #75b918;
-        transition: color 0.35s;
-    }
+.esh-table-link:hover {
+    color: #75b918;
+    transition: color 0.35s;
+}
 
 .esh-thumbnail {
     max-width: 120px;
@@ -150,8 +150,11 @@
     margin-left: 1rem;
 }
 
+.esh-button-actions .esh-button + .esh-button {
+    margin-left: 1rem;
+}
+
 .esh-button {
-    background-color: #83D01B;
     border: 0;
     border-radius: 0;
     color: #FFFFFF;
@@ -165,10 +168,28 @@
     transition: all 0.35s;
 }
 
-    .esh-button:hover {
-        background-color: #4a760f;
-        transition: all 0.35s;
-    }
+.esh-button-primary {
+    background-color: #83D01B;
+}
+
+.esh-button-primary:hover {
+    background-color: #4A760f;
+    color: white;
+}
+
+.esh-button-secondary {
+    background-color: #E52638;
+}
+
+.esh-button-secondary:hover {
+    background-color: #b20000;
+    color: white;
+}
+
+.esh-button-primary:hover {
+    background-color: #4a760f;
+    transition: all 0.35s;
+}
 
 .esh-form-information {
     padding-top: 7px;
@@ -186,19 +207,19 @@
     color: #333333;
 }
 
-    .esh-pager-item.is-disabled {
-        opacity: 0;
-        pointer-events: none;
-    }
+.esh-pager-item--hidden {
+    opacity: 0;
+    pointer-events: none;
+}
 
 .esh-pager-item--navigable {
     cursor: pointer;
     display: inline-block;
 }
 
-    .esh-pager-item--navigable:hover {
-        color: #83D01B;
-    }
+.esh-pager-item--navigable:hover {
+    color: #83D01B;
+}
 
 @media screen and (max-width: 1280px) {
     .esh-pager-item {
@@ -215,3 +236,10 @@
         height: 20vw;
     }
 }
+
+@media screen and (min-width: 1800px) {
+    .esh-header-title {
+        font-size:4rem;
+    }
+}
+

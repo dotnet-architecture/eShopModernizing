@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Delete.aspx.cs" Inherits="eShopLegacyWebForms.Catalog.Delete" %>
+﻿<%@ Page Title="Delete" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Delete.aspx.cs" Inherits="eShopLegacyWebForms.Catalog.Delete" %>
 
 <asp:Content ID="Delete" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -73,17 +73,19 @@
 
                 <dt></dt>
 
-                <dd>
-                    <asp:Button CssClass="btn esh-button" runat="server" Text="[ Delete ]" OnClick="Delete_Click" />
+                <dd class="text-right esh-button-actions">
+                    <a runat="server" href="~" class="btn esh-button esh-button-secondary">[ Cancel ]
+                    </a>
+                    <asp:Button CssClass="btn esh-button esh-button-primary" runat="server" Text="[ Delete ]" OnClick="Delete_Click" />
                 </dd>
 
             </dl>
         </div>
 
-        <div class="form-actions no-color esh-link-list">
+        <%--<div class="form-actions no-color esh-link-list">
             <a runat="server" href="~" class="esh-link-item">Back to list
             </a>
-        </div>
+        </div>--%>
 
     </div>
 </asp:Content>

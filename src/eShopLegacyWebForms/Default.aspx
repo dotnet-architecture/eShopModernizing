@@ -4,7 +4,7 @@
 
     <div class="esh-table">
         <p class="esh-link-wrapper">
-            <a runat="server" href="<%$RouteUrl:RouteName=CreateProductRoute%>" class="btn esh-button">
+            <a runat="server" href="<%$RouteUrl:RouteName=CreateProductRoute%>" class="btn esh-button esh-button-primary">
                 Create New
             </a>
         </p>
