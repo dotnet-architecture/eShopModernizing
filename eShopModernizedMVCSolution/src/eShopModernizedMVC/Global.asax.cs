@@ -37,9 +37,7 @@ namespace eShopModernizedMVC
             var builder = new ContainerBuilder();
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-
-            var mockData = bool.Parse(ConfigurationManager.AppSettings["UseMockData"]);
-            builder.RegisterModule(new ApplicationModule(mockData));
+            builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData));
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
@@ -49,9 +47,7 @@ namespace eShopModernizedMVC
 
         private void ConfigDataBase()
         {
-            var mockData = bool.Parse(ConfigurationManager.AppSettings["UseMockData"]);
-
-            if (!mockData)
+            if (!CatalogConfiguration.UseMockData)
             {
                 Database.SetInitializer<CatalogDBContext>(container.Resolve<CatalogDBInitializer>());
             }

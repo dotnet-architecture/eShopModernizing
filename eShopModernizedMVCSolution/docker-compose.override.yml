@@ -2,8 +2,20 @@ version: '3'
 
 services:
   eshopmodernizedmvc:
+    environment:
+      - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
+      - UseMockData=False
+      - UseCustomizationData=False
     ports:
       - "80"
+
+  sql.data:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"
+
 networks:
   default:
     external:

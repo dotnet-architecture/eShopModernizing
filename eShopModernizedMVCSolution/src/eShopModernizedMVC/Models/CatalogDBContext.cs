@@ -1,4 +1,5 @@
 ﻿using eShopModernizedMVC.Models.Infrastructure;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
@@ -7,7 +8,7 @@ namespace eShopModernizedMVC.Models
 {
     public class CatalogDBContext : DbContext
     {
-        public CatalogDBContext() : base("name=CatalogDBContext")
+        public CatalogDBContext() : base(CatalogConfiguration.ConnectionString)
         {
         }
 

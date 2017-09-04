@@ -6,3 +6,8 @@ services:
     build:
       context: .\src\eShopModernizedMVC
       dockerfile: Dockerfile
+    depends_on:
+      - sql.data
+
+  sql.data:
+    image: microsoft/mssql-server-windows
