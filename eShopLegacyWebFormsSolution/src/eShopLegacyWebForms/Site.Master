@@ -56,7 +56,6 @@
         <div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
         </div>
 
         <footer class="esh-app-footer">
