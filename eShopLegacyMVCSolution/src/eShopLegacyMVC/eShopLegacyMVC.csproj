@@ -190,6 +190,7 @@
     <Content Include="Content\site.css" />
     <Content Include="Images\brand.png" />
     <Content Include="Images\brand_dark.png" />
+    <Content Include="Images\main_banner.png" />
     <Content Include="Images\main_footer_text.png" />
     <Content Include="Models\Infrastructure\dbo.catalog_brand_hilo.Sequence.sql">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -212,6 +213,7 @@
     <Content Include="Pics\7.png" />
     <Content Include="Pics\8.png" />
     <Content Include="Pics\9.png" />
+    <Content Include="Pics\dummy.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

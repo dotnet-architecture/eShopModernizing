@@ -39,5 +39,13 @@ namespace eShopModernizedMVC
                     bool.Parse(ConfigurationManager.AppSettings["UseCustomizationData"]);
             }
         }
+
+        public static string PicBaseUrl
+        {
+            get
+            {
+                return Environment.GetEnvironmentVariable("PicBaseUrl");
+            }
+        }
     }
 }

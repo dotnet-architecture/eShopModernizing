@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  eshopmodernizedmvc:
+    image: dsanzacr.azurecr.io/eshopmodernizedmvc
+    depends_on:
+      - sql.data
+
+  sql.data:
+    image: microsoft/mssql-server-windows

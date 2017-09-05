@@ -3,6 +3,7 @@ using System.Net;
 using System.Web.Mvc;
 using eShopModernizedMVC.Models;
 using eShopModernizedMVC.Services;
+using System.Web;
 
 namespace eShopModernizedMVC.Controllers
 {
@@ -147,7 +148,15 @@ namespace eShopModernizedMVC.Controllers
 
         private void AddUriPlaceHolder(CatalogItem item)
         {
-            item.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new { catalogItemId = item.Id }, this.Request.Url.Scheme);            
+            var baseUri = CatalogConfiguration.PicBaseUrl;
+            if (string.IsNullOrEmpty(baseUri))
+            {
+                item.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new { catalogItemId = item.Id }, this.Request.Url.Scheme);
+            }
+            else
+            {
+                item.PictureUri = baseUri.Replace("[0]", item.Id.ToString());
+            }
         }
     }
 }

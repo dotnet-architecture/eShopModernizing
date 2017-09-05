@@ -4,10 +4,11 @@ services:
   eshopmodernizedmvc:
     environment:
       - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
+      - PicBaseUrl=http://10.0.75.1:5114/items/[0]/pic/
       - UseMockData=False
       - UseCustomizationData=False
     ports:
-      - "80"
+      - "5114:80"
 
   sql.data:
     environment:
