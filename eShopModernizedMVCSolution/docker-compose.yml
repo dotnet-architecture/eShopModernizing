@@ -10,4 +10,4 @@ services:
       - sql.data
 
   sql.data:
-    image: microsoft/mssql-server-windows
+    image: microsoft/mssql-server-windows-developer
