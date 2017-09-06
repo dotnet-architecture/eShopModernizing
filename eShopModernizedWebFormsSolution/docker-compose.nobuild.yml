@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  eshopmodernizedwebforms:
+    image: eshopmodernizedwebforms
+
+  sql.data:
+    image: microsoft/mssql-server-windows-developer
