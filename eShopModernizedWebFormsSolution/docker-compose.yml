@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  eshopmodernizedwebforms:
-    image: eshopmodernizedwebforms
+  eshop.modernized.webforms:
+    image: eshop/modernizedwebforms
     build:
       context: .\src\eShopModernizedWebForms
       dockerfile: Dockerfile

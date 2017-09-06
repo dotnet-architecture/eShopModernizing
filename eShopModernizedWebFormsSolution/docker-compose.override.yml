@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  eshopmodernizedwebforms:
+  eshop.modernized.webforms:
     environment:
       - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
       - UseMockData=False
