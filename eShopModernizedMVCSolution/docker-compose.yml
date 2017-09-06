@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  eshopmodernizedmvc:
+    image: eshopmodernizedmvc
+    build:
+      context: .\src\eShopModernizedMVC
+      dockerfile: Dockerfile
+    depends_on:
+      - sql.data
+
+  sql.data:
+    image: microsoft/mssql-server-windows-developer
