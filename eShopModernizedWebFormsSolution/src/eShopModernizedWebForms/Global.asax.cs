@@ -41,17 +41,15 @@ namespace eShopModernizedWebForms
         private void ConfigureContainer()
         {
             var builder = new ContainerBuilder();
-            var mockData = bool.Parse(ConfigurationManager.AppSettings["UseMockData"]);
-            builder.RegisterModule(new ApplicationModule(mockData));
+
+            builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData));
             container = builder.Build();
             _containerProvider = new ContainerProvider(container);
         }
 
         private void ConfigDataBase()
         {
-            var mockData = bool.Parse(ConfigurationManager.AppSettings["UseMockData"]);
-
-            if (!mockData)
+            if (!CatalogConfiguration.UseMockData)
             {
                 Database.SetInitializer<CatalogDBContext>(container.Resolve<CatalogDBInitializer>());
             }

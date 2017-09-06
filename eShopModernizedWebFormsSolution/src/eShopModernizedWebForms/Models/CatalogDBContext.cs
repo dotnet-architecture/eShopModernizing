@@ -7,7 +7,7 @@ namespace eShopModernizedWebForms.Models
 {
     public class CatalogDBContext : DbContext
     {
-        public CatalogDBContext() : base("name=CatalogDBContext")
+        public CatalogDBContext() : base(CatalogConfiguration.ConnectionString)
         {
         }
 
