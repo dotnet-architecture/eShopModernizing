@@ -28,8 +28,11 @@ metadata:
     component: sql-data
   name: sql-data
 spec:
+  type: LoadBalancer
+  #loadBalancerIP: 52.187.173.125
   ports:
   - port: 1433
+    targetPort: 1433
   selector:
     app: eshop-modernized-mvc
     component: sql-data
@@ -57,7 +60,7 @@ spec:
         - containerPort: 80
         env:
         - name: UseMockData
-          value: "True"
+          value: "False"
         - name: UseCustomizationData
           value: "False"
         - name: ConnectionString
