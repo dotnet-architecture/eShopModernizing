@@ -57,7 +57,7 @@ spec:
         - containerPort: 80
         env:
         - name: UseMockData
-          value: "False"
+          value: "True"
         - name: UseCustomizationData
           value: "False"
         - name: ConnectionString
