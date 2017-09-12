@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopModernizedMVC", "src\e
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BC5D671B-DCEB-4F3D-B307-DB47ADA44577}"
 EndProject
-Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "eShopModernizedMVC_ServiceFabricApp", "..\eShopModernizedMVC-ServiceFabricApp\eShopModernizedMVC_ServiceFabricApp.sfproj", "{5AF25B71-4119-40FE-A0ED-86252E852AE2}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,14 +31,6 @@ Global
 		{BC5D671B-DCEB-4F3D-B307-DB47ADA44577}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC5D671B-DCEB-4F3D-B307-DB47ADA44577}.Release|x64.ActiveCfg = Release|Any CPU
 		{BC5D671B-DCEB-4F3D-B307-DB47ADA44577}.Release|x64.Build.0 = Release|Any CPU
-		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Debug|x64.ActiveCfg = Debug|x64
-		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Debug|x64.Build.0 = Debug|x64
-		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Debug|x64.Deploy.0 = Debug|x64
-		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Release|Any CPU.ActiveCfg = Release|x64
-		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Release|x64.ActiveCfg = Release|x64
-		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Release|x64.Build.0 = Release|x64
-		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Release|x64.Deploy.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
