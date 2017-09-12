@@ -1,0 +1,77 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sql-data
+spec:
+  template:
+    metadata:
+      labels:
+        app: eshop-modernized-mvc
+        component: sql-data
+    spec:
+      containers:
+      - name: sql-data
+        image: microsoft/mssql-server-windows-developer
+        env:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: SA_PASSWORD
+          value: Pass@word
+      nodeSelector:
+       beta.kubernetes.io/os: windows
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: eshop-modernized-mvc
+    component: sql-data
+  name: sql-data
+spec:
+  ports:
+  - port: 1433
+  selector:
+    app: eshop-modernized-mvc
+    component: sql-data
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: eshop-modernized-mvc
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: eshop-modernized-mvc
+    spec:
+      containers:
+      - name: eshop-modernized-mvc
+        image: eshop/modernizedmvc
+        ports:
+        - containerPort: 80
+        env:
+        - name: UseMockData
+          value: "False"
+        - name: UseCustomizationData
+          value: "False"
+        - name: ConnectionString
+          value: "Server=sql.data;Initial Catalog=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word;"
+      nodeSelector:
+       beta.kubernetes.io/os: windows
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eshop-modernized-mvc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: eshop-modernized-mvc
