@@ -2,7 +2,7 @@
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" InitialTargets=";ValidateMSBuildFiles">
   <Import Project="..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.1\build\Microsoft.VisualStudio.Azure.Fabric.Application.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Fabric.MSBuild.1.6.1\build\Microsoft.VisualStudio.Azure.Fabric.Application.props')" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>5af25b71-4119-40fe-a0ed-86252e852ae2</ProjectGuid>
+    <ProjectGuid>c15082a7-2fba-4b53-925d-44e844aff542</ProjectGuid>
     <ProjectVersion>1.7</ProjectVersion>
     <MinToolsVersion>1.5</MinToolsVersion>
     <SupportedMSBuildNuGetPackageVersion>1.6</SupportedMSBuildNuGetPackageVersion>
@@ -29,8 +29,8 @@
     <None Include="Scripts\Deploy-FabricApplication.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApplicationPackageRoot\MVC_ContainerPkg\Config\Settings.xml" />
-    <Content Include="ApplicationPackageRoot\MVC_ContainerPkg\ServiceManifest.xml" />
+    <Content Include="ApplicationPackageRoot\SQL_ContainerPkg\Config\Settings.xml" />
+    <Content Include="ApplicationPackageRoot\SQL_ContainerPkg\ServiceManifest.xml" />
     <Content Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />

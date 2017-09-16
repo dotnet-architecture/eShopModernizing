@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="SqlData_ContainerPkg"
+<ServiceManifest Name="SQL_ContainerPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -7,7 +7,7 @@
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
-    <StatelessServiceType ServiceTypeName="SqlData_ContainerType" UseImplicitHost="true" />
+    <StatelessServiceType ServiceTypeName="SQL_ContainerType" UseImplicitHost="true" />
   </ServiceTypes>
 
   <!-- Code package is your service executable. -->
@@ -36,7 +36,7 @@
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="SqlData_ContainerTypeEndpoint" Port="5433" Protocol="tcp"/>
+      <Endpoint Name="SqlData_ContainerTypeEndpoint" Port="1433" Protocol="tcp"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
