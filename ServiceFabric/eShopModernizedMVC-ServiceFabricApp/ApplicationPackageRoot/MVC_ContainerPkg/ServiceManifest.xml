@@ -21,9 +21,9 @@
     <!-- Pass environment variables to your container: -->
     <EnvironmentVariables>
       <!-- <EnvironmentVariable Name="VariableName" Value="VariableValue"/> -->
-      <EnvironmentVariable Name="ConnectionString" Value="Data Source=eshopmodernized.sqldata,5433;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"/>
-      <EnvironmentVariable Name="PicBaseUrl" Value="http://pro-eshop-sfwin-cluster.westus.cloudapp.azure.com:5114/items/[0]/pic/"/>
-      <EnvironmentVariable Name="UseMockData" Value="True"/>
+      <EnvironmentVariable Name="ConnectionString" Value="Data Source=eshopmodernized.sqldata,1433;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"/>
+      <EnvironmentVariable Name="PicBaseUrl" Value="http://dev-eshop-sfwin-cluster.westus.cloudapp.azure.com:5114/items/[0]/pic/"/>
+      <EnvironmentVariable Name="UseMockData" Value="False"/>
       <EnvironmentVariable Name="UseCustomizationData" Value="False"/>
     </EnvironmentVariables>
   </CodePackage>

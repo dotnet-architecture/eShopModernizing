@@ -20,6 +20,9 @@
                                     AzureActiveDirectory="true"
                                     ServerCertThumbprint="0123456789012345678901234567890123456789" />
   -->
-  <ClusterConnectionParameters ConnectionEndpoint="qa-eshop-sfwin-cluster.westus.cloudapp.azure.com:19000" />
+  <ClusterConnectionParameters ConnectionEndpoint="dev-eshop-sfwin-cluster.westus.cloudapp.azure.com:19000" />
   <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+  <UpgradeDeployment Mode="Monitored" Enabled="false">
+    <Parameters FailureAction="Rollback" Force="True" />
+  </UpgradeDeployment>
 </PublishProfile>
