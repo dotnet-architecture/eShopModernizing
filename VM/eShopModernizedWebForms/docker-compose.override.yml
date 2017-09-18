@@ -4,18 +4,18 @@ services:
   eshop.modernized.webforms:
     environment:
       - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
-      - PicBaseUrl=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP:-10.0.75.1}:5114/items/[0]/pic/
+      - PicBaseUrl=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP:-10.0.75.1}:5115/items/[0]/pic/
       - UseMockData=False
       - UseCustomizationData=False
     ports:
-      - "5114:80"
+      - "5115:80"
 
   sql.data:
     environment:
       - SA_PASSWORD=Pass@word
       - ACCEPT_EULA=Y
     ports:
-      - "5433:1433"
+      - "5434:1433"
 
 networks:
   default:
