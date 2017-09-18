@@ -1,14 +1,10 @@
-version: '2.1'
+version: '3'
 
 services:
-  eshopmodernizedwebforms:
-    image: eshop/eshopmodernizedwebforms
+  eshop.modernized.webforms:
+    image: eshop/modernizedwebforms
+    depends_on:
+      - sql.data
 
   sql.data:
     image: microsoft/mssql-server-windows-developer
-
-networks:
-  default:
-    external:
-      name: nat
-   
