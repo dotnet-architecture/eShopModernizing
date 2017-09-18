@@ -16,10 +16,6 @@ services:
       - ACCEPT_EULA=Y
     ports:
       - "5433:1433"
-    healthcheck:
-      test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "Pass@word", "-Q", "select 1" ]
-      interval: 1s
-      retries: 20
 
 networks:
   default:
