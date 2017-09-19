@@ -7,7 +7,7 @@
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
-    <StatelessServiceType ServiceTypeName="EShopModernizedWebformsType" UseImplicitHost="true" />
+    <StatelessServiceType ServiceTypeName="WebForms_ContainerType" UseImplicitHost="true" />
   </ServiceTypes>
 
   <!-- Code package is your service executable. -->
@@ -20,7 +20,8 @@
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
     <EnvironmentVariables>
-      <EnvironmentVariable Name="ConnectionString" Value="Data Source=sqlserver.eshopmodernized,5434;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"/>
+      <EnvironmentVariable Name="ConnectionString" Value="Data Source=eshopmodernized.sqldata,1433;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"/>
+	  <EnvironmentVariable Name="PicBaseUrl" Value="http://qa-eshop-sfwin-cluster.westus.cloudapp.azure.com:5114/items/[0]/pic/"/>
       <EnvironmentVariable Name="UseMockData" Value="False" />
       <EnvironmentVariable Name="UseCustomizationData" Value="False" />
     </EnvironmentVariables>
@@ -35,7 +36,7 @@
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="EShopModernizedWebformsTypeEndpoint" Port="5115" UriScheme="http"/>
+      <Endpoint Name="WebForms_ContainerTypeEndpoint" Port="5115" UriScheme="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
