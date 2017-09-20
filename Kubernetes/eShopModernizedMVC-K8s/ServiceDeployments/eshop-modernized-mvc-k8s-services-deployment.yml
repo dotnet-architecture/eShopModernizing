@@ -6,7 +6,7 @@ spec:
   template:
     metadata:
       labels:
-        app: eshop-modernized-mvc
+        app: sql-data
         component: sql-data
     spec:
       containers:
@@ -24,7 +24,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: eshop-modernized-mvc
+    app: sql-data
     component: sql-data
   name: sql-data
 spec:
@@ -34,7 +34,7 @@ spec:
   - port: 1433
     targetPort: 1433
   selector:
-    app: eshop-modernized-mvc
+    app: sql-data
     component: sql-data
 ---
 apiVersion: apps/v1beta1
