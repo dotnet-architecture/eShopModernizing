@@ -55,7 +55,7 @@ spec:
     spec:
       containers:
       - name: eshop-modernized-mvc
-        image: eshop/modernizedmvc:latest
+        image: eshop/modernizedmvc
         ports:
         - containerPort: 80
         imagePullPolicy: Always
