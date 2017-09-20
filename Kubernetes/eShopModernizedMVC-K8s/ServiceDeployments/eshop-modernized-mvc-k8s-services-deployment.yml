@@ -58,6 +58,7 @@ spec:
         image: eshop/modernizedmvc
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
         env:
         - name: UseMockData
           value: "False"
