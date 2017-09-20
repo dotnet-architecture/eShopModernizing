@@ -16,9 +16,10 @@ spec:
     spec:
       containers:
       - name: eshop-modernized-webforms
-        image: eshop/modernizedwebforms:latest
+        image: eshop/modernizedwebforms
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
         env:
         - name: UseMockData
           value: "False"
