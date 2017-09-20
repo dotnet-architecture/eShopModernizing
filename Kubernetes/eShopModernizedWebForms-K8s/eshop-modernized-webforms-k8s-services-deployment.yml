@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: eshop-modernized-webforms
-        image: eshop/modernizedwebforms
+        image: eshop/modernizedwebforms:latest
         ports:
         - containerPort: 80
         env:
