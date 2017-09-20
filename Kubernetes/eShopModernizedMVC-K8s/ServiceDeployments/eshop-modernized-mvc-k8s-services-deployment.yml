@@ -34,7 +34,7 @@ spec:
   - port: 1433
     targetPort: 1433
   selector:
-    app: eshop-modernized-mvc
+    app: sql-data
     component: sql-data
 ---
 apiVersion: apps/v1beta1
