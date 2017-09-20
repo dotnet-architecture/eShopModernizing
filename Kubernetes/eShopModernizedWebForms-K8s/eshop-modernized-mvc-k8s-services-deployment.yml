@@ -1,0 +1,43 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: eshop-modernized-webforms
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5 
+  template:
+    metadata:
+      labels:
+        app: eshop-modernized-webforms
+    spec:
+      containers:
+      - name: eshop-modernized-webforms
+        image: eshop/modernizedwebforms
+        ports:
+        - containerPort: 80
+        env:
+        - name: UseMockData
+          value: "False"
+        - name: UseCustomizationData
+          value: "False"
+        - name: ConnectionString
+          value: "Server=sql-data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"
+      nodeSelector:
+       beta.kubernetes.io/os: windows
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eshop-modernized-webforms
+  labels:
+    app: eshop-modernized-webforms
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: eshop-modernized-webforms
