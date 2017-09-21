@@ -151,7 +151,8 @@ namespace eShopModernizedMVC.Controllers
             var baseUri = CatalogConfiguration.PicBaseUrl;
             if (string.IsNullOrEmpty(baseUri))
             {
-                item.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new { catalogItemId = item.Id }, this.Request.Url.Scheme);
+                item.PictureUri = "/Pics/" + item.PictureFileName;
+                //item.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new { catalogItemId = item.Id }, this.Request.Url.Scheme);
             }
             else
             {
