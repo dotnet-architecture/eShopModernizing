@@ -39,6 +39,6 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 81
+  - port: 80
   selector:
     app: eshop-modernized-webforms
