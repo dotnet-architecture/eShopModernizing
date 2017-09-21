@@ -39,6 +39,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
+  - port: 5115
+    targetPort: 80
   selector:
     app: eshop-modernized-mvc
