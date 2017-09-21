@@ -43,9 +43,3 @@ spec:
     targetPort: 80
   selector:
     app: eshop-modernized-webforms
-
-
-spec:
-  ports:
-  - port: 80
-    targetPort: 8080
