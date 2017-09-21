@@ -8,7 +8,7 @@ spec:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
-  minReadySeconds: 5 
+  minReadySeconds: 5
   template:
     metadata:
       labels:
@@ -40,6 +40,6 @@ spec:
   type: LoadBalancer
   ports:
   - port: 5115
-    targetPort: 80
+    targetPort: 80
   selector:
     app: eshop-modernized-mvc
