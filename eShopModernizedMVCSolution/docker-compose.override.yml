@@ -4,7 +4,7 @@ services:
   eshop.modernized.mvc:
     environment:
       - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
-      # - PicBaseUrl=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP:-10.0.75.1}:5115/items/[0]/pic/
+      - PicBaseUrl=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP:-10.0.75.1}:5115/items/[0]/pic/
       - UseMockData=False
       - UseCustomizationData=False
     ports:
