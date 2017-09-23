@@ -31,7 +31,7 @@ The WebFoms and MVC apps are pretty similiar in regards UI and business features
 Wiki: https://github.com/dotnet-architecture/eShopModernizing/wiki
 
 01. Tour on eShopModernizing apps implementation code
-02. How to containerized the .NET Framework web apps with Windows Containers and Docker
+02. How to containerize the .NET Framework web apps with Windows Containers and Docker
 03. How to deploy your Windows Containers based app into Azure VMs (Including CI CD)
 04. How to deploy your Windows Containers based apps into Kubernetes in Azure Container Service (Including C CD)
 05. How to deploy your Windows Containers based apps into Azure Service Fabric (Including CI CD)
