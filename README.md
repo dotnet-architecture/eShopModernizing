@@ -2,9 +2,15 @@
 This repo provides two sample hypothetical legacy eShop web apps (traditional ASP.NET WebForms and MVC  in .NET Framework) and how you can modernize them (Lift and Shift scenario) with Windows Containers and Azure Cloud into the following deployment options:
 - Regular Windows Server 2016 VM (Virtual MAchine)
 - ACS-Kubernetes orchestrator cluster
-- Service Fabric orchestrators cluster 
-e
-All that modernization significantly improving the deployments for DevOps, without having to change the app's architecture or C# code.
+- Service Fabric orchestrators cluster   
+
+## Related Guide/eBook
+You can download its related guidance with this free guide/eBook:
+
+HTTP://TBD_URL
+![image](https://user-images.githubusercontent.com/1712635/30777199-499fbacc-a06a-11e7-88ac-8928a6f269ec.png)
+
+The modernization with Windows Containers significantly improves the deployments for DevOps, without having to change the app's architecture or C# code.
 
 The sample apps are simple web apps for the internal backoffice of an eShop so employees can update the Product Catalog. 
 Both apps are therefore simple CRUD web application to update data into a SQL Server database. 
