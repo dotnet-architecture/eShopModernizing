@@ -3,7 +3,7 @@ This repo provides two sample hypothetical legacy eShop web apps (traditional AS
 - Regular Windows Server 2016 VM (Virtual MAchine)
 - ACS-Kubernetes orchestrator cluster
 - Service Fabric orchestrators cluster 
-
+e
 All that modernization significantly improving the deployments for DevOps, without having to change the app's architecture or C# code.
 
 The sample apps are simple web apps for the internal backoffice of an eShop so employees can update the Product Catalog. 
@@ -13,7 +13,7 @@ See a screenshots of both apps below.
 
 ### INITIAL VERSIONS
 
-![image](https://user-images.githubusercontent.com/1712635/30354184-db7f1098-97df-11e7-8e7b-c18c67b8ba2a.png)
+r![image](https://user-images.githubusercontent.com/1712635/30354184-db7f1098-97df-11e7-8e7b-c18c67b8ba2a.png)
 
 ### CONTAINERIZED VERSION IN DEVELOPMENT ENVIRONMENT
 
@@ -48,16 +48,11 @@ Wiki: https://github.com/dotnet-architecture/eShopModernizing/wiki
 10. How to migrate the SQL database to Azure with the Azure Database Migration Service
 11. Deploying to Azure App Service, with NO Windows Containers (Including CI CD)
 
-### Choose in memory mock-data or real database connection to a SQL Server container
-The program allows either to connect to the database to get the catalog or to use mock data if one database is not available. The option to select one or the another is in the `Web.config` file:
->```
-><add key="UseMockData" value="true" />
->``` 
+### Choose in-memory mock-data or real database connection to a SQL Server database
+The apps allow either to connect to the real database to get/update the product catalog or to use mock-data if, due to any reason, the database is still not available and you need to test/demo the app. 
 
-In case the database is selected ( UseMockData equals to false) then the connection string can be set in the section:
->```
-><add name="CatalogDBContext" connectionString="Your connection string here" providerName="System.Data.SqlClient" />
->``` 
+For each application, the option to select one or the other mode can be configured in the docker-compose.override.yml file when using Windows Containers or at the `Web.config` file when you still are NOT using Containers (original versions).
+
 
 ## Additional apps to modernize: WCF services and WinForms desktop apps 
 16
