@@ -2,7 +2,7 @@
 This repo provides two sample hypothetical legacy eShop web apps (traditional ASP.NET WebForms and MVC  in .NET Framework) and how you can modernize them (Lift and Shift scenario) with Windows Containers and Azure Cloud into the following deployment options:
 - Regular Windows Server 2016 VM (Virtual Machine)
 - ACS-Kubernetes orchestrator cluster
-- Service Fabric orchestrators cluster   
+- Service Fabric orchestrators cluster
 
 All those mentioned environments can be deployed into Azure cloud (as explained in the Wiki) but you can also deploy all those environments into on-premises servers or even in other public clouds.
 
@@ -18,11 +18,9 @@ The modernization with Windows Containers significantly improves the deployments
 The sample apps are simple web apps for the internal backoffice of an eShop so employees can update the Product Catalog. 
 Both apps are therefore simple CRUD web application to update data into a SQL Server database. 
 
-See a screenshots of both apps below.
+See a screenshots of both apps below.### INITIAL VERSIONS
 
-### INITIAL VERSIONS
-
-r![image](https://user-images.githubusercontent.com/1712635/30354184-db7f1098-97df-11e7-8e7b-c18c67b8ba2a.png)
+![image](https://user-images.githubusercontent.com/1712635/30354184-db7f1098-97df-11e7-8e7b-c18c67b8ba2a.png)
 
 ### CONTAINERIZED VERSION IN DEVELOPMENT ENVIRONMENT
 
@@ -64,7 +62,6 @@ For each application, the option to select one or the other mode can be configur
 
 
 ## Additional apps to modernize: WCF services and WinForms desktop apps 
-16
 We're also creating an additonal modernization example based on a "legacy apps" which has a client WinForms desktop application and a SOAP service built with WCF (Windows Communication Foundation). You can explore it at the following GitHub repo:
 
 https://github.com/dotnet-architecture/eShopModernizingWCFWinForms 
