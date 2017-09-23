@@ -6,11 +6,20 @@ This repo provides two sample hypothetical legacy eShop web apps (traditional AS
 
 All that modernization significantly improving the deployments for DevOps, without having to change the app's architecture or C# code.
 
-The sample apps are simple web apps for the internal backoffice of an eShop so employees can update the Product Catalog. It is therefore a simple CRUD web application updating data into a SQL Server database. See a screenshot of the MVC app below.
+The sample apps are simple web apps for the internal backoffice of an eShop so employees can update the Product Catalog. 
+Both apps are therefore simple CRUD web application to update data into a SQL Server database. 
 
-![image](https://user-images.githubusercontent.com/1712635/30346103-8433e4ee-97bc-11e7-83f2-3345b383c9cf.png)
+See a screenshots of both apps below.
+
+INITIAL VERSIONS
+![image](https://user-images.githubusercontent.com/1712635/30354184-db7f1098-97df-11e7-8e7b-c18c67b8ba2a.png)
+
+CONTAINERIZED VERSION
+![image](https://user-images.githubusercontent.com/1712635/30395628-9c4bff98-987b-11e7-82ca-89a1648f3bdc.png)
 
 The WebFoms and MVC apps are pretty similiar in regards UI and business features. We just created both versions so you can compare, depending on what technology you are using for your existing apps (ASP.NET MVC or Web Forms).
+
+![image](https://user-images.githubusercontent.com/1712635/30354210-0638f3b2-97e0-11e7-82c5-df18197ccdbd.png)
 
 
 ## Review the Wiki for detailed instructions on how to set it up and deploy to multiple environments
