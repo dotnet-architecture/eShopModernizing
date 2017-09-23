@@ -6,6 +6,13 @@ This repo provides two sample hypothetical legacy eShop web apps (traditional AS
 
 All that modernization significantly improving the deployments for DevOps, without having to change the app's architecture or C# code.
 
+The sample apps are simple web apps for the internal backoffice of an eShop so employees can update the Product Catalog. It is therefore a simple CRUD web application updating data into a SQL Server database. See a screenshot of the MVC app below.
+
+![image](https://user-images.githubusercontent.com/1712635/30346103-8433e4ee-97bc-11e7-83f2-3345b383c9cf.png)
+
+The WebFoms and MVC apps are pretty similiar in regards UI and business features. We just created both versions so you can compare, depending on what technology you are using for your existing apps (ASP.NET MVC or Web Forms).
+
+
 ## Review the Wiki for detailed instructions on how to set it up and deploy to multiple environments
 
 Wiki: https://github.com/dotnet-architecture/eShopModernizing/wiki
@@ -29,3 +36,9 @@ In case the database is selected ( UseMockData equals to false) then the connect
 >```
 ><add name="CatalogDBContext" connectionString="Your connection string here" providerName="System.Data.SqlClient" />
 >``` 
+
+## Additional apps to modernize: WCF services and WinForms desktop apps 
+16
+We're also creating an additonal modernization example based on a "legacy apps" which has a client WinForms desktop application and a SOAP service built with WCF (Windows Communication Foundation). You can explore it at:
+17
+https://github.com/dotnet-architecture/eShopModernizingWCFWinForms 
