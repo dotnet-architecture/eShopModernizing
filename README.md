@@ -8,6 +8,7 @@ This repo provides two sample hypothetical legacy eShop web apps (traditional AS
 You can download its related guidance with this free guide/eBook:
 
 HTTP://TBD_URL
+
 ![image](https://user-images.githubusercontent.com/1712635/30777199-499fbacc-a06a-11e7-88ac-8928a6f269ec.png)
 
 The modernization with Windows Containers significantly improves the deployments for DevOps, without having to change the app's architecture or C# code.
