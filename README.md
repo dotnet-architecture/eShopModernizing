@@ -56,6 +56,6 @@ For each application, the option to select one or the other mode can be configur
 
 ## Additional apps to modernize: WCF services and WinForms desktop apps 
 16
-We're also creating an additonal modernization example based on a "legacy apps" which has a client WinForms desktop application and a SOAP service built with WCF (Windows Communication Foundation). You can explore it at:
-17
+We're also creating an additonal modernization example based on a "legacy apps" which has a client WinForms desktop application and a SOAP service built with WCF (Windows Communication Foundation). You can explore it at the following GitHub repo:
+
 https://github.com/dotnet-architecture/eShopModernizingWCFWinForms 
