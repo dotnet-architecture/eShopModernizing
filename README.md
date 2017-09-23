@@ -11,11 +11,15 @@ Both apps are therefore simple CRUD web application to update data into a SQL Se
 
 See a screenshots of both apps below.
 
-INITIAL VERSIONS
+### INITIAL VERSIONS
+
 ![image](https://user-images.githubusercontent.com/1712635/30354184-db7f1098-97df-11e7-8e7b-c18c67b8ba2a.png)
 
-CONTAINERIZED VERSION
+### CONTAINERIZED VERSION
+
 ![image](https://user-images.githubusercontent.com/1712635/30395628-9c4bff98-987b-11e7-82ca-89a1648f3bdc.png)
+
+### UI and business features
 
 The WebFoms and MVC apps are pretty similiar in regards UI and business features. We just created both versions so you can compare, depending on what technology you are using for your existing apps (ASP.NET MVC or Web Forms).
 
