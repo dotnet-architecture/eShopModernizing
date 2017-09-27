@@ -72,10 +72,11 @@ namespace eShopModernizedMVC.Models
             builder.Property(ci => ci.Price)
                 .IsRequired();
 
-            builder.Property(ci => ci.PictureFileName)
-                .IsRequired();
+            builder.Property(ci => ci.PictureFileName);
+               
 
             builder.Ignore(ci => ci.PictureUri);
+            builder.Ignore(ci => ci.TempImageName);
 
             builder.HasRequired<CatalogBrand>(ci => ci.CatalogBrand)
                 .WithMany()

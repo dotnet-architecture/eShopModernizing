@@ -3,23 +3,25 @@ using System.Net;
 using System.Web.Mvc;
 using eShopModernizedMVC.Models;
 using eShopModernizedMVC.Services;
-using System.Web;
+using System.IO;
 
 namespace eShopModernizedMVC.Controllers
 {
     public class CatalogController : Controller
     {
-        private ICatalogService service;
+        private ICatalogService _service;
+        private IImageService _imageService;
 
-        public CatalogController(ICatalogService service)
+        public CatalogController(ICatalogService service, IImageService imageService)
         {
-            this.service = service;
+            _service = service;
+            _imageService = imageService;
         }
 
         // GET /[?pageSize=3&pageIndex=10]
         public ActionResult Index(int pageSize = 10, int pageIndex = 0)
         {
-            var paginatedItems = service.GetCatalogItemsPaginated(pageSize, pageIndex);
+            var paginatedItems = _service.GetCatalogItemsPaginated(pageSize, pageIndex);
             ChangeUriPlaceholder(paginatedItems.Data);
             return View(paginatedItems);
         }
@@ -31,7 +33,7 @@ namespace eShopModernizedMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CatalogItem catalogItem = service.FindCatalogItem(id.Value);
+            CatalogItem catalogItem = _service.FindCatalogItem(id.Value);
             if (catalogItem == null)
             {
                 return HttpNotFound();
@@ -44,9 +46,13 @@ namespace eShopModernizedMVC.Controllers
         // GET: Catalog/Create
         public ActionResult Create()
         {
-            ViewBag.CatalogBrandId = new SelectList(service.GetCatalogBrands(), "Id", "Brand");
-            ViewBag.CatalogTypeId = new SelectList(service.GetCatalogTypes(), "Id", "Type");
-            return View(new CatalogItem());
+
+            ViewBag.CatalogBrandId = new SelectList(_service.GetCatalogBrands(), "Id", "Brand");
+            ViewBag.CatalogTypeId = new SelectList(_service.GetCatalogTypes(), "Id", "Type");
+            return View(new CatalogItem()
+            {
+                PictureUri = _imageService.UrlDefaultImage()
+            });
         }
 
         // POST: Catalog/Create
@@ -54,16 +60,26 @@ namespace eShopModernizedMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,PictureFileName,CatalogTypeId,CatalogBrandId,AvailableStock,RestockThreshold,MaxStockThreshold,OnReorder")] CatalogItem catalogItem)
+        public ActionResult Create([Bind(Include = "Id,Name,Description,Price,PictureFileName,CatalogTypeId,CatalogBrandId,AvailableStock,RestockThreshold,MaxStockThreshold,OnReorder,TempImageName")] CatalogItem catalogItem)
         {
             if (ModelState.IsValid)
             {
-                service.CreateCatalogItem(catalogItem);
+                if (!string.IsNullOrEmpty(catalogItem.TempImageName))
+                {
+                    var fileName = Path.GetFileName(catalogItem.TempImageName);
+                    catalogItem.PictureFileName = fileName;
+                }
+
+                _service.CreateCatalogItem(catalogItem);
+                if (!string.IsNullOrEmpty(catalogItem.TempImageName))
+                {
+                    _imageService.UpdateImage(catalogItem);
+                }
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CatalogBrandId = new SelectList(service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
-            ViewBag.CatalogTypeId = new SelectList(service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
+            ViewBag.CatalogBrandId = new SelectList(_service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
+            ViewBag.CatalogTypeId = new SelectList(_service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
             return View(catalogItem);
         }
 
@@ -74,14 +90,15 @@ namespace eShopModernizedMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CatalogItem catalogItem = service.FindCatalogItem(id.Value);
+            CatalogItem catalogItem = _service.FindCatalogItem(id.Value);
+
             if (catalogItem == null)
             {
                 return HttpNotFound();
             }
             AddUriPlaceHolder(catalogItem);
-            ViewBag.CatalogBrandId = new SelectList(service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
-            ViewBag.CatalogTypeId = new SelectList(service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
+            ViewBag.CatalogBrandId = new SelectList(_service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
+            ViewBag.CatalogTypeId = new SelectList(_service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
             return View(catalogItem);
         }
 
@@ -90,15 +107,22 @@ namespace eShopModernizedMVC.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,PictureFileName,CatalogTypeId,CatalogBrandId,AvailableStock,RestockThreshold,MaxStockThreshold,OnReorder")] CatalogItem catalogItem)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,PictureFileName,CatalogTypeId,CatalogBrandId,AvailableStock,RestockThreshold,MaxStockThreshold,OnReorder,TempImageName")] CatalogItem catalogItem)
         {
             if (ModelState.IsValid)
             {
-                service.UpdateCatalogItem(catalogItem);
+                if (!string.IsNullOrEmpty(catalogItem.TempImageName))
+                {
+                    _imageService.UpdateImage(catalogItem);
+                    var fileName = Path.GetFileName(catalogItem.TempImageName);
+                    catalogItem.PictureFileName = fileName;
+                }
+
+                _service.UpdateCatalogItem(catalogItem);
                 return RedirectToAction("Index");
             }
-            ViewBag.CatalogBrandId = new SelectList(service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
-            ViewBag.CatalogTypeId = new SelectList(service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
+            ViewBag.CatalogBrandId = new SelectList(_service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
+            ViewBag.CatalogTypeId = new SelectList(_service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
             return View(catalogItem);
         }
 
@@ -109,7 +133,7 @@ namespace eShopModernizedMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CatalogItem catalogItem = service.FindCatalogItem(id.Value);
+            CatalogItem catalogItem = _service.FindCatalogItem(id.Value);
             if (catalogItem == null)
             {
                 return HttpNotFound();
@@ -124,8 +148,8 @@ namespace eShopModernizedMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            CatalogItem catalogItem = service.FindCatalogItem(id);
-            service.RemoveCatalogItem(catalogItem);
+            CatalogItem catalogItem = _service.FindCatalogItem(id);
+            _service.RemoveCatalogItem(catalogItem);
             return RedirectToAction("Index");
         }
 
@@ -133,7 +157,7 @@ namespace eShopModernizedMVC.Controllers
         {
             if (disposing)
             {
-                service.Dispose();
+                _service.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -151,13 +175,19 @@ namespace eShopModernizedMVC.Controllers
             var baseUri = CatalogConfiguration.PicBaseUrl;
             if (string.IsNullOrEmpty(baseUri))
             {
-                item.PictureUri = "/Pics/" + item.PictureFileName;
-                //item.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new { catalogItemId = item.Id }, this.Request.Url.Scheme);
+                item.PictureUri = _imageService.BuildUrlImage(item);
             }
             else
             {
                 item.PictureUri = baseUri.Replace("[0]", item.Id.ToString());
             }
         }
+
+
+
     }
+
+
+
 }
+

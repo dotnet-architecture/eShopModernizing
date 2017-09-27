@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eShopModernizedMVC.Models
 {
     public class CatalogItem
     {
-        public const string DefaultPictureName = "dummy.png";
+       
 
         public CatalogItem()
         {
-            PictureFileName = DefaultPictureName;
+          
         }
         public int Id { get; set; }
 
@@ -60,5 +61,8 @@ namespace eShopModernizedMVC.Models
         /// True if item is on reorder
         /// </summary>
         public bool OnReorder { get; set; }
+
+        public string TempImageName { get; set; }
+
     }
 }

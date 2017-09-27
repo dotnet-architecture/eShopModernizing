@@ -1,6 +1,11 @@
 ﻿using eShopModernizedMVC.Services;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -13,12 +18,16 @@ namespace eShopModernizedMVC.Controllers
     public class PicController : Controller
     {
         public const string GetPicRouteName = "GetPicRouteTemplate";
+        private static ImageFormat[] ValidFormats = new[] { ImageFormat.Jpeg, ImageFormat.Png, ImageFormat.Gif };
+
 
         private ICatalogService service;
+        private IImageService imageService;
 
-        public PicController(ICatalogService service)
+        public PicController(ICatalogService service, IImageService imageService)
         {
             this.service = service;
+            this.imageService = imageService;
         }
 
         // GET: Pic/5.png
@@ -47,6 +56,30 @@ namespace eShopModernizedMVC.Controllers
             }
 
             return HttpNotFound();
+        }
+
+
+        [HttpPost]
+        [Route("uploadimage")]
+        public ActionResult UploadImage()
+        {
+            HttpPostedFile image = System.Web.HttpContext.Current.Request.Files["HelpSectionImages"];
+            var itemId = System.Web.HttpContext.Current.Request.Form["itemId"];
+
+            if (!IsValidImage(image))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "image is not valid");
+            }
+
+            int.TryParse(itemId, out var catalogItemId);
+            var urlImageTemp = imageService.UploadTempImage(image, catalogItemId);
+            var tempImage = new
+            {
+                name = new Uri(urlImageTemp).PathAndQuery,
+                url = urlImageTemp
+            };
+
+            return Json(tempImage);
         }
 
         private string GetImageMimeTypeFromImageFileExtension(string extension)
@@ -87,5 +120,25 @@ namespace eShopModernizedMVC.Controllers
 
             return mimetype;
         }
+
+        private bool IsValidImage(HttpPostedFile file)
+        {
+            bool isValidImage = true;
+            try
+            {
+                using (var img = Image.FromStream(file.InputStream))
+                {
+                    isValidImage = ValidFormats.Contains(img.RawFormat);
+                }
+            }
+            catch (Exception)
+            {
+                isValidImage = false;
+            }
+
+            return isValidImage;
+        }
+
+
     }
 }

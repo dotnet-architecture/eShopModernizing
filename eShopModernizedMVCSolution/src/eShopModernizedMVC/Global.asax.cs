@@ -3,6 +3,7 @@ using Autofac.Integration.Mvc;
 using eShopModernizedMVC.Models;
 using eShopModernizedMVC.Models.Infrastructure;
 using eShopModernizedMVC.Modules;
+using eShopModernizedMVC.Services;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -27,6 +28,7 @@ namespace eShopModernizedMVC
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ConfigDataBase();
+            InitializeCatalogImages();
         }
 
         /// <summary>
@@ -37,7 +39,7 @@ namespace eShopModernizedMVC
             var builder = new ContainerBuilder();
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData));
+            builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData, CatalogConfiguration.UseAzureStorage));
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
@@ -52,6 +54,14 @@ namespace eShopModernizedMVC
                 Database.SetInitializer<CatalogDBContext>(container.Resolve<CatalogDBInitializer>());
             }
         }
+
+
+        private void InitializeCatalogImages()
+        {
+            var imageService = container.Resolve<IImageService>();
+            imageService.InitializeCatalogImages();
+        }
+
 
     }
 }
