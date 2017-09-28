@@ -8,8 +8,6 @@ namespace eShopModernizedMVC.Services
 {
     public class ImageMockStorage : IImageService
     {
-
-
         public string BaseUrl()
         {
             return GetBaseUrlImages();
@@ -56,16 +54,9 @@ namespace eShopModernizedMVC.Services
             return GetBaseUrlImages() + "default.png";
         }
 
-
         private string GetBaseUrlImages()
         {
-            var host = HttpContext.Current.Request.Url.Host;
-            var scheme = HttpContext.Current.Request.Url.Scheme;
-            var port = HttpContext.Current.Request.Url.Port;
-            var baseUrlImages = scheme + "://" + host + ":" + port + "/Pics/";
-            return baseUrlImages;
+            return "/Pics/";
         }
-
-
     }
 }

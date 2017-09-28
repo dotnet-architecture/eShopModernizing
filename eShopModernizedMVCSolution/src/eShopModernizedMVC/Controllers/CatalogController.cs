@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using eShopModernizedMVC.Models;
 using eShopModernizedMVC.Services;
 using System.IO;
+using System;
 
 namespace eShopModernizedMVC.Controllers
 {
@@ -49,6 +50,7 @@ namespace eShopModernizedMVC.Controllers
 
             ViewBag.CatalogBrandId = new SelectList(_service.GetCatalogBrands(), "Id", "Brand");
             ViewBag.CatalogTypeId = new SelectList(_service.GetCatalogTypes(), "Id", "Type");
+            ViewBag.UseAzureStorage = CatalogConfiguration.UseAzureStorage;
             return View(new CatalogItem()
             {
                 PictureUri = _imageService.UrlDefaultImage()
@@ -80,6 +82,7 @@ namespace eShopModernizedMVC.Controllers
 
             ViewBag.CatalogBrandId = new SelectList(_service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
             ViewBag.CatalogTypeId = new SelectList(_service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
+            ViewBag.UseAzureStorage = CatalogConfiguration.UseAzureStorage;
             return View(catalogItem);
         }
 
@@ -99,6 +102,7 @@ namespace eShopModernizedMVC.Controllers
             AddUriPlaceHolder(catalogItem);
             ViewBag.CatalogBrandId = new SelectList(_service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
             ViewBag.CatalogTypeId = new SelectList(_service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
+            ViewBag.UseAzureStorage = CatalogConfiguration.UseAzureStorage;
             return View(catalogItem);
         }
 
@@ -123,6 +127,7 @@ namespace eShopModernizedMVC.Controllers
             }
             ViewBag.CatalogBrandId = new SelectList(_service.GetCatalogBrands(), "Id", "Brand", catalogItem.CatalogBrandId);
             ViewBag.CatalogTypeId = new SelectList(_service.GetCatalogTypes(), "Id", "Type", catalogItem.CatalogTypeId);
+            ViewBag.UseAzureStorage = CatalogConfiguration.UseAzureStorage;
             return View(catalogItem);
         }
 
@@ -172,15 +177,8 @@ namespace eShopModernizedMVC.Controllers
 
         private void AddUriPlaceHolder(CatalogItem item)
         {
-            var baseUri = CatalogConfiguration.PicBaseUrl;
-            if (string.IsNullOrEmpty(baseUri))
-            {
-                item.PictureUri = _imageService.BuildUrlImage(item);
-            }
-            else
-            {
-                item.PictureUri = baseUri.Replace("[0]", item.Id.ToString());
-            }
+            var uri = new Uri(Server.MapPath("~/Pics"));
+            item.PictureUri = _imageService.BuildUrlImage(item);
         }
 
 

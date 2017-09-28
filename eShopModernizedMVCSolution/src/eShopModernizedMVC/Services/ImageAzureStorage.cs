@@ -17,11 +17,11 @@ namespace eShopModernizedMVC.Services
 
         public ImageAzureStorage()
         {
-           _storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("StorageConnectionString"));
+            _storageAccount = CloudStorageAccount.Parse(CatalogConfiguration.StorageConnectionString);
         }
 
         public string BaseUrl()
-        {  
+        {
             return _storageAccount.BlobStorageUri.PrimaryUri.ToString();
         }
 
@@ -67,7 +67,7 @@ namespace eShopModernizedMVC.Services
         }
 
         public void UpdateImage(CatalogItem item)
-        { 
+        {
             CloudBlobClient blobClient = _storageAccount.CreateCloudBlobClient();
             CloudBlobContainer container = blobClient.GetContainerReference("pics");
 

@@ -14,20 +14,24 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="row"><img class="esh-picture" src="@Model.PictureUri" /></div>
-               
-                <div class="row">
-                    <div class="col-md-6">
-                        <label class="btn btn-default esh-button-upload">
-                            Upload image <input type="file" id="uploadEditorImage" accept="image/*" class="hidden" />
-                        </label>
-                        @Html.HiddenFor(model => model.TempImageName)
-                    </div>
+                
+                @if (ViewBag.UseAzureStorage)
+                {
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="btn btn-default esh-button-upload">
+                                Upload image <input type="file" id="uploadEditorImage" accept="image/*" class="hidden" />
+                            </label>
+                            @Html.HiddenFor(model => model.TempImageName)
+                        </div>
 
-                    <div class="esh-loader col-md-3 hidden"></div>
-                    <div class="col-md-6">
-                        <span class="text-danger field-validation-error" id="img-validation-error"></span>
+                        <div class="esh-loader col-md-3 hidden"></div>
+                        <div class="col-md-6">
+                            <span class="text-danger field-validation-error" id="img-validation-error"></span>
+                        </div>
                     </div>
-                </div>
+                }
+                
             </div>
 
             <div class="col-md-8 form-horizontal">

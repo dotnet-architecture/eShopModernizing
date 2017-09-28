@@ -19,7 +19,7 @@ namespace eShopModernizedMVC
             }
         }
 
- 
+
         public static bool UseMockData
         {
             get
@@ -54,11 +54,12 @@ namespace eShopModernizedMVC
             }
         }
 
-        public static string PicBaseUrl
+        public static string StorageConnectionString
         {
             get
             {
-                return Environment.GetEnvironmentVariable("PicBaseUrl");
+                var environmentValue = Environment.GetEnvironmentVariable("StorageConnectionString");
+                return environmentValue ?? ConfigurationManager.AppSettings["StorageConnectionString"];
             }
         }
     }
