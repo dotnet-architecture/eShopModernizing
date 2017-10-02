@@ -177,7 +177,6 @@ namespace eShopModernizedMVC.Controllers
 
         private void AddUriPlaceHolder(CatalogItem item)
         {
-            var uri = new Uri(Server.MapPath("~/Pics"));
             item.PictureUri = _imageService.BuildUrlImage(item);
         }
 

@@ -3,6 +3,7 @@ using Autofac.Integration.Web;
 using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Models.Infrastructure;
 using eShopModernizedWebForms.Modules;
+using eShopModernizedWebForms.Services;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -33,6 +34,7 @@ namespace eShopModernizedWebForms
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ConfigureContainer();
             ConfigDataBase();
+            InitializeCatalogImages();
         }
 
         /// <summary>
@@ -42,7 +44,7 @@ namespace eShopModernizedWebForms
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData));
+            builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData, CatalogConfiguration.UseAzureStorage));
             container = builder.Build();
             _containerProvider = new ContainerProvider(container);
         }
@@ -53,6 +55,12 @@ namespace eShopModernizedWebForms
             {
                 Database.SetInitializer<CatalogDBContext>(container.Resolve<CatalogDBInitializer>());
             }
+        }
+
+        private void InitializeCatalogImages()
+        {
+            var imageService = container.Resolve<IImageService>();
+            imageService.InitializeCatalogImages();
         }
     }
 }

@@ -6,7 +6,7 @@ services:
       - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
       - UseMockData=False
       - UseCustomizationData=False
-      - UseAzureStorage=False
+      - UseAzureStorage=True
       - StorageConnectionString=${ESHOP_AZURE_STORAGE_CONNECTION_STRING}
     ports:
       - "5115:80"

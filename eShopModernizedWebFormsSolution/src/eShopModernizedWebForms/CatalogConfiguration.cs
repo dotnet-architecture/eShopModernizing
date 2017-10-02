@@ -18,6 +18,7 @@ namespace eShopModernizedWebForms
                 return envConnectionString ?? $"name={configConnectionName}";
             }
         }
+
         public static bool UseMockData
         {
             get
@@ -37,6 +38,26 @@ namespace eShopModernizedWebForms
                 return environmentValue != null ?
                     bool.Parse(environmentValue) :
                     bool.Parse(ConfigurationManager.AppSettings["UseCustomizationData"]);
+            }
+        }
+
+        public static bool UseAzureStorage
+        {
+            get
+            {
+                var environmentValue = Environment.GetEnvironmentVariable("UseAzureStorage");
+                return environmentValue != null ?
+                    bool.Parse(environmentValue) :
+                    bool.Parse(ConfigurationManager.AppSettings["UseAzureStorage"]);
+            }
+        }
+
+        public static string StorageConnectionString
+        {
+            get
+            {
+                var environmentValue = Environment.GetEnvironmentVariable("StorageConnectionString");
+                return environmentValue ?? ConfigurationManager.AppSettings["StorageConnectionString"];
             }
         }
     }

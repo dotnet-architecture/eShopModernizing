@@ -59,5 +59,7 @@ namespace eShopModernizedWebForms.Models
         /// True if item is on reorder
         /// </summary>
         public bool OnReorder { get; set; }
+
+        public string TempImageName { get; set; }
     }
 }

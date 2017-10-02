@@ -12,10 +12,12 @@ namespace eShopModernizedWebForms.Modules
     public class ApplicationModule : Module
     {
         private bool useMockData;
+        private bool useAzureStorage;
 
-        public ApplicationModule(bool useMockData)
+        public ApplicationModule(bool useMockData, bool useAzureStorage)
         {
             this.useMockData = useMockData;
+            this.useAzureStorage = useAzureStorage;
         }
         protected override void Load(ContainerBuilder builder)
         {
@@ -30,6 +32,19 @@ namespace eShopModernizedWebForms.Modules
                 builder.RegisterType<CatalogService>()
                     .As<ICatalogService>()
                     .InstancePerLifetimeScope();
+            }
+
+            if (this.useAzureStorage)
+            {
+                builder.RegisterType<ImageAzureStorage>()
+                    .As<IImageService>()
+                    .InstancePerLifetimeScope();
+            }
+            else
+            {
+                builder.RegisterType<ImageMockStorage>()
+                  .As<IImageService>()
+                  .InstancePerLifetimeScope();
             }
 
             builder.RegisterType<CatalogDBContext>()
