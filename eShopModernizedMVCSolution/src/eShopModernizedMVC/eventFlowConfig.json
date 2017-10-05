@@ -8,7 +8,7 @@
     // },
     {
       "type": "Trace",
-      "traceLevel": "Warning"
+      "traceLevel": "Information"
     }
   ],
   "filters": [
@@ -21,7 +21,7 @@
     // Please update the instrumentationKey.
     {
       "type": "ApplicationInsights",
-      "instrumentationKey": "50c309cf-b383-45db-889f-914a975c0d31"
+      "instrumentationKey": "00000000-0000-0000-0000-000000000000"
     },
     {
       "type": "StdOutput"
