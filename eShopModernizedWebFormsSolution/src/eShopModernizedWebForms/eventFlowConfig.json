@@ -1,0 +1,46 @@
+{
+  "inputs": [
+    // {
+    //   "type": "EventSource",
+    //   "sources": [
+    //     { "providerName": "Microsoft-Windows-ASPNET" }
+    //   ]
+    // },
+    {
+      "type": "Trace",
+      "traceLevel": "Information"
+    }
+  ],
+  "filters": [
+    {
+      "type": "drop",
+      "include": "Level == Verbose"
+    }
+  ],
+  "outputs": [
+    // Please update the instrumentationKey.
+    {
+      "type": "ApplicationInsights",
+      "instrumentationKey": "00000000-0000-0000-0000-000000000000"
+    },
+    {
+      "type": "StdOutput"
+    }
+  ],
+  "schemaVersion": "2016-08-11",
+  // "healthReporter": {
+  //   "type": "CsvHealthReporter",
+  //   "logFileFolder": ".",
+  //   "logFilePrefix": "HealthReport",
+  //   "minReportLevel": "Warning",
+  //   "throttlingPeriodMsec": "1000"
+  // },
+  // "settings": {
+  //    "pipelineBufferSize": "1000",
+  //    "maxEventBatchSize": "100",
+  //    "maxBatchDelayMsec": "500",
+  //    "maxConcurrency": "8",
+  //    "pipelineCompletionTimeoutMsec": "30000"
+  // },
+  "extensions": []
+}

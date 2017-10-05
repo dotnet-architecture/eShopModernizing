@@ -4,10 +4,12 @@ using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Models.Infrastructure;
 using eShopModernizedWebForms.Modules;
 using eShopModernizedWebForms.Services;
+using Microsoft.Diagnostics.EventFlow;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Optimization;
@@ -21,6 +23,7 @@ namespace eShopModernizedWebForms
     {
         static IContainerProvider _containerProvider;
         IContainer container;
+        private DiagnosticPipeline diagnosticsPipeline;
 
         public IContainerProvider ContainerProvider
         {
@@ -35,6 +38,20 @@ namespace eShopModernizedWebForms
             ConfigureContainer();
             ConfigDataBase();
             InitializeCatalogImages();
+            InitializePipeline();
+            this.BeginRequest += Application_BeginRequest;
+        }
+
+        protected void Application_Error(Object sender, EventArgs e)
+        {
+            var raisedException = Server.GetLastError();
+            Trace.TraceError($"Unhandled exeption WebForms: {raisedException}");
+        }
+
+        protected virtual void Application_BeginRequest(object sender, EventArgs e)
+        {
+            var url = Request.Url.AbsoluteUri;
+            Trace.TraceInformation($"Received request {url}.");
         }
 
         /// <summary>
@@ -61,6 +78,11 @@ namespace eShopModernizedWebForms
         {
             var imageService = container.Resolve<IImageService>();
             imageService.InitializeCatalogImages();
+        }
+
+        private void InitializePipeline()
+        {
+            diagnosticsPipeline = DiagnosticPipelineFactory.CreatePipeline(".\\eventFlowConfig.json");
         }
     }
 }

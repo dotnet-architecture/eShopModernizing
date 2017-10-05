@@ -57,12 +57,6 @@ namespace eShopModernizedMVC
             Trace.TraceError($"Unhandled exeption: {raisedException}");
         }
 
-        public override void Dispose()
-        {
-            diagnosticsPipeline?.Dispose();
-            base.Dispose();
-        }
-
         private void ConfigDataBase()
         {
             if (!CatalogConfiguration.UseMockData)
