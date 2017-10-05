@@ -13,6 +13,24 @@ namespace eShopModernizedWebForms.Catalog {
     public partial class Edit {
         
         /// <summary>
+        /// UploadButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UploadButton;
+        
+        /// <summary>
+        /// TempImageName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField TempImageName;
+        
+        /// <summary>
         /// Name control.
         /// </summary>
         /// <remarks>

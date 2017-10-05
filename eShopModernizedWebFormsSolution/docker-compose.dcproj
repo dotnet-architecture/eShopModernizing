@@ -5,7 +5,7 @@
     <DockerTargetOS>Windows</DockerTargetOS>
     <ProjectGuid>d7e64048-6bbf-4497-a39e-e1cad435a7c5</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
-    <DockerServiceUrl>http://{ServiceIPAddress}</DockerServiceUrl>
+    <DockerServiceUrl>http://{ServiceIPAddress}:5114</DockerServiceUrl>
     <DockerServiceName>eshopmodernizedwebforms</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>

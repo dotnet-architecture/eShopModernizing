@@ -2,6 +2,7 @@
 using eShopModernizedWebForms.Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,11 +16,18 @@ namespace eShopModernizedWebForms.Catalog
 
         public ICatalogService CatalogService { get; set; }
 
+        public IImageService ImageService { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
             if (!Page.IsPostBack)
             {
+                if (!CatalogConfiguration.UseAzureStorage)
+                {
+                    UploadButton.Visible = false;
+                }
+
                 var productId = Convert.ToInt32(Page.RouteData.Values["id"]);
                 product = CatalogService.FindCatalogItem(productId);
                 BrandDropDownList.DataSource = CatalogService.GetCatalogBrands();
@@ -57,8 +65,17 @@ namespace eShopModernizedWebForms.Catalog
                     PictureFileName = PictureFileName.Text,
                     AvailableStock = int.Parse(Stock.Text),
                     RestockThreshold = int.Parse(Restock.Text),
-                    MaxStockThreshold = int.Parse(Maxstock.Text)
+                    MaxStockThreshold = int.Parse(Maxstock.Text),
+                    TempImageName = TempImageName.Value
                 };
+
+                if (!string.IsNullOrEmpty(catalogItem.TempImageName))
+                {
+                    ImageService.UpdateImage(catalogItem);
+                    var fileName = Path.GetFileName(catalogItem.TempImageName);
+                    catalogItem.PictureFileName = fileName;
+                }
+
                 CatalogService.UpdateCatalogItem(catalogItem);
 
                 Response.Redirect("~");

@@ -1,6 +1,11 @@
 ﻿using eShopModernizedMVC.Services;
+using Microsoft.Azure;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -12,80 +17,54 @@ namespace eShopModernizedMVC.Controllers
 {
     public class PicController : Controller
     {
-        public const string GetPicRouteName = "GetPicRouteTemplate";
+        private static ImageFormat[] ValidFormats = new[] { ImageFormat.Jpeg, ImageFormat.Png, ImageFormat.Gif };
+        private IImageService imageService;
 
-        private ICatalogService service;
-
-        public PicController(ICatalogService service)
+        public PicController(ICatalogService service, IImageService imageService)
         {
-            this.service = service;
+            this.imageService = imageService;
         }
 
-        // GET: Pic/5.png
-        [HttpGet]
-        [Route("items/{catalogItemId:int}/pic", Name = GetPicRouteName)]
-        public ActionResult Index(int catalogItemId)
+        [HttpPost]
+        [Route("uploadimage")]
+        public ActionResult UploadImage()
         {
-            if (catalogItemId <= 0)
+            HttpPostedFile image = System.Web.HttpContext.Current.Request.Files["HelpSectionImages"];
+            var itemId = System.Web.HttpContext.Current.Request.Form["itemId"];
+
+            if (!IsValidImage(image))
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "image is not valid");
             }
 
-            var item = service.FindCatalogItem(catalogItemId);
-
-            if (item != null)
+            int.TryParse(itemId, out var catalogItemId);
+            var urlImageTemp = imageService.UploadTempImage(image, catalogItemId);
+            var tempImage = new
             {
-                var webRoot = Server.MapPath("~/Pics");
-                var path = Path.Combine(webRoot, item.PictureFileName);
+                name = new Uri(urlImageTemp).PathAndQuery,
+                url = urlImageTemp
+            };
 
-                string imageFileExtension = Path.GetExtension(item.PictureFileName);
-                string mimetype = GetImageMimeTypeFromImageFileExtension(imageFileExtension);
-
-                var buffer = System.IO.File.ReadAllBytes(path);
-
-                return File(buffer, mimetype);
-            }
-
-            return HttpNotFound();
+            return Json(tempImage);
         }
 
-        private string GetImageMimeTypeFromImageFileExtension(string extension)
+        private bool IsValidImage(HttpPostedFile file)
         {
-            string mimetype;
-
-            switch (extension)
+            bool isValidImage = true;
+            try
             {
-                case ".png":
-                    mimetype = "image/png";
-                    break;
-                case ".gif":
-                    mimetype = "image/gif";
-                    break;
-                case ".jpg":
-                case ".jpeg":
-                    mimetype = "image/jpeg";
-                    break;
-                case ".bmp":
-                    mimetype = "image/bmp";
-                    break;
-                case ".tiff":
-                    mimetype = "image/tiff";
-                    break;
-                case ".wmf":
-                    mimetype = "image/wmf";
-                    break;
-                case ".jp2":
-                    mimetype = "image/jp2";
-                    break;
-                case ".svg":
-                    mimetype = "image/svg+xml";
-                    break;
-                default:
-                    mimetype = "application/octet-stream";
-                    break;
+                using (var img = Image.FromStream(file.InputStream))
+                {
+                    isValidImage = ValidFormats.Contains(img.RawFormat);
+                }
+            }
+            catch (Exception)
+            {
+                isValidImage = false;
             }
 
-            return mimetype;
+            return isValidImage;
         }
+
     }
 }
