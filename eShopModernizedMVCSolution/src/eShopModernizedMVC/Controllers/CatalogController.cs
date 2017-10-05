@@ -5,6 +5,7 @@ using eShopModernizedMVC.Models;
 using eShopModernizedMVC.Services;
 using System.IO;
 using System;
+using Microsoft.Diagnostics.EventFlow;
 
 namespace eShopModernizedMVC.Controllers
 {
@@ -51,6 +52,11 @@ namespace eShopModernizedMVC.Controllers
             ViewBag.CatalogBrandId = new SelectList(_service.GetCatalogBrands(), "Id", "Brand");
             ViewBag.CatalogTypeId = new SelectList(_service.GetCatalogTypes(), "Id", "Type");
             ViewBag.UseAzureStorage = CatalogConfiguration.UseAzureStorage;
+            using (var pipeline = DiagnosticPipelineFactory.CreatePipeline("eventFlowConfig.json"))
+            {
+                System.Diagnostics.Trace.TraceWarning("EventFlow is working right!");
+                Console.ReadLine();
+            }
             return View(new CatalogItem()
             {
                 PictureUri = _imageService.UrlDefaultImage()
