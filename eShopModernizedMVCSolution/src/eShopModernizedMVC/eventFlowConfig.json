@@ -28,13 +28,10 @@
     }
   ],
   "schemaVersion": "2016-08-11",
-  // "healthReporter": {
-  //   "type": "CsvHealthReporter",
-  //   "logFileFolder": ".",
-  //   "logFilePrefix": "HealthReport",
-  //   "minReportLevel": "Warning",
-  //   "throttlingPeriodMsec": "1000"
-  // },
+  "healthReporter": {
+    "type": "CsvHealthReporter",
+    "logFileFolder": "/app/log"
+  },
   // "settings": {
   //    "pipelineBufferSize": "1000",
   //    "maxEventBatchSize": "100",
