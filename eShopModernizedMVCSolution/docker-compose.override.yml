@@ -8,6 +8,7 @@ services:
       - UseCustomizationData=False
       - UseAzureStorage=False
       - StorageConnectionString=${ESHOP_AZURE_STORAGE_CONNECTION_STRING}
+      - AppInsightsInstrumentationKey=${APP_INSIGHTS_INSTRUMENTATION_KEY}
     ports:
       - "5115:80"
 

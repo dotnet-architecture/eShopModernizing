@@ -52,7 +52,6 @@ namespace eShopModernizedWebForms.Catalog
 
         protected void Save_Click(object sender, EventArgs e)
         {
-            throw new Exception("Edit Patata Exception");
             if (this.ModelState.IsValid)
             {
                 var catalogItem = new CatalogItem

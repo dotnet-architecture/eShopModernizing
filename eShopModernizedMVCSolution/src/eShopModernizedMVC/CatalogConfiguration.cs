@@ -24,10 +24,7 @@ namespace eShopModernizedMVC
         {
             get
             {
-                var environmentValue = Environment.GetEnvironmentVariable("UseMockData");
-                return environmentValue != null ?
-                    bool.Parse(environmentValue) :
-                    bool.Parse(ConfigurationManager.AppSettings["UseMockData"]);
+                return IsEnabled("UseMockData");
             }
         }
 
@@ -35,22 +32,15 @@ namespace eShopModernizedMVC
         {
             get
             {
-                var environmentValue = Environment.GetEnvironmentVariable("UseAzureStorage");
-                return environmentValue != null ?
-                    bool.Parse(environmentValue) :
-                    bool.Parse(ConfigurationManager.AppSettings["UseAzureStorage"]);
+                return IsEnabled("UseAzureStorage");
             }
         }
-
 
         public static bool UseCustomizationData
         {
             get
             {
-                var environmentValue = Environment.GetEnvironmentVariable("UseCustomizationData");
-                return environmentValue != null ?
-                    bool.Parse(environmentValue) :
-                    bool.Parse(ConfigurationManager.AppSettings["UseCustomizationData"]);
+                return IsEnabled("UseCustomizationData");
             }
         }
 
@@ -58,9 +48,30 @@ namespace eShopModernizedMVC
         {
             get
             {
-                var environmentValue = Environment.GetEnvironmentVariable("StorageConnectionString");
-                return environmentValue ?? ConfigurationManager.AppSettings["StorageConnectionString"];
+                return GetConfigurationValue("StorageConnectionString");
             }
+        }
+
+        public static string AppInsightsInstrumentationKey
+        {
+            get
+            {
+                return Environment.GetEnvironmentVariable("AppInsightsInstrumentationKey");
+            }
+        }
+
+        private static string GetConfigurationValue(string configurationKey)
+        {
+            var environmentValue = Environment.GetEnvironmentVariable(configurationKey);
+            return environmentValue ?? ConfigurationManager.AppSettings[configurationKey];
+        }
+
+        private static bool IsEnabled(string configurationKey)
+        {
+            var environmentValue = Environment.GetEnvironmentVariable(configurationKey);
+            return environmentValue != null ?
+                bool.Parse(environmentValue) :
+                bool.Parse(ConfigurationManager.AppSettings[configurationKey]);
         }
     }
 }

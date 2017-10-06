@@ -5,6 +5,7 @@ using eShopModernizedWebForms.Models.Infrastructure;
 using eShopModernizedWebForms.Modules;
 using eShopModernizedWebForms.Services;
 using Microsoft.Diagnostics.EventFlow;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -82,7 +83,17 @@ namespace eShopModernizedWebForms
 
         private void InitializePipeline()
         {
-            diagnosticsPipeline = DiagnosticPipelineFactory.CreatePipeline(".\\eventFlowConfig.json");
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("eventFlowConfig.json", optional: true, reloadOnChange: true)
+                .Build();
+            var environmentKey = CatalogConfiguration.AppInsightsInstrumentationKey;
+
+            if (!string.IsNullOrEmpty(environmentKey))
+            {
+                configuration["outputs:0:instrumentationKey"] = environmentKey;
+            }
+
+            diagnosticsPipeline = DiagnosticPipelineFactory.CreatePipeline(configuration);
         }
     }
 }
