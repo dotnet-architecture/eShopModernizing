@@ -4,6 +4,7 @@ using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Models.Infrastructure;
 using eShopModernizedWebForms.Modules;
 using eShopModernizedWebForms.Services;
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Diagnostics.EventFlow;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -83,6 +84,8 @@ namespace eShopModernizedWebForms
 
         private void InitializePipeline()
         {
+            TelemetryConfiguration.Active.TelemetryInitializers
+                .Add(new MyTelemetryInitializer());
             var configuration = new ConfigurationBuilder()
                 .AddJsonFile("eventFlowConfig.json", optional: true, reloadOnChange: true)
                 .Build();
@@ -91,6 +94,7 @@ namespace eShopModernizedWebForms
             if (!string.IsNullOrEmpty(environmentKey))
             {
                 configuration["outputs:0:instrumentationKey"] = environmentKey;
+                TelemetryConfiguration.Active.InstrumentationKey = environmentKey;
             }
 
             diagnosticsPipeline = DiagnosticPipelineFactory.CreatePipeline(configuration);
