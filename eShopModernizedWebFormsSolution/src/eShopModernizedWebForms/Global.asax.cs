@@ -4,10 +4,14 @@ using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Models.Infrastructure;
 using eShopModernizedWebForms.Modules;
 using eShopModernizedWebForms.Services;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Diagnostics.EventFlow;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Optimization;
@@ -21,6 +25,7 @@ namespace eShopModernizedWebForms
     {
         static IContainerProvider _containerProvider;
         IContainer container;
+        private DiagnosticPipeline diagnosticsPipeline;
 
         public IContainerProvider ContainerProvider
         {
@@ -35,6 +40,20 @@ namespace eShopModernizedWebForms
             ConfigureContainer();
             ConfigDataBase();
             InitializeCatalogImages();
+            InitializePipeline();
+            this.BeginRequest += Application_BeginRequest;
+        }
+
+        protected void Application_Error(Object sender, EventArgs e)
+        {
+            var raisedException = Server.GetLastError();
+            Trace.TraceError($"Unhandled exeption WebForms: {raisedException}");
+        }
+
+        protected virtual void Application_BeginRequest(object sender, EventArgs e)
+        {
+            var url = Request.Url.AbsoluteUri;
+            Trace.TraceInformation($"Received request {url}.");
         }
 
         /// <summary>
@@ -61,6 +80,24 @@ namespace eShopModernizedWebForms
         {
             var imageService = container.Resolve<IImageService>();
             imageService.InitializeCatalogImages();
+        }
+
+        private void InitializePipeline()
+        {
+            TelemetryConfiguration.Active.TelemetryInitializers
+                .Add(new MyTelemetryInitializer());
+            var configuration = new ConfigurationBuilder()
+                .AddJsonFile("eventFlowConfig.json", optional: true, reloadOnChange: true)
+                .Build();
+            var environmentKey = CatalogConfiguration.AppInsightsInstrumentationKey;
+
+            if (!string.IsNullOrEmpty(environmentKey))
+            {
+                configuration["outputs:0:instrumentationKey"] = environmentKey;
+                TelemetryConfiguration.Active.InstrumentationKey = environmentKey;
+            }
+
+            diagnosticsPipeline = DiagnosticPipelineFactory.CreatePipeline(configuration);
         }
     }
 }

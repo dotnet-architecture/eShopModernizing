@@ -1,5 +1,6 @@
 ﻿using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Services;
+using Microsoft.Diagnostics.EventFlow;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,6 +18,12 @@ namespace eShopModernizedWebForms.Catalog
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            using (var pipeline = DiagnosticPipelineFactory.CreatePipeline("eventFlowConfig.json"))
+            {
+                System.Diagnostics.Trace.TraceWarning("EventFlow is working WebForms!");
+                Console.ReadLine();
+            }
+
             if (!CatalogConfiguration.UseAzureStorage)
             {
                 UploadButton.Visible = false;
