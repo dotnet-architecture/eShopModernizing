@@ -60,6 +60,14 @@ namespace eShopModernizedMVC
             }
         }
 
+        public static bool UseAzureActiveDirectory
+        {
+            get
+            {
+                return IsEnabled("UseAzureActiveDirectory");
+            }
+        }
+
         private static string GetConfigurationValue(string configurationKey)
         {
             var environmentValue = Environment.GetEnvironmentVariable(configurationKey);

@@ -13,7 +13,10 @@
             <a href="@Url.Action("index", "catalog")">
                 <img src="~/images/brand.png" />
             </a>
+            @if (CatalogConfiguration.UseAzureActiveDirectory)
+            {
                 @Html.Partial("_LoginPartial")
+            }
         </div>
     </header>
     <section class="esh-app-hero">

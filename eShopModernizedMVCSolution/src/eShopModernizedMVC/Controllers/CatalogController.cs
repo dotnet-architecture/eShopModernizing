@@ -47,6 +47,7 @@ namespace eShopModernizedMVC.Controllers
         }
 
         // GET: Catalog/Create
+        [Authorize]
         public ActionResult Create()
         {
 
@@ -64,7 +65,7 @@ namespace eShopModernizedMVC.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Create([Bind(Include = "Id,Name,Description,Price,PictureFileName,CatalogTypeId,CatalogBrandId,AvailableStock,RestockThreshold,MaxStockThreshold,OnReorder,TempImageName")] CatalogItem catalogItem)
         {
             if (ModelState.IsValid)
@@ -90,6 +91,7 @@ namespace eShopModernizedMVC.Controllers
         }
 
         // GET: Catalog/Edit/5
+        [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -114,7 +116,7 @@ namespace eShopModernizedMVC.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,PictureFileName,CatalogTypeId,CatalogBrandId,AvailableStock,RestockThreshold,MaxStockThreshold,OnReorder,TempImageName")] CatalogItem catalogItem)
         {
             if (ModelState.IsValid)
@@ -136,6 +138,7 @@ namespace eShopModernizedMVC.Controllers
         }
 
         // GET: Catalog/Delete/5
+        [Authorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -154,7 +157,7 @@ namespace eShopModernizedMVC.Controllers
 
         // POST: Catalog/Delete/5
         [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
             CatalogItem catalogItem = _service.FindCatalogItem(id);
