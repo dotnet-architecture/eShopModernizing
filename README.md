@@ -9,7 +9,7 @@ All those mentioned environments can be deployed into Azure cloud (as explained 
 ## Related Guide/eBook
 You can download its related guidance with this free guide/eBook:
 
-Download (Draft state): https://aka.ms/liftandshiftwithcontainersebook
+Download (First Edition): https://aka.ms/liftandshiftwithcontainersebook
 
 ![image](https://user-images.githubusercontent.com/1712635/31475227-74e43246-aeb4-11e7-8dba-44da5fc3874b.png)
 
