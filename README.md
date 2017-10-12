@@ -11,7 +11,7 @@ You can download its related guidance with this free guide/eBook:
 
 Download (Draft state): https://aka.ms/liftandshiftwithcontainersebook
 
-![image](https://user-images.githubusercontent.com/1712635/30777199-499fbacc-a06a-11e7-88ac-8928a6f269ec.png)
+![image](https://user-images.githubusercontent.com/1712635/31475227-74e43246-aeb4-11e7-8dba-44da5fc3874b.png)
 
 The modernization with Windows Containers significantly improves the deployments for DevOps, without having to change the app's architecture or C# code.
 
