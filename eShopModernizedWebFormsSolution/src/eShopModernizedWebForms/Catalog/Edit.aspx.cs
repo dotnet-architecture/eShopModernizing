@@ -1,5 +1,7 @@
 ﻿using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Services;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.OpenIdConnect;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,9 +22,13 @@ namespace eShopModernizedWebForms.Catalog
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!Page.IsPostBack)
             {
+                // Send an OpenID Connect sign-in request.
+                if (!Request.IsAuthenticated)
+                {
+                    Context.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
+                }
                 if (!CatalogConfiguration.UseAzureStorage)
                 {
                     UploadButton.Visible = false;
