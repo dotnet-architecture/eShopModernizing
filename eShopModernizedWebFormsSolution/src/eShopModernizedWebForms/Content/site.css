@@ -219,6 +219,16 @@
     margin-top: 0.8vw;
 }
 
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 /*Pager*/
 .esh-pager-wrapper {
     padding-top: 1rem;
