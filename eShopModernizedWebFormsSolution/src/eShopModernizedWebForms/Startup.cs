@@ -11,14 +11,14 @@ namespace eShopModernizedWebForms
     {
         public void Configuration(IAppBuilder app)
         {
-            //if (CatalogConfiguration.UseAzureActiveDirectory)
-            //{
-            ConfigureAuth(app);
-            //}
-            //else
-            //{
-            //    app.Use<AuthenticationMiddleware>();
-            //}
+            if (CatalogConfiguration.UseAzureActiveDirectory)
+            {
+                ConfigureAuth(app);
+            }
+            else
+            {
+                app.Use<AuthenticationMiddleware>();
+            }
         }
     }
 }

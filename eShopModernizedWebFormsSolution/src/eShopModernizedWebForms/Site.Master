@@ -44,7 +44,7 @@
                 <a runat="server" href="~/">
                     <img src="/images/brand.png" />
                 </a>
-                <asp:LoginView runat="server" ViewStateMode="Disabled">
+                <asp:LoginView id="Login" runat="server" ViewStateMode="Disabled">
                     <AnonymousTemplate>
                         <ul class="nav navbar-nav navbar-right">
                             <li><asp:LinkButton CssClass="esh-table-link" runat="server" Text="Log in" OnClick="Login_Click" /></li>

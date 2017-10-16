@@ -15,6 +15,8 @@ namespace eShopModernizedWebForms
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            Login.Visible = CatalogConfiguration.UseAzureActiveDirectory;
+
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
