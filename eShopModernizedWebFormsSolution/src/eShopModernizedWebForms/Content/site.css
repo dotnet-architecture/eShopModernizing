@@ -111,6 +111,20 @@
     transition: color 0.35s;
 }
 
+.esh-login-link {
+    color: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.35s;
+}
+
+.esh-login-link:hover {
+    background-color: transparent !important;
+    text-decoration: underline !important;
+    color: #75b918;
+    transition: color 0.35s;
+}
+
 .esh-thumbnail {
     max-width: 120px;
     height: auto;
