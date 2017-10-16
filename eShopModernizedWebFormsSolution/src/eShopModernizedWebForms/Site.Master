@@ -44,6 +44,21 @@
                 <a runat="server" href="~/">
                     <img src="/images/brand.png" />
                 </a>
+                <asp:LoginView id="Login" runat="server" ViewStateMode="Disabled">
+                    <AnonymousTemplate>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><asp:LinkButton CssClass="esh-login-link" runat="server" Text="Sign in" OnClick="Login_Click" /></li>
+                        </ul>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="navbar-text" runat="server">Hello, <%: Context.User.Identity.Name %> !</li>
+                            <li>
+                                <asp:LoginStatus CssClass="esh-login-link" runat="server" LogoutAction="Redirect" LogoutText="Sign out" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                            </li>
+                        </ul>
+                    </LoggedInTemplate>
+                </asp:LoginView>
             </div>
         </header>
 

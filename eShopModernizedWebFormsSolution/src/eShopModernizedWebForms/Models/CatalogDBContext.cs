@@ -75,6 +75,7 @@ namespace eShopModernizedWebForms.Models
                 .IsRequired();
 
             builder.Ignore(ci => ci.PictureUri);
+            builder.Ignore(ci => ci.TempImageName);
 
             builder.HasRequired<CatalogBrand>(ci => ci.CatalogBrand)
                 .WithMany()

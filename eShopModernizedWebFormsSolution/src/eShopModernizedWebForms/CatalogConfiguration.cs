@@ -59,6 +59,40 @@ namespace eShopModernizedWebForms
             }
         }
 
+        public static bool UseAzureActiveDirectory
+        {
+            get
+            {
+                return IsEnabled("UseAzureActiveDirectory");
+            }
+        }
+
+        public static string AzureActiveDirectoryClientId
+        {
+            get
+            {
+                return Environment.GetEnvironmentVariable("AzureActiveDirectoryClientId") ??
+                    ConfigurationManager.AppSettings["ida:ClientId"];
+            }
+        }
+
+        public static string AzureActiveDirectoryTenant
+        {
+            get
+            {
+                return Environment.GetEnvironmentVariable("AzureActiveDirectoryTenant") ??
+                    ConfigurationManager.AppSettings["ida:Tenant"];
+            }
+        }
+
+        public static string PostLogoutRedirectUri
+        {
+            get
+            {
+                return GetConfigurationValue("PostLogoutRedirectUri");
+            }
+        }
+
         private static string GetConfigurationValue(string configurationKey)
         {
             var environmentValue = Environment.GetEnvironmentVariable(configurationKey);

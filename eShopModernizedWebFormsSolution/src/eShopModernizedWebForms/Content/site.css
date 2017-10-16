@@ -111,6 +111,20 @@
     transition: color 0.35s;
 }
 
+.esh-login-link {
+    color: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.35s;
+}
+
+.esh-login-link:hover {
+    background-color: transparent !important;
+    text-decoration: underline !important;
+    color: #75b918;
+    transition: color 0.35s;
+}
+
 .esh-thumbnail {
     max-width: 120px;
     height: auto;
@@ -217,6 +231,16 @@
     height: 50px;
     animation: spin 2s linear infinite;
     margin-top: 0.8vw;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 /*Pager*/

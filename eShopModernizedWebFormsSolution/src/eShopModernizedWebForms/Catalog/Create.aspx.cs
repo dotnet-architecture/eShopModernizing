@@ -1,10 +1,13 @@
 ﻿using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Services;
 using Microsoft.Diagnostics.EventFlow;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.OpenIdConnect;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
+using System.Web;
 using System.Web.ModelBinding;
 
 namespace eShopModernizedWebForms.Catalog
@@ -18,10 +21,10 @@ namespace eShopModernizedWebForms.Catalog
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            using (var pipeline = DiagnosticPipelineFactory.CreatePipeline("eventFlowConfig.json"))
+            // Send an OpenID Connect sign-in request.
+            if (!Request.IsAuthenticated)
             {
-                System.Diagnostics.Trace.TraceWarning("EventFlow is working WebForms!");
-                Console.ReadLine();
+                Context.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
             }
 
             if (!CatalogConfiguration.UseAzureStorage)
