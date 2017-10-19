@@ -5,7 +5,6 @@ using eShopModernizedMVC.Models;
 using eShopModernizedMVC.Services;
 using System.IO;
 using System;
-using Microsoft.Diagnostics.EventFlow;
 using System.Diagnostics;
 
 namespace eShopModernizedMVC.Controllers

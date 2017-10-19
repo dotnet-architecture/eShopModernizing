@@ -1,14 +1,11 @@
 ﻿using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Services;
-using Microsoft.Diagnostics.EventFlow;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OpenIdConnect;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Web;
-using System.Web.ModelBinding;
 
 namespace eShopModernizedWebForms.Catalog
 {
