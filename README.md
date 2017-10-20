@@ -23,7 +23,9 @@ The modernization with Windows Containers significantly improves the deployments
 The sample apps are simple web apps for the internal backoffice of an eShop so employees can update the Product Catalog. 
 Both apps are therefore simple CRUD web application to update data into a SQL Server database. 
 
-See a screenshots of both apps below.### INITIAL VERSIONS
+See a screenshots of both apps below.
+
+### INITIAL VERSIONS OF EXISTING ASP.NET WEB APPS
 
 ![image](https://user-images.githubusercontent.com/1712635/30354184-db7f1098-97df-11e7-8e7b-c18c67b8ba2a.png)
 
