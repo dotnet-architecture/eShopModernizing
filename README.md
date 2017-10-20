@@ -1,3 +1,4 @@
+
 # eShopModernizing web applications
 This repo provides two sample hypothetical legacy eShop web apps (traditional ASP.NET WebForms and MVC  in .NET Framework) and how you can modernize them (Lift and Shift scenario) with Windows Containers and Azure Cloud into the following deployment options:
 - Regular Windows Server 2016 VM (Virtual Machine)
@@ -12,7 +13,9 @@ You can download its related guidance with this free guide/eBook:
 ![image](https://user-images.githubusercontent.com/1712635/31475227-74e43246-aeb4-11e7-8dba-44da5fc3874b.png)
 
 .PDF download (PC): https://aka.ms/liftandshiftwithcontainersebook
+
 .MOBI download (Kindle): https://aka.ms/liftandshiftwithcontainersebookmobi
+
 .EPUB download (Other eReaders): https://aka.ms/liftandshiftwithcontainersebookepub
 
 The modernization with Windows Containers significantly improves the deployments for DevOps, without having to change the app's architecture or C# code.
