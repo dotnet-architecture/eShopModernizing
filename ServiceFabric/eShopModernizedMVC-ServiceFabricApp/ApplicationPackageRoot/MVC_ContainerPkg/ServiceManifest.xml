@@ -22,9 +22,15 @@
     <EnvironmentVariables>
       <!-- <EnvironmentVariable Name="VariableName" Value="VariableValue"/> -->
       <EnvironmentVariable Name="ConnectionString" Value="Data Source=eshopmodernized.sqldata,1433;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"/>
-      <EnvironmentVariable Name="PicBaseUrl" Value="http://qa-eshop-sfwin-cluster.westus.cloudapp.azure.com:5114/items/[0]/pic/"/>
       <EnvironmentVariable Name="UseMockData" Value="False"/>
       <EnvironmentVariable Name="UseCustomizationData" Value="False"/>
+      <EnvironmentVariable Name="UseAzureStorage" Value="False"/>
+      <EnvironmentVariable Name="StorageConnectionString" Value="empty"/>
+      <EnvironmentVariable Name="AppInsightsInstrumentationKey" Value=""/>
+      <EnvironmentVariable Name="UseAzureActiveDirectory" Value="False"/>
+      <EnvironmentVariable Name="AzureActiveDirectoryClientId" Value="empty"/>
+      <EnvironmentVariable Name="AzureActiveDirectoryTenant" Value="empty"/>
+      <EnvironmentVariable Name="PostLogoutRedirectUri" Value="10.0.75.1:5115"/>
     </EnvironmentVariables>
   </CodePackage>
 
@@ -37,7 +43,7 @@
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="MVC_ContainerTypeEndpoint" UriScheme="http" Port="5114" Protocol="http"/>
+      <Endpoint Name="MVC_ContainerTypeEndpoint" UriScheme="http" Port="5115" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
