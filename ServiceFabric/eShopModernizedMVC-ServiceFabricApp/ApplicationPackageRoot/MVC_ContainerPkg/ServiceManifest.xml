@@ -25,11 +25,11 @@
       <EnvironmentVariable Name="UseMockData" Value="False"/>
       <EnvironmentVariable Name="UseCustomizationData" Value="False"/>
       <EnvironmentVariable Name="UseAzureStorage" Value="False"/>
-      <EnvironmentVariable Name="StorageConnectionString" Value="empty"/>
+      <EnvironmentVariable Name="StorageConnectionString" Value=""/>
       <EnvironmentVariable Name="AppInsightsInstrumentationKey" Value=""/>
       <EnvironmentVariable Name="UseAzureActiveDirectory" Value="False"/>
-      <EnvironmentVariable Name="AzureActiveDirectoryClientId" Value="empty"/>
-      <EnvironmentVariable Name="AzureActiveDirectoryTenant" Value="empty"/>
+      <EnvironmentVariable Name="AzureActiveDirectoryClientId" Value=""/>
+      <EnvironmentVariable Name="AzureActiveDirectoryTenant" Value=""/>
       <EnvironmentVariable Name="PostLogoutRedirectUri" Value="10.0.75.1:5115"/>
     </EnvironmentVariables>
   </CodePackage>

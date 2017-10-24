@@ -21,12 +21,26 @@ spec:
         - containerPort: 80
         imagePullPolicy: Always
         env:
+        - name: ConnectionString
+          value: "Server=sql-data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"
         - name: UseMockData
           value: "False"
         - name: UseCustomizationData
           value: "False"
-        - name: ConnectionString
-          value: "Server=sql-data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"
+        - name: UseAzureStorage
+          value: "False"
+        - name: StorageConnectionString
+          value: ""
+        - name: AppInsightsInstrumentationKey
+          value: "#{your_app_insights_instrument_key}#"
+        - name: UseAzureActiveDirectory
+          value: "False"
+        - name: AzureActiveDirectoryClientId
+          value: ""
+        - name: AzureActiveDirectoryTenant
+          value: ""
+        - name: PostLogoutRedirectUri
+          value: ""
       nodeSelector:
        beta.kubernetes.io/os: windows
 ---
