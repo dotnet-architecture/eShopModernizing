@@ -27,6 +27,20 @@ spec:
           value: "False"
         - name: ConnectionString
           value: "Server=sql-data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"
+        - name: UseAzureStorage
+          value: "False"
+        - name: StorageConnectionString
+          value: ""
+        - name: AppInsightsInstrumentationKey
+          value: ""
+        - name: UseAzureActiveDirectory
+          value: "False"
+        - name: AzureActiveDirectoryClientId
+          value: ""
+        - name: AzureActiveDirectoryTenant
+          value: ""
+        - name: PostLogoutRedirectUri
+          value: ""
       nodeSelector:
        beta.kubernetes.io/os: windows
 ---

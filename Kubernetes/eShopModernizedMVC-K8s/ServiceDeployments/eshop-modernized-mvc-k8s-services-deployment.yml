@@ -32,7 +32,7 @@ spec:
         - name: StorageConnectionString
           value: ""
         - name: AppInsightsInstrumentationKey
-          value: "#{your_app_insights_instrument_key}#"
+          value: ""
         - name: UseAzureActiveDirectory
           value: "False"
         - name: AzureActiveDirectoryClientId
