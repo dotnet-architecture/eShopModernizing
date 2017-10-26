@@ -6,18 +6,29 @@
                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="WebForms_Container_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="UseAzureStorage" DefaultValue="False"/>
+    <Parameter Name="StorageConnectionString" DefaultValue=""/>
     <Parameter Name="InstrumentationKey" DefaultValue="" />
+    <Parameter Name="UseAzureActiveDirectory" DefaultValue="False" />
+    <Parameter Name="AzureActiveDirectoryClientId" DefaultValue="" />
+    <Parameter Name="AzureActiveDirectoryTenant" DefaultValue="" />
+    <Parameter Name="PostLogoutRedirectUri" DefaultValue="" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
-	   
-  	   
+
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="WebForms_ContainerPkg" ServiceManifestVersion="1.0.0" />
     <!-- Override external urls depending on environment -->
     <EnvironmentOverrides CodePackageRef="Code">
+      <EnvironmentVariable Name="UseAzureStorage" Value="[UseAzureStorage]"/>
+      <EnvironmentVariable Name="StorageConnectionString" Value="[StorageConnectionString]"/>
       <EnvironmentVariable Name="AppInsightsInstrumentationKey" Value="[InstrumentationKey]"/>
+      <EnvironmentVariable Name="UseAzureActiveDirectory" Value="[UseAzureActiveDirectory]"/>
+      <EnvironmentVariable Name="AzureActiveDirectoryClientId" Value="[AzureActiveDirectoryClientId]"/>
+      <EnvironmentVariable Name="AzureActiveDirectoryTenant" Value="[AzureActiveDirectoryTenant]"/>
+      <EnvironmentVariable Name="PostLogoutRedirectUri" Value="[PostLogoutRedirectUri]"/>
     </EnvironmentOverrides>
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
