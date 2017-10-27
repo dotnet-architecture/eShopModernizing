@@ -4,7 +4,7 @@ services:
   eshop.modernized.webforms:
     image: eshop/modernizedwebforms
     depends_on:
-      - sql.data
+      - sqlwf.data
 
-  sql.data:
+  sqlwf.data:
     image: microsoft/mssql-server-windows-developer
