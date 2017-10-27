@@ -12,7 +12,7 @@ services:
       - UseAzureActiveDirectory=${USE_AZURE_ACTIVE_DIRECTORY}
       - AzureActiveDirectoryClientId=${AZURE_ACTIVE_DIRECTORY_CLIENT_ID}
       - AzureActiveDirectoryTenant=${AZURE_ACTIVE_DIRECTORY_TENANT}
-      - PostLogoutRedirectUri=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP:-10.0.75.1}:5115/
+      - PostLogoutRedirectUri=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP:-10.0.75.1}:5114/
     ports:
       - "5114:80"
 
