@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  eshop.modernized.webforms:
+    image: eshop/modernizedwebforms
+    depends_on:
+      - sqlwf.data
+
+  sqlwf.data:
+    image: microsoft/mssql-server-windows-developer

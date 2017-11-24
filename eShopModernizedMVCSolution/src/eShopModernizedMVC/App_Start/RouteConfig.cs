@@ -13,6 +13,7 @@ namespace eShopModernizedMVC
         {
             routes.MapMvcAttributeRoutes();
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("Pics/{*pathInfo}");
 
             routes.MapRoute(
                 name: "Default",

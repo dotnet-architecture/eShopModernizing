@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest ApplicationTypeName="eShopModernizedMVC_ServiceFabricAppType"
+                     ApplicationTypeVersion="1.0.0"
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric"
+                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Parameters>
+    <Parameter Name="MVC_Container_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="UseAzureStorage" DefaultValue="False"/>
+    <Parameter Name="StorageConnectionString" DefaultValue=""/>
+    <Parameter Name="InstrumentationKey" DefaultValue="" />
+    <Parameter Name="UseAzureActiveDirectory" DefaultValue="False" />
+    <Parameter Name="AzureActiveDirectoryClientId" DefaultValue="" />
+    <Parameter Name="AzureActiveDirectoryTenant" DefaultValue="" />
+    <Parameter Name="PostLogoutRedirectUri" DefaultValue="" />
+  </Parameters>
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
+       should match the Name and Version attributes of the ServiceManifest element defined in the 
+       ServiceManifest.xml file. -->
+
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="MVC_ContainerPkg" ServiceManifestVersion="1.0.0" />
+    <!-- Override external urls depending on environment -->
+    <EnvironmentOverrides CodePackageRef="Code">
+      <EnvironmentVariable Name="UseAzureStorage" Value="[UseAzureStorage]"/>
+      <EnvironmentVariable Name="StorageConnectionString" Value="[StorageConnectionString]"/>
+      <EnvironmentVariable Name="AppInsightsInstrumentationKey" Value="[InstrumentationKey]"/>
+      <EnvironmentVariable Name="UseAzureActiveDirectory" Value="[UseAzureActiveDirectory]"/>
+      <EnvironmentVariable Name="AzureActiveDirectoryClientId" Value="[AzureActiveDirectoryClientId]"/>
+      <EnvironmentVariable Name="AzureActiveDirectoryTenant" Value="[AzureActiveDirectoryTenant]"/>
+      <EnvironmentVariable Name="PostLogoutRedirectUri" Value="[PostLogoutRedirectUri]"/>
+    </EnvironmentOverrides>
+    <Policies>
+      <ContainerHostPolicies CodePackageRef="Code">
+        <PortBinding ContainerPort="80" EndpointRef="MVC_ContainerTypeEndpoint"/>
+      </ContainerHostPolicies>
+    </Policies>
+  </ServiceManifestImport>
+
+  <DefaultServices>
+    <!-- The section below creates instances of service types, when an instance of this 
+         application type is created. You can also create one or more instances of service type using the 
+         ServiceFabric PowerShell module.         
+         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+
+    <Service Name="MVC_Container" ServiceDnsName="eshopmodernized.mvcapp" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="MVC_ContainerType" InstanceCount="[MVC_Container_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+
+  </DefaultServices>
+
+</ApplicationManifest>

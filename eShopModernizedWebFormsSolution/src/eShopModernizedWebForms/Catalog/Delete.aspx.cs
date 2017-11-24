@@ -1,5 +1,7 @@
 ﻿using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Services;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.OpenIdConnect;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +19,11 @@ namespace eShopModernizedWebForms.Catalog
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Send an OpenID Connect sign-in request.
+            if (!Request.IsAuthenticated)
+            {
+                Context.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
+            }
             var productId = Convert.ToInt32(Page.RouteData.Values["id"]);
             productToDelete = CatalogService.FindCatalogItem(productId);
 

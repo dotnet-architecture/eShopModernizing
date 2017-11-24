@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "eShopModernizedMVC_ServiceFabricApp", "eShopModernizedMVC-ServiceFabricApp\eShopModernizedMVC_ServiceFabricApp.sfproj", "{5AF25B71-4119-40FE-A0ED-86252E852AE2}"
+EndProject
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "eShopModernizedSQL_ServiceFabricApp", "eShopModernizedSQL_ServiceFabricApp\eShopModernizedSQL_ServiceFabricApp.sfproj", "{C15082A7-2FBA-4B53-925D-44E844AFF542}"
+EndProject
+Project("{A07B5EB6-E848-4116-A8D0-A826331D98C6}") = "eShopModernizedWebFormsSF", "eShopModernizedWebForms-ServiceApp\eShopModernizedWebFormsSF.sfproj", "{F4A1A2FC-0CA6-4B91-9685-91E1ECD39D6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Debug|x64.ActiveCfg = Debug|x64
+		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Debug|x64.Build.0 = Debug|x64
+		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Debug|x64.Deploy.0 = Debug|x64
+		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Release|x64.ActiveCfg = Release|x64
+		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Release|x64.Build.0 = Release|x64
+		{5AF25B71-4119-40FE-A0ED-86252E852AE2}.Release|x64.Deploy.0 = Release|x64
+		{C15082A7-2FBA-4B53-925D-44E844AFF542}.Debug|x64.ActiveCfg = Debug|x64
+		{C15082A7-2FBA-4B53-925D-44E844AFF542}.Debug|x64.Build.0 = Debug|x64
+		{C15082A7-2FBA-4B53-925D-44E844AFF542}.Debug|x64.Deploy.0 = Debug|x64
+		{C15082A7-2FBA-4B53-925D-44E844AFF542}.Release|x64.ActiveCfg = Release|x64
+		{C15082A7-2FBA-4B53-925D-44E844AFF542}.Release|x64.Build.0 = Release|x64
+		{C15082A7-2FBA-4B53-925D-44E844AFF542}.Release|x64.Deploy.0 = Release|x64
+		{F4A1A2FC-0CA6-4B91-9685-91E1ECD39D6D}.Debug|x64.ActiveCfg = Debug|x64
+		{F4A1A2FC-0CA6-4B91-9685-91E1ECD39D6D}.Debug|x64.Build.0 = Debug|x64
+		{F4A1A2FC-0CA6-4B91-9685-91E1ECD39D6D}.Debug|x64.Deploy.0 = Debug|x64
+		{F4A1A2FC-0CA6-4B91-9685-91E1ECD39D6D}.Release|x64.ActiveCfg = Release|x64
+		{F4A1A2FC-0CA6-4B91-9685-91E1ECD39D6D}.Release|x64.Build.0 = Release|x64
+		{F4A1A2FC-0CA6-4B91-9685-91E1ECD39D6D}.Release|x64.Deploy.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FB730492-C9A4-432F-89B8-5DD2C69C5404}
+	EndGlobalSection
+EndGlobal

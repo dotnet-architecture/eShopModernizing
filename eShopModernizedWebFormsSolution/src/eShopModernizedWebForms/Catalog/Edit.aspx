@@ -6,8 +6,25 @@
 
     <div class="container">
         <div class="row">
-            <asp:Image runat="server" CssClass="col-md-6 esh-picture" ImageUrl='<%#"/Pics/" + product.PictureFileName%>' />
-            <div class="col-md-6 form-horizontal">
+            <div class="col-md-4">
+                <asp:Image runat="server" CssClass="esh-picture" ImageUrl='<%#"/Pics/" + product.PictureFileName%>' />
+
+                <div runat="server" id="UploadButton" class="row">
+                        <div class="col-md-6">
+                            <label class="btn btn-default esh-button-upload">
+                                Upload image
+                                <input type="file" id="uploadEditorImage" accept="image/*" class="hidden" />
+                            </label>
+                            <asp:HiddenField ID="TempImageName" runat="server" Value="" ClientIDMode="Static"/>
+                        </div>
+
+                        <div class="esh-loader col-md-3 hidden"></div>
+                        <div class="col-md-6">
+                            <span class="text-danger field-validation-error" id="img-validation-error"></span>
+                        </div>
+                    </div>
+                </div>
+            <div class="col-md-8 form-horizontal">
 
                 <div class="form-group">
                     <label class="control-label col-md-4">Name</label>

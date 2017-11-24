@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Name="fabric:/eShopModernizedMVC_ServiceFabricApp" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Parameters>
+    <Parameter Name="MVC_Container_InstanceCount" Value="-1" />
+    <Parameter Name="UseAzureStorage" Value="#{use_azure_storage}#"/>
+    <Parameter Name="StorageConnectionString" Value="#{your_storage_connection_string}#"/>
+    <Parameter Name="InstrumentationKey" Value="#{your_app_insights_instrument_key}#" />
+    <Parameter Name="UseAzureActiveDirectory" Value="#{use_azure_active_directory}#" />
+    <Parameter Name="AzureActiveDirectoryClientId" Value="#{your_aad_client_id}#" />
+    <Parameter Name="AzureActiveDirectoryTenant" Value="#{your_aad_directory_tenant}#" />
+    <Parameter Name="PostLogoutRedirectUri" Value="#{your_aad_logout_refirect_uri}#" />
+  </Parameters>
+</Application>

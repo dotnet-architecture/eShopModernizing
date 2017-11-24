@@ -3,12 +3,12 @@ using Autofac.Integration.Mvc;
 using eShopModernizedMVC.Models;
 using eShopModernizedMVC.Models.Infrastructure;
 using eShopModernizedMVC.Modules;
+using eShopModernizedMVC.Services;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
+using System.Diagnostics;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
@@ -27,6 +27,8 @@ namespace eShopModernizedMVC
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ConfigDataBase();
+            InitializeCatalogImages();
+            InitializePipeline();
         }
 
         /// <summary>
@@ -37,12 +39,18 @@ namespace eShopModernizedMVC
             var builder = new ContainerBuilder();
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-            builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData));
+            builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData, CatalogConfiguration.UseAzureStorage));
 
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
 
             return container;
+        }
+
+        protected void Application_Error(Object sender, EventArgs e)
+        {
+            var raisedException = Server.GetLastError();
+            Trace.TraceError($"Unhandled exeption: {raisedException}");
         }
 
         private void ConfigDataBase()
@@ -53,5 +61,23 @@ namespace eShopModernizedMVC
             }
         }
 
+        private void InitializeCatalogImages()
+        {
+            var imageService = container.Resolve<IImageService>();
+            imageService.InitializeCatalogImages();
+        }
+
+        private void InitializePipeline()
+        {
+            TelemetryConfiguration.Active.TelemetryInitializers
+                .Add(new MyTelemetryInitializer());
+
+            var environmentKey = CatalogConfiguration.AppInsightsInstrumentationKey;
+
+            if (!string.IsNullOrEmpty(environmentKey))
+            {
+                TelemetryConfiguration.Active.InstrumentationKey = environmentKey;
+            }
+        }
     }
 }

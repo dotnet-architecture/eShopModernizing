@@ -88,7 +88,6 @@
             <dd class="text-right esh-button-actions">
                 @using (Html.BeginForm())
                 {
-                    @Html.AntiForgeryToken()
                     @Html.ActionLink("[ Cancel ]", "Index", null, new { @class = "btn esh-button esh-button-secondary" })
                     <button type="submit" class="btn esh-button esh-button-primary">[ Delete ]</button>
                 }

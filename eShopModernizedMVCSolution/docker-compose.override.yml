@@ -1,14 +1,20 @@
 version: '3'
 
 services:
-  eshopmodernizedmvc:
+  eshop.modernized.mvc:
     environment:
       - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
-      - PicBaseUrl=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP:-10.0.75.1}:5114/items/[0]/pic/
       - UseMockData=False
       - UseCustomizationData=False
+      - UseAzureStorage=False
+      - StorageConnectionString=${ESHOP_AZURE_STORAGE_CONNECTION_STRING}
+      - AppInsightsInstrumentationKey=${APP_INSIGHTS_INSTRUMENTATION_KEY}
+      - UseAzureActiveDirectory=false
+      - AzureActiveDirectoryClientId=${AZURE_ACTIVE_DIRECTORY_CLIENT_ID}
+      - AzureActiveDirectoryTenant=${AZURE_ACTIVE_DIRECTORY_TENANT}
+      - PostLogoutRedirectUri=http://${ESHOP_EXTERNAL_DNS_NAME_OR_IP:-10.0.75.1}:5115/
     ports:
-      - "5114:80"
+      - "5115:80"
 
   sql.data:
     environment:
@@ -16,6 +22,10 @@ services:
       - ACCEPT_EULA=Y
     ports:
       - "5433:1433"
+    healthcheck:
+      test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "Pass@word", "-Q", "select 1" ]
+      interval: 1s
+      retries: 20
 
 networks:
   default:

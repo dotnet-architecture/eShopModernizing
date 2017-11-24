@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using eShopModernizedMVC.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace eShopModernizedMVC
@@ -7,7 +8,14 @@ namespace eShopModernizedMVC
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
+            filters.Add(new ActionTracerFilter());
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new OutputCacheAttribute
+            {
+                VaryByParam = "*",
+                Duration = 0,
+                NoStore = true,
+            });
         }
     }
 }

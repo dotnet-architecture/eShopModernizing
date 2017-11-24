@@ -50,7 +50,7 @@
             <ItemTemplate>
                 <tr>
                     <td>
-                        <image class="esh-thumbnail" src='/Pics/<%#:Item.PictureFileName%>' />
+                        <image class="esh-thumbnail" src='<%#:Item.PictureUri%>' />
                         </a>
                     </td>
                     <td>

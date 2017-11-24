@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sql-data
+spec:
+  template:
+    metadata:
+      labels:
+        app: sql-data
+    spec:
+      containers:
+      - name: sql-data
+        image: microsoft/mssql-server-windows-developer
+        env:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: SA_PASSWORD
+          value: Pass@word
+      nodeSelector:
+       beta.kubernetes.io/os: windows
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sql-data
+  name: sql-data
+spec:
+  type: LoadBalancer
+  #loadBalancerIP: 52.187.173.125
+  ports:
+  - port: 1433
+    targetPort: 1433
+  selector:
+    app: sql-data

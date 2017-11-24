@@ -1,0 +1,59 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: eshop-modernized-mvc
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: eshop-modernized-mvc
+    spec:
+      containers:
+      - name: eshop-modernized-mvc
+        image: eshop/modernizedmvc
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        env:
+        - name: ConnectionString
+          value: "Server=sql-data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"
+        - name: UseMockData
+          value: "False"
+        - name: UseCustomizationData
+          value: "False"
+        - name: UseAzureStorage
+          value: "#{use_azure_storage}#"
+        - name: StorageConnectionString
+          value: "#{your_storage_connection_string}#"
+        - name: AppInsightsInstrumentationKey
+          value: "#{your_app_insights_instrument_key}#"
+        - name: UseAzureActiveDirectory
+          value: "#{use_azure_active_directory}#"
+        - name: AzureActiveDirectoryClientId
+          value: "#{your_aad_client_id}#"
+        - name: AzureActiveDirectoryTenant
+          value: "#{your_aad_directory_tenant}#"
+        - name: PostLogoutRedirectUri
+          value: "#{your_aad_logout_refirect_uri}#"
+      nodeSelector:
+       beta.kubernetes.io/os: windows
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eshop-modernized-mvc
+  labels:
+    app: eshop-modernized-mvc
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5115
+    targetPort: 80
+  selector:
+    app: eshop-modernized-mvc

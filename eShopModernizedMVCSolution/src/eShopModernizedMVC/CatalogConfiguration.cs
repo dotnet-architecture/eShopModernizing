@@ -18,14 +18,21 @@ namespace eShopModernizedMVC
                 return envConnectionString ?? $"name={configConnectionName}";
             }
         }
+
+
         public static bool UseMockData
         {
             get
             {
-                var environmentValue = Environment.GetEnvironmentVariable("UseMockData");
-                return environmentValue != null ?
-                    bool.Parse(environmentValue) :
-                    bool.Parse(ConfigurationManager.AppSettings["UseMockData"]);
+                return IsEnabled("UseMockData");
+            }
+        }
+
+        public static bool UseAzureStorage
+        {
+            get
+            {
+                return IsEnabled("UseAzureStorage");
             }
         }
 
@@ -33,19 +40,72 @@ namespace eShopModernizedMVC
         {
             get
             {
-                var environmentValue = Environment.GetEnvironmentVariable("UseCustomizationData");
-                return environmentValue != null ?
-                    bool.Parse(environmentValue) :
-                    bool.Parse(ConfigurationManager.AppSettings["UseCustomizationData"]);
+                return IsEnabled("UseCustomizationData");
             }
         }
 
-        public static string PicBaseUrl
+        public static string StorageConnectionString
         {
             get
             {
-                return Environment.GetEnvironmentVariable("PicBaseUrl");
+                return GetConfigurationValue("StorageConnectionString");
             }
+        }
+
+        public static string AppInsightsInstrumentationKey
+        {
+            get
+            {
+                return Environment.GetEnvironmentVariable("AppInsightsInstrumentationKey");
+            }
+        }
+
+        public static bool UseAzureActiveDirectory
+        {
+            get
+            {
+                return IsEnabled("UseAzureActiveDirectory");
+            }
+        }
+
+        public static string AzureActiveDirectoryClientId
+        {
+            get
+            {
+                return Environment.GetEnvironmentVariable("AzureActiveDirectoryClientId")??
+                    ConfigurationManager.AppSettings["ida:ClientId"];
+            }
+        }
+
+        public static string AzureActiveDirectoryTenant
+        {
+            get
+            {
+                return Environment.GetEnvironmentVariable("AzureActiveDirectoryTenant")??
+                    ConfigurationManager.AppSettings["ida:Tenant"];
+            }
+        }
+
+        public static string PostLogoutRedirectUri
+        {
+            get
+            {
+                return GetConfigurationValue("PostLogoutRedirectUri");
+            }
+        }
+
+        private static string GetConfigurationValue(string configurationKey)
+        {
+            var environmentValue = Environment.GetEnvironmentVariable(configurationKey);
+            return environmentValue ?? ConfigurationManager.AppSettings[configurationKey];
+        }
+
+        private static bool IsEnabled(string configurationKey)
+        {
+            var environmentValue = Environment.GetEnvironmentVariable(configurationKey);
+            return environmentValue != null ?
+                bool.Parse(environmentValue) :
+                bool.Parse(ConfigurationManager.AppSettings[configurationKey]);
         }
     }
 }

@@ -17,11 +17,12 @@ namespace eShopLegacyWebForms.Catalog
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var productId = Convert.ToInt32(Page.RouteData.Values["id"]);
-            product = CatalogService.FindCatalogItem(productId);
-
             if (!Page.IsPostBack)
             {
+
+                var productId = Convert.ToInt32(Page.RouteData.Values["id"]);
+                product = CatalogService.FindCatalogItem(productId);
+
                 BrandDropDownList.DataSource = CatalogService.GetCatalogBrands();
                 BrandDropDownList.SelectedValue = product.CatalogBrandId.ToString();
 
@@ -48,7 +49,7 @@ namespace eShopLegacyWebForms.Catalog
             {
                 var catalogItem = new CatalogItem
                 {
-                    Id = product.Id,
+                    Id = Convert.ToInt32(Page.RouteData.Values["id"]),
                     Name = Name.Text,
                     Description = Description.Text,
                     CatalogBrandId = int.Parse(BrandDropDownList.SelectedValue),

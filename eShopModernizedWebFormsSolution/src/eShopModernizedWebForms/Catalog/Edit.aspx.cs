@@ -1,7 +1,10 @@
 ﻿using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Services;
+using Microsoft.Owin.Security;
+using Microsoft.Owin.Security.OpenIdConnect;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,13 +18,24 @@ namespace eShopModernizedWebForms.Catalog
 
         public ICatalogService CatalogService { get; set; }
 
+        public IImageService ImageService { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            var productId = Convert.ToInt32(Page.RouteData.Values["id"]);
-            product = CatalogService.FindCatalogItem(productId);
-
             if (!Page.IsPostBack)
             {
+                // Send an OpenID Connect sign-in request.
+                if (!Request.IsAuthenticated)
+                {
+                    Context.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
+                }
+                if (!CatalogConfiguration.UseAzureStorage)
+                {
+                    UploadButton.Visible = false;
+                }
+
+                var productId = Convert.ToInt32(Page.RouteData.Values["id"]);
+                product = CatalogService.FindCatalogItem(productId);
                 BrandDropDownList.DataSource = CatalogService.GetCatalogBrands();
                 BrandDropDownList.SelectedValue = product.CatalogBrandId.ToString();
 
@@ -48,7 +62,7 @@ namespace eShopModernizedWebForms.Catalog
             {
                 var catalogItem = new CatalogItem
                 {
-                    Id = product.Id,
+                    Id = Convert.ToInt32(Page.RouteData.Values["id"]),
                     Name = Name.Text,
                     Description = Description.Text,
                     CatalogBrandId = int.Parse(BrandDropDownList.SelectedValue),
@@ -57,8 +71,17 @@ namespace eShopModernizedWebForms.Catalog
                     PictureFileName = PictureFileName.Text,
                     AvailableStock = int.Parse(Stock.Text),
                     RestockThreshold = int.Parse(Restock.Text),
-                    MaxStockThreshold = int.Parse(Maxstock.Text)
+                    MaxStockThreshold = int.Parse(Maxstock.Text),
+                    TempImageName = TempImageName.Value
                 };
+
+                if (!string.IsNullOrEmpty(catalogItem.TempImageName))
+                {
+                    ImageService.UpdateImage(catalogItem);
+                    var fileName = Path.GetFileName(catalogItem.TempImageName);
+                    catalogItem.PictureFileName = fileName;
+                }
+
                 CatalogService.UpdateCatalogItem(catalogItem);
 
                 Response.Redirect("~");

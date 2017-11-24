@@ -3,16 +3,15 @@ using Autofac.Integration.Web;
 using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Models.Infrastructure;
 using eShopModernizedWebForms.Modules;
+using eShopModernizedWebForms.Services;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Data.Entity;
-using System.Linq;
+using System.Diagnostics;
 using System.Web;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
 
 namespace eShopModernizedWebForms
 {
@@ -33,6 +32,21 @@ namespace eShopModernizedWebForms
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ConfigureContainer();
             ConfigDataBase();
+            InitializeCatalogImages();
+            InitializePipeline();
+            this.BeginRequest += Application_BeginRequest;
+        }
+
+        protected void Application_Error(Object sender, EventArgs e)
+        {
+            var raisedException = Server.GetLastError();
+            Trace.TraceError($"Unhandled exeption WebForms: {raisedException}");
+        }
+
+        protected virtual void Application_BeginRequest(object sender, EventArgs e)
+        {
+            var url = Request.Url.AbsoluteUri;
+            Trace.TraceInformation($"Received request {url}.");
         }
 
         /// <summary>
@@ -42,7 +56,7 @@ namespace eShopModernizedWebForms
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData));
+            builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData, CatalogConfiguration.UseAzureStorage));
             container = builder.Build();
             _containerProvider = new ContainerProvider(container);
         }
@@ -52,6 +66,24 @@ namespace eShopModernizedWebForms
             if (!CatalogConfiguration.UseMockData)
             {
                 Database.SetInitializer<CatalogDBContext>(container.Resolve<CatalogDBInitializer>());
+            }
+        }
+
+        private void InitializeCatalogImages()
+        {
+            var imageService = container.Resolve<IImageService>();
+            imageService.InitializeCatalogImages();
+        }
+
+        private void InitializePipeline()
+        {
+            TelemetryConfiguration.Active.TelemetryInitializers
+                .Add(new MyTelemetryInitializer());
+            var environmentKey = CatalogConfiguration.AppInsightsInstrumentationKey;
+
+            if (!string.IsNullOrEmpty(environmentKey))
+            {
+                TelemetryConfiguration.Active.InstrumentationKey = environmentKey;
             }
         }
     }

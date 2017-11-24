@@ -1,4 +1,4 @@
-﻿<%@ master language="C#" autoeventwireup="true" codebehind="Site.master.cs" inherits="eShopModernizedWebForms.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="eShopModernizedWebForms.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -44,12 +44,27 @@
                 <a runat="server" href="~/">
                     <img src="/images/brand.png" />
                 </a>
+                <asp:LoginView id="Login" runat="server" ViewStateMode="Disabled">
+                    <AnonymousTemplate>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><asp:LinkButton CssClass="esh-login-link" runat="server" Text="Sign in" OnClick="Login_Click" /></li>
+                        </ul>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="navbar-text" runat="server">Hello, <%: Context.User.Identity.Name %> !</li>
+                            <li>
+                                <asp:LoginStatus CssClass="esh-login-link" runat="server" LogoutAction="Redirect" LogoutText="Sign out" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                            </li>
+                        </ul>
+                    </LoggedInTemplate>
+                </asp:LoginView>
             </div>
         </header>
 
         <section class="esh-app-hero">
             <div class="container esh-header">
-                <h1 class="esh-header-title">Catalog manager <span>(Web Forms)</span></h1>
+                <h1 class="esh-header-title">Catalog Manager <span>(WebForms)</span></h1>
             </div>
         </section>
 

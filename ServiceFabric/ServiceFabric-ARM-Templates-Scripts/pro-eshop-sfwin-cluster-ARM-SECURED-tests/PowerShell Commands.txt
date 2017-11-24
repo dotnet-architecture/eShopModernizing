@@ -1,0 +1,66 @@
+
+1. Enable executions
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+
+2. INSTALL Azure PowerShell SDK:
+https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0
+
+3. Check version of PowerShell:
+Get-Module PowerShellGet -list | Select-Object Name,Version,Path
+
+4. Install Azure PowerShell:
+Install-Module AzureRM
+
+5. Load AzureRM module:
+Import-Module AzureRM
+
+6.
+Login-AzureRmAccount
+
+7.
+Select-AzureRmSubscription -SubscriptionId YOUR-SUBSCRIPTION-GUID
+
+8. Create folder for Certificates
+mkdir c:\MyServiceFabricCertificates
+
+8.
+$pwd = "Your@PasswordSuperStrong99" | ConvertTo-SecureString -AsPlainText -Force
+
+10. CREATE THE CLUSTER: see: https://docs.microsoft.com/en-us/powershell/module/azurerm.servicefabric/new-azurermservicefabriccluster?view=azurermps-4.3.1
+
+New-AzureRmServiceFabricCluster -ResourceGroupName “pro-eshop-sfwin-cluster” -Location “westus” -ClusterSize 5 -VmPassword $pwd -CertificateSubjectName “pro-eshop-sfwin-cluster.westus.cloudapp.azure.com” -CertificateOutputFolder “c:\MyServiceFabricCertificates\” -CertificatePassword $pwd -OS WindowsServer2016DatacenterwithContainers
+
+
+
+
+New-AzureRmServiceFabricCluster -ResourceGroupName $resGrpName -ClusterName $clusterName -Location $clusterloc -ClusterSize 5 -VmPassword $pwd -CertificateSubjectName $subname -CertificateOutputFolder $pfxfolder -CertificatePassword $pwd -OS WindowsServer2016DatacenterwithContainers
+
+
+SECURE INFO CLUSTER UI:
+
+Source key vault:
+/subscriptions/e3035ac1-c06c-4daf-8939-57b3c5f1f759/resourceGroups/eshop-global-resgrp/providers/Microsoft.KeyVault/vaults/eshop-keyvault
+
+Certificate URL:
+
+
+====================================================================================================
+LONG METHOD with ARM templates - TBD ---
+====================================================================================================
+
+9. TEST the resource manager template
+
+Test-AzureRmResourceGroupDeployment -ResourceGroupName "pro-eshop-sfwin-cluster-resgrp" -TemplateFile .\template.json -TemplateParameterFile .\parameters.json
+
+
+10. Create the cluster:
+cd D:\GitRepos\eShopModernizing-master\ServiceFabric\ServiceFabric-ARM-Templates-Scripts\pro-eshop-sfwin-cluster-ARM-SECURED
+
+
+
+
+New-AzureRmServiceFabricCluster -TemplateFile template.json -ParameterFile parameters.json -CertificateOutputFolder C:\Users\CESARDL\Desktop\ -CertificatePassword $pwd -CertificateSubjectName "pro-eshop-sfwin-cluster.westus.cloudapp.azure.com" -ResourceGroupName pro-eshop-sfwin-cluster-resgrp
+
+
+New-AzureRmServiceFabricCluster -TemplateFile "D:\GitRepos\eShopModernizing-master\ServiceFabric\ServiceFabric-ARM-Templates-Scripts\pro-eshop-sfwin-cluster-ARM-SECURED\template.json" -ParameterFile "D:\GitRepos\eShopModernizing-master\ServiceFabric\ServiceFabric-ARM-Templates-Scripts\pro-eshop-sfwin-cluster-ARM-SECURED\parameters.json" -CertificateOutputFolder "C:\Users\CESARDL\Desktop\" -CertificatePassword $pwd -CertificateSubjectName "pro-eshop-sfwin-cluster.westus.cloudapp.azure.com" -ResourceGroupName pro-eshop-sfwin-cluster-resgrp
+

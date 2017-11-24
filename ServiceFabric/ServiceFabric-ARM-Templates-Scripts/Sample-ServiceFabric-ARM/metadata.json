@@ -1,0 +1,7 @@
+{
+  "itemDisplayName": "1, 3 - 99 Node secure Service Fabric Cluster with Manual version",
+  "description": "This template allows you to deploy 1, 3 - 99 Node secure Service Fabric Cluster with Manual version running Windows server 2016 Data center with DNS service on",
+  "summary": "This template takes a minimum amount of parameters and deploys 1, 3 - 99 Node secure Service Fabric Cluster with Manual version",
+  "githubUsername": "chackdan",
+  "dateUpdated": "2017-05-01"
+}
