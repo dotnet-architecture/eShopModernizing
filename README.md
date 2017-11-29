@@ -1,6 +1,7 @@
 
 # eShopModernizing web applications
 This repo provides two sample hypothetical legacy eShop web apps (traditional ASP.NET WebForms and MVC  in .NET Framework) and how you can modernize them (Lift and Shift scenario) with Windows Containers and Azure Cloud into the following deployment options:
+
 - Regular Windows Server 2016 VM (Virtual Machine)
 - ACS-Kubernetes orchestrator cluster
 - Service Fabric orchestrators cluster
