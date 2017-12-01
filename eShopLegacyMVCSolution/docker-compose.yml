@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  eshoplegacymvc:
+    image: eshoplegacymvc
+    build:
+      context: .\src\eShopLegacyMVC
+      dockerfile: Dockerfile
