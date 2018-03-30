@@ -9,7 +9,6 @@
     <DockerServiceName>eshopmodernizedwebforms</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="docker-compose.ci.build.yml" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
