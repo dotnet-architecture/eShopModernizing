@@ -1,4 +1,4 @@
-FROM microsoft/aspnet:4.6.2
+FROM microsoft/aspnet:4.7.1
 ARG source
 WORKDIR /inetpub/wwwroot
 EXPOSE 80
