@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  eshopwcfservice:
+    environment:
+      - ConnectionString=Server=sql.data;Database=eShopDatabase;User Id=sa;Password=Testing11@@
+    ports:
+     - "80:80"
+  sql.data:
+    environment:
+      - SA_PASSWORD=Testing11@@
+      - ACCEPT_EULA=Y
+    ports:
+      - "5433:1433"
+    healthcheck:
+      test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "Testing11@@", "-Q", "select 1" ]
+      interval: 1s
+networks:
+  default:
+    external:
+      name: nat
