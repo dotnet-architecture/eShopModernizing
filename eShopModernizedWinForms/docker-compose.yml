@@ -4,7 +4,7 @@ services:
   eshopwcfservice:
     image: eshop/wcfservice
     build:
-      context: ./eShopWCFService
+      context: ./src/eShopWCFService
       dockerfile: Dockerfile
     depends_on:
       - sql.data
