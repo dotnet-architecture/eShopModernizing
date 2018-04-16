@@ -5,15 +5,15 @@ services:
   eshopwcfservice:
     image: eshop/wcfservice:${TAG:-latest}
     build:
-      context: ./eShopModernizedWinForms/src/eShopWCFService
-      dockerfile: Dockerfile  
+      context: ./deploy/wcf
+      dockerfile: Dockerfile
     depends_on:
       - sql.data
 
   eshop.modernized.webforms:
     image: eshop/modernizedwebforms:${TAG:-latest}
     build:
-      context: ./eShopModernizedWebFormsSolution/src/eShopModernizedWebForms
+      context: ./deploy/webforms
       dockerfile: Dockerfile
     depends_on:
       - sql.data      
@@ -21,7 +21,7 @@ services:
   eshop.modernized.mvc:
     image: eshop/modernizedmvc:${TAG:-latest}
     build:
-      context: ./eShopModernizedMVCSolution/src/eShopModernizedMVC
+      context: ./deploy/mvc
       dockerfile: Dockerfile
     depends_on:
       - sql.data      

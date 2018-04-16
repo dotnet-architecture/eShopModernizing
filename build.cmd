@@ -1,0 +1,12 @@
+@echo [93m Building MVC project...[0m
+msbuild eShopModernizedMVCSolution\src\eShopModernizedMVC\eShopModernizedMVC.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\mvc\
+@echo [93m Building Webforms project...[0m
+msbuild eShopModernizedWebFormsSolution\src\eShopModernizedWebForms\eShopModernizedWebForms.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\webforms\
+@echo [93m Building WCF project...[0m
+msbuild eShopModernizedWinForms\src\eShopWCFService\eShopWCFService.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\wcf\
+@echo [93m Copying Dockerfiles to deploy folder[0m
+@copy /Y eShopModernizedWinForms\src\eShopWCFService\Dockerfile deploy\wcf\ 
+@copy /Y eShopModernizedMVCSolution\src\eShopModernizedMVC\Dockerfile deploy\mvc
+@copy /Y eShopModernizedWebFormsSolution\src\eShopModernizedWebForms\Dockerfile deploy\webforms
+@echo [93m Building docker images... [0m
+docker-compose -f docker-compose.yml -f docker-compose.override.yml build
