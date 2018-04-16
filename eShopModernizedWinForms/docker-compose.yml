@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  eshopwcfservice:
+    image: eshop/wcfservice
+    build:
+      context: ./src/eShopWCFService
+      dockerfile: Dockerfile
+    depends_on:
+      - sql.data
+
+  sql.data:
+    image: microsoft/mssql-server-windows-developer

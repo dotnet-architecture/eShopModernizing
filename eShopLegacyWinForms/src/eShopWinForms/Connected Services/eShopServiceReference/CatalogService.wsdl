@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CatalogService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:62314/CatalogService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:62314/CatalogService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:62314/CatalogService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/eShopWCFService.Models" />
+      <xsd:import schemaLocation="http://localhost:62314/CatalogService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/eShopWCFService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICatalogService_FindCatalogItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindCatalogItem" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_FindCatalogItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindCatalogItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetCatalogBrands_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogBrands" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetCatalogBrands_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogBrandsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetCatalogItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogItems" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetCatalogItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetCatalogTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogTypes" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetCatalogTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCatalogTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetAvailableStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableStock" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetAvailableStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_CreateAvailableStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAvailableStock" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_CreateAvailableStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAvailableStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_CreateCatalogItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCatalogItem" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_CreateCatalogItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCatalogItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_UpdateCatalogItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCatalogItem" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_UpdateCatalogItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCatalogItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_RemoveCatalogItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCatalogItem" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_RemoveCatalogItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveCatalogItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetDiscount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscount" />
+  </wsdl:message>
+  <wsdl:message name="ICatalogService_GetDiscount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDiscountResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICatalogService">
+    <wsdl:operation name="FindCatalogItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/FindCatalogItem" message="tns:ICatalogService_FindCatalogItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/FindCatalogItemResponse" message="tns:ICatalogService_FindCatalogItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogBrands">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogBrands" message="tns:ICatalogService_GetCatalogBrands_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogBrandsResponse" message="tns:ICatalogService_GetCatalogBrands_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogItems" message="tns:ICatalogService_GetCatalogItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogItemsResponse" message="tns:ICatalogService_GetCatalogItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogTypes" message="tns:ICatalogService_GetCatalogTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetCatalogTypesResponse" message="tns:ICatalogService_GetCatalogTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetAvailableStock" message="tns:ICatalogService_GetAvailableStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetAvailableStockResponse" message="tns:ICatalogService_GetAvailableStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAvailableStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/CreateAvailableStock" message="tns:ICatalogService_CreateAvailableStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/CreateAvailableStockResponse" message="tns:ICatalogService_CreateAvailableStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateCatalogItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/CreateCatalogItem" message="tns:ICatalogService_CreateCatalogItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/CreateCatalogItemResponse" message="tns:ICatalogService_CreateCatalogItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCatalogItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/UpdateCatalogItem" message="tns:ICatalogService_UpdateCatalogItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/UpdateCatalogItemResponse" message="tns:ICatalogService_UpdateCatalogItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCatalogItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/RemoveCatalogItem" message="tns:ICatalogService_RemoveCatalogItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/RemoveCatalogItemResponse" message="tns:ICatalogService_RemoveCatalogItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscount">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICatalogService/GetDiscount" message="tns:ICatalogService_GetDiscount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICatalogService/GetDiscountResponse" message="tns:ICatalogService_GetDiscount_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICatalogService" type="tns:ICatalogService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindCatalogItem">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/FindCatalogItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogBrands">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/GetCatalogBrands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogItems">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/GetCatalogItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogTypes">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/GetCatalogTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableStock">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/GetAvailableStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAvailableStock">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/CreateAvailableStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateCatalogItem">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/CreateCatalogItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCatalogItem">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/UpdateCatalogItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveCatalogItem">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/RemoveCatalogItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDiscount">
+      <soap:operation soapAction="http://tempuri.org/ICatalogService/GetDiscount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CatalogService">
+    <wsdl:port name="BasicHttpBinding_ICatalogService" binding="tns:BasicHttpBinding_ICatalogService">
+      <soap:address location="http://localhost:62314/CatalogService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

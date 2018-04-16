@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sql-data-for-wcf
+spec:
+  template:
+    metadata:
+      labels:
+        app: sql-data-for-wcf
+    spec:
+      containers:
+      - name: sql-data-for-wcf
+        image: microsoft/mssql-server-windows-developer
+        env:
+        - name: ACCEPT_EULA
+          value: "Y"
+        - name: SA_PASSWORD
+          value: Testing11@@
+      nodeSelector:
+       beta.kubernetes.io/os: windows
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sql-data-for-wcf
+  name: sql-data-for-wcf
+spec:
+  type: LoadBalancer
+  #loadBalancerIP: 52.187.173.125
+  ports:
+  - port: 1433
+    targetPort: 1433
+  selector:
+    app: sql-data-for-wcf

@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+
+  eshopwcfservice:
+    image: eshop/wcfservice:${TAG:-latest}
+    build:
+      context: ./deploy/wcf
+      dockerfile: Dockerfile
+    depends_on:
+      - sql.data
+
+  eshop.modernized.webforms:
+    image: eshop/modernizedwebforms:${TAG:-latest}
+    build:
+      context: ./deploy/webforms
+      dockerfile: Dockerfile
+    depends_on:
+      - sql.data      
+
+  eshop.modernized.mvc:
+    image: eshop/modernizedmvc:${TAG:-latest}
+    build:
+      context: ./deploy/mvc
+      dockerfile: Dockerfile
+    depends_on:
+      - sql.data      
+    
+  sql.data:
+    image: microsoft/mssql-server-windows-developer
+
