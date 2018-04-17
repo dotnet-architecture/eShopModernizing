@@ -1,7 +1,7 @@
 
 # eShopModernizing web applications
 
-This repo provides two sample hypothetical legacy eShop web apps (traditional ASP.NET WebForms and MVC  in .NET Framework) and how you can modernize them (Lift and Shift scenario) with Windows Containers and Azure Cloud into the following deployment options:
+This repo provides three sample hypothetical legacy eShop web apps (Winforms using traditional WCF service, traditional ASP.NET WebForms and MVC  in .NET Framework) and how you can modernize them (Lift and Shift scenario) with Windows Containers and Azure Cloud into the following deployment options:
 
 - Regular Windows Server 2016 VM (Virtual Machine)
 - ACS-Kubernetes orchestrator cluster
@@ -41,6 +41,10 @@ The WebFoms and MVC apps are pretty similiar in regards UI and business features
 
 ![image](https://user-images.githubusercontent.com/1712635/30354210-0638f3b2-97e0-11e7-82c5-df18197ccdbd.png)
 
+### Winforms + WCF Application
+
+The winforms application is a catalog management, and uses a WCF as a back-end. Read more about the Winforms + WCF sample [here](./winforms-wcf.md)
+
 ### DEPLOYMENT TO AZURE WINDOWS SERVER 2016 VM
 ![image](https://user-images.githubusercontent.com/1712635/30402804-d62632a2-9893-11e7-817a-f9f616cdf380.png)
 
@@ -50,6 +54,32 @@ The WebFoms and MVC apps are pretty similiar in regards UI and business features
 ### DEPLOYMENT TO SERVICE FABRIC CLUSTER
 ![image](https://user-images.githubusercontent.com/1712635/30446445-094e998a-993e-11e7-96d8-ed1dd9fef142.png)
 
+
+## Quick start: Running all samples together
+
+To run all samples together using Docker, open a "Developer Command Prompt for Visual Studio" (to ensure you have right `msbuild` on `PATH`) and run the `build.cmd` script. This script will:
+
+* Build MVC project
+* Build Webforms project
+* Build WCF back-end project
+* Create three docker images:
+   * `eshop/modernizedwebforms`
+   * `eshop/modernizedmvc`
+   * `eshop/wcfservice`
+
+Finally just run `docker-compose up` (in the root of the repo) to start all three projects and one SQL Server container. Once containers are started:
+
+* MVC listens in port 5115
+* Webforms listens in port 5114
+* WCF service listens in port 5113
+
+>**Note** You should be able to use `http://localhost:<port>` to access the desired application but **due to a current limitation of Windows Containers this won't probably work**. In this case you have to use the internal IP of the container to access the application. To find the internal IP, just type  `docker ps` to find the container ids:
+
+![docker ps output](./assets/docker-ps.png)
+
+Then use the command `docker inspect  <ip-container> -f {{.NetworkSettings.Networks.nat.IPAddress}}` to find the container IP, and use this IP **and port 80** to access the container:
+
+![accessing-container](./assets/internal-ip-access.png)
 
 ## Review the Wiki for detailed instructions on how to set it up and deploy to multiple environments
 
