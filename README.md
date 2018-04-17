@@ -1,8 +1,9 @@
 
-# eShopModernizing web applications
+# eShopModernizing - Modernizing ASP.NET Web apps (MVC and WebForms) and N-Tier apps (WCF + WinForms)
 
-This repo provides three sample hypothetical legacy eShop web apps (Winforms using traditional WCF service, traditional ASP.NET WebForms and MVC  in .NET Framework) and how you can modernize them (Lift and Shift scenario) with Windows Containers and Azure Cloud into the following deployment options:
+This repo provides three sample hypothetical legacy eShop web apps (traditional ASP.NET WebForms and MVC in .NET Framework and an N-Tier app based on a WCF service and a client WinForms desktop app) and how you can modernize them (Lift and Shift scenario) with Windows Containers and Azure Cloud into the following deployment options:
 
+- Local build and deployment in dev PC with Visual Studio and Docker for Windows
 - Regular Windows Server 2016 VM (Virtual Machine)
 - ACS-Kubernetes orchestrator cluster
 - Service Fabric orchestrators cluster
