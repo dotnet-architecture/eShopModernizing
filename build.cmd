@@ -1,3 +1,8 @@
+@echo [93m Creating the 'deploy' folder tree[0m
+@mkdir -p deploy\wcf
+@mkdir -p deploy\mvc
+@mkdir -p deploy\webforms
+
 @echo [93m Building MVC project...[0m
 msbuild eShopModernizedMVCSolution\src\eShopModernizedMVC\eShopModernizedMVC.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\mvc\
 @echo [93m Building Webforms project...[0m
