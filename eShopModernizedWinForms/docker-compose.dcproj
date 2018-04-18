@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>ddcffc03-747f-4f15-93cc-93edc8014419</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
-    <DockerServiceUrl>http://{ServiceIPAddress}</DockerServiceUrl>
+    <DockerServiceUrl>http://{ServiceIPAddress}/CatalogService.svc</DockerServiceUrl>
     <DockerServiceName>eshopwcfservice</DockerServiceName>
     <DockerTargetOS>Windows</DockerTargetOS>
     <ProjectVersion>2.1</ProjectVersion>
