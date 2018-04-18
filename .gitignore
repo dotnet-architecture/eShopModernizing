@@ -162,6 +162,8 @@ PublishScripts/
 # NuGet v3's project.json files produces more ignoreable files
 *.nuget.props
 *.nuget.targets
+# Add nuget.exe for restore by cmd
+!nuget.exe
 
 # Microsoft Azure Build Output
 csx/

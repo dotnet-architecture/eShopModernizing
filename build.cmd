@@ -4,10 +4,13 @@
 @mkdir -p deploy\webforms
 
 @echo [93m Building MVC project...[0m
+nuget restore eShopModernizedMVCSolution\eShopModernizedMVC.sln
 msbuild eShopModernizedMVCSolution\src\eShopModernizedMVC\eShopModernizedMVC.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\mvc\
 @echo [93m Building Webforms project...[0m
+nuget restore eShopModernizedWebFormsSolution\eShopModernizedWebForms.sln
 msbuild eShopModernizedWebFormsSolution\src\eShopModernizedWebForms\eShopModernizedWebForms.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\webforms\
 @echo [93m Building WCF project...[0m
+nuget restore eShopModernizedWinForms\eShopModernizedWinForms.sln
 msbuild eShopModernizedWinForms\src\eShopWCFService\eShopWCFService.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\wcf\
 @echo [93m Copying Dockerfiles to deploy folder[0m
 @copy /Y eShopModernizedWinForms\src\eShopWCFService\Dockerfile deploy\wcf\ 
