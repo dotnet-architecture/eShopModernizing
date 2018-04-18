@@ -95,7 +95,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\CatalogView.Designer.cs">
-	<DependentUpon>CatalogView.cs</DependentUpon>
+      <DependentUpon>CatalogView.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\CatalogController.cs" />
     <Compile Include="Controllers\ICatalogView.cs" />
