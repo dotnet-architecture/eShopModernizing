@@ -58,15 +58,21 @@ The winforms application is a catalog management, and uses a WCF as a back-end. 
 
 ## Quick start: Running all apps together in your local Windows 10 PC with "Docker for Windows" and VS 2017
 
-To run all samples together using Docker for Windows, open a **"Developer Command Prompt for VS 2017"** (to ensure you have right `msbuild` on `PATH`) and run the `build.cmd` script. This script will:
+You have more detailed procedures at the [Wiki](https://github.com/dotnet-architecture/eShopModernizing/wiki), but for the quickest way to get started and run all samples together using Docker for Windows, open a **"Developer Command Prompt for VS 2017"** (to ensure you have right `msbuild` on `PATH`), go to the eShopModernizing root folder and run the `build.cmd` script. 
+
+This script will:
 
 * Build MVC project
 * Build Webforms project
 * Build WCF back-end project
-* Create three docker images:
+* Create three Docker images (Windows Container images):
    * `eshop/modernizedwebforms`
    * `eshop/modernizedmvc`
    * `eshop/wcfservice`
+
+You can check the just created Docker images by running `docker images` from the command line:
+
+![image](https://user-images.githubusercontent.com/1712635/38949583-a2c11ba2-42f7-11e8-9c10-b74f2a005186.png)
 
 Finally just run `docker-compose up` (in the root of the repo) to start all three projects and one SQL Server container. Once containers are started:
 
