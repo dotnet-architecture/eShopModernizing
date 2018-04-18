@@ -56,9 +56,9 @@ The winforms application is a catalog management, and uses a WCF as a back-end. 
 ![image](https://user-images.githubusercontent.com/1712635/30446445-094e998a-993e-11e7-96d8-ed1dd9fef142.png)
 
 
-## Quick start: Running all samples together
+## Quick start: Running all apps together in your local Windows 10 PC with "Docker for Windows" and VS 2017
 
-To run all samples together using Docker, open a "Developer Command Prompt for Visual Studio" (to ensure you have right `msbuild` on `PATH`) and run the `build.cmd` script. This script will:
+To run all samples together using Docker for Windows, open a **"Developer Command Prompt for VS 2017"** (to ensure you have right `msbuild` on `PATH`) and run the `build.cmd` script. This script will:
 
 * Build MVC project
 * Build Webforms project
