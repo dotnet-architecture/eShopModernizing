@@ -92,7 +92,7 @@ In order to test the apps/containers from within the Docker host itself (the dev
 
 ![docker ps output](./assets/docker-ps.png)
 
-Then use the command `docker inspect  <ip-container> -f {{.NetworkSettings.Networks.nat.IPAddress}}` to find the container IP, and use this IP **and port 80** to access the container:
+Then use the command `docker inspect  <CONTAINER-ID> -f {{.NetworkSettings.Networks.nat.IPAddress}}` to find the container's IP, and use that IP **and port 80** to access the container:
 
 ![accessing-container](./assets/internal-ip-access.png)
 
