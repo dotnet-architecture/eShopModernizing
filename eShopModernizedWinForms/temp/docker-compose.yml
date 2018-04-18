@@ -1,6 +1,7 @@
 version: '3'
 
 services:
+
   eshopwcfservice:
     image: eshop/wcfservice
     build:

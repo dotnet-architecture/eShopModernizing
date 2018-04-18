@@ -1,11 +1,13 @@
 version: '3.4'
 
 services:
+
   eshopwcfservice:
     environment:
       - ConnectionString=Server=sql.data;Database=eShopDatabase;User Id=sa;Password=Pass@word
     ports:
      - "5113:80"
+
   sql.data:
     environment:
       - SA_PASSWORD=Pass@word
@@ -16,6 +18,7 @@ services:
       test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "Pass@word", "-Q", "select 1" ]
       interval: 1s
       retries: 20
+
 networks:
   default:
     external:

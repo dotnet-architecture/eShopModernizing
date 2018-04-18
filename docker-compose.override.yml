@@ -34,8 +34,7 @@ services:
   eshopwcfservice:
     environment:
       - ConnectionString=Server=sql.data;Database=eShopDatabase;User Id=sa;Password=Pass@word
-    ports:
-     - "83:83"     
+    ports:   
      - "5113:80"       
   sql.data:
     environment:

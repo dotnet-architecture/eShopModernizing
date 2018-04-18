@@ -22,7 +22,7 @@ spec:
         imagePullPolicy: Always
         env:
         - name: ConnectionString
-          value: "Server=sql-data-for-wcf;Database=eShopDatabase;User Id=sa;Password=Testing11@@"
+          value: "Server=sql-data-for-wcf;Database=eShopDatabase;User Id=sa;Password=Pass@word"
       nodeSelector:
        beta.kubernetes.io/os: windows
 ---

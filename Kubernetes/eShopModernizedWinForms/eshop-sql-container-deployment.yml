@@ -15,7 +15,7 @@ spec:
         - name: ACCEPT_EULA
           value: "Y"
         - name: SA_PASSWORD
-          value: Testing11@@
+          value: Pass@word
       nodeSelector:
        beta.kubernetes.io/os: windows
 ---
