@@ -56,31 +56,53 @@ The winforms application is a catalog management, and uses a WCF as a back-end. 
 ![image](https://user-images.githubusercontent.com/1712635/30446445-094e998a-993e-11e7-96d8-ed1dd9fef142.png)
 
 
-## Quick start: Running all samples together
+## Quick start: Running all apps together in your local Windows 10 PC with "Docker for Windows" and VS 2017
 
-To run all samples together using Docker, open a "Developer Command Prompt for Visual Studio" (to ensure you have right `msbuild` on `PATH`) and run the `build.cmd` script. This script will:
+You have more detailed procedures at the [Wiki](https://github.com/dotnet-architecture/eShopModernizing/wiki), but for the quickest way to get started and run all samples together using Docker for Windows, open a **"Developer Command Prompt for VS 2017"** (to ensure you have right `msbuild` on `PATH`), go to the eShopModernizing root folder and run the `build.cmd` script. 
+
+This script will:
 
 * Build MVC project
 * Build Webforms project
 * Build WCF back-end project
-* Create three docker images:
+* Create three Docker images (Windows Container images):
    * `eshop/modernizedwebforms`
    * `eshop/modernizedmvc`
    * `eshop/wcfservice`
 
+You can check the just created Docker images by running `docker images` from the command line:
+
+![image](https://user-images.githubusercontent.com/1712635/38949583-a2c11ba2-42f7-11e8-9c10-b74f2a005186.png)
+
 Finally just run `docker-compose up` (in the root of the repo) to start all three projects and one SQL Server container. Once containers are started:
 
-* MVC listens in port 5115
-* Webforms listens in port 5114
-* WCF service listens in port 5113
+* MVC web app listens in: 
+     - Port 5115 on the Docker Host (PC) network card IP
+     - Port 80 on the internal container's IP
+* Webforms web app listens in:  
+     - Port 5114 on the Docker Host (PC) network card IP
+     - Port 80 on the internal container's IP
+* WCF service listens in port: 
+     - Port 5113 on the Docker Host (PC) network card IP
+     - Port 80 on the internal container's IP
 
->**Note** You should be able to use `http://localhost:<port>` to access the desired application but **due to a current limitation of Windows Containers this won't probably work**. In this case you have to use the internal IP of the container to access the application. To find the internal IP, just type  `docker ps` to find the container ids:
+>**Note** You should be able to use `http://localhost:<port>` to access the desired application but **due to a current limitation of Windows Containers this won't probably work (See belo the section "The localhost loopback limitation in Windows Containers Docker hosts")**. 
+
+In order to test the apps/containers from within the Docker host itself (the dev Windows PC) yu need to use the internal IP (container's IP) to access the application. To find the internal IP, just type  `docker ps` to find the container ids:
 
 ![docker ps output](./assets/docker-ps.png)
 
-Then use the command `docker inspect  <ip-container> -f {{.NetworkSettings.Networks.nat.IPAddress}}` to find the container IP, and use this IP **and port 80** to access the container:
+Then use the command `docker inspect  <CONTAINER-ID> -f {{.NetworkSettings.Networks.nat.IPAddress}}` to find the container's IP, and use that IP **and port 80** to access the container:
 
 ![accessing-container](./assets/internal-ip-access.png)
+
+### The localhost loopback limitation in Windows Containers Docker hosts
+
+Due to a default NAT limitation in current versions of Windows (see [https://blog.sixeyed.com/published-ports-on-windows-containers-dont-do-loopback/](https://blog.sixeyed.com/published-ports-on-windows-containers-dont-do-loopback/)) you can't access your containers using `localhost` from the host computer.
+You have further information here, too: https://blogs.technet.microsoft.com/virtualization/2016/05/25/windows-nat-winnat-capabilities-and-limitations/
+
+Although that [limitation has been removed beginning with Build 17025](https://blogs.technet.microsoft.com/networking/2017/11/06/available-to-windows-10-insiders-today-access-to-published-container-ports-via-localhost127-0-0-1/) (as of early 2018, still only available today to Windows Insiders, not public/stable release). With that version (Windows 10 Build 17025 or later), access to published container ports via “localhost”/127.0.0.1 should be available.
+
 
 ## Review the Wiki for detailed instructions on how to set it up and deploy to multiple environments
 
