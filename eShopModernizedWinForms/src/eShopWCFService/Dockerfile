@@ -1,4 +1,4 @@
-FROM microsoft/wcf
+FROM microsoft/wcf:4.7.1
 EXPOSE 80
 ARG source
 WORKDIR /inetpub/wwwroot
