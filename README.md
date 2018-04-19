@@ -108,22 +108,12 @@ Although that [limitation has been removed beginning with Build 17025](https://b
 
 Wiki: https://github.com/dotnet-architecture/eShopModernizing/wiki
 
-01. Tour on eShopModernizing apps implementation code
-02. How to containerize the .NET Framework web apps with Windows Containers and Docker
-03. How to deploy your Windows Containers based app into Azure VMs (Including CI CD)
-04. How to deploy your Windows Containers based apps into Kubernetes in Azure Container Service (Including C CD)
-05. How to deploy your Windows Containers based apps into Azure Service Fabric (Including CI CD)
-05.1 Quick procedure to create a Secure Service Fabric cluster in Azure using PowerShell
-10. How to migrate the SQL database to Azure with the Azure Database Migration Service
-11. Deploying to Azure App Service, with NO Windows Containers (Including CI CD)
+
 
 ### Choose in-memory mock-data or real database connection to a SQL Server database
-The apps allow either to connect to the real database to get/update the product catalog or to use mock-data if, due to any reason, the database is still not available and you need to test/demo the app. 
+
+The MVC and WebForms web apps allow either to connect to the real database to get/update the product catalog or to use mock-data if, due to any reason, the database is still not available and you need to test/demo the app. 
 
 For each application, the option to select one or the other mode can be configured in the docker-compose.override.yml file when using Windows Containers or at the `Web.config` file when you still are NOT using Containers (original versions).
 
 
-## Additional apps to modernize: WCF services and WinForms desktop apps 
-We're also creating an additonal modernization example based on a "legacy apps" which has a client WinForms desktop application and a SOAP service built with WCF (Windows Communication Foundation). You can explore it at the following GitHub repo:
-
-https://github.com/dotnet-architecture/eShopModernizingWCFWinForms 
