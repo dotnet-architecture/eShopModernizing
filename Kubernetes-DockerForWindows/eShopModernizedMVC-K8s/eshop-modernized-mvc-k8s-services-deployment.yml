@@ -24,7 +24,7 @@ spec:
         - name: ConnectionString
           value: "Server=sql-data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"
         - name: UseMockData
-          value: "False"
+          value: "True"
         - name: UseCustomizationData
           value: "False"
         - name: UseAzureStorage
