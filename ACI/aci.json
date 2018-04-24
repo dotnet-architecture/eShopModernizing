@@ -11,9 +11,7 @@
     },
     "variables": {
       "container1name": "mainapp",
-      "container1image": "[parameters('appimage')]",
-      "container2name": "sqlsvr",
-      "container2image": "microsoft/mssql-server-windows-developer"
+      "container1image": "[parameters('appimage')]"
     },
     "resources": [
       {
@@ -29,8 +27,8 @@
                 "image": "[variables('container1image')]",
                 "environmentVariables": 
                 [
-                  { "name": "UseMockData", "value":"False" },
-                  { "name": "ConnectionString", "value":"Data Source=.;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"},
+                  { "name": "UseMockData", "value":"True" },
+                  { "name": "ConnectionString", "value":"Data Source=NOT NEEDED (USING MOCK DATA)"},
                   { "name": "UseAzureActiveDirectory", "value": "false"}
                 ],
                 "resources": {
@@ -44,23 +42,6 @@
                     "port": 80
                   }
                 ]
-              }
-            },
-            {
-              "name": "[variables('container2name')]",
-              "properties": {
-                "image": "[variables('container2image')]",
-                "environmentVariables": 
-                [
-                  { "name": "SA_PASSWORD", "value":"Pass@word" },
-                  {  "name": "ACCEPT_EULA", "value":"Y"}
-                ],                
-                "resources": {
-                  "requests": {
-                    "cpu": 1,
-                    "memoryInGb": 1.5
-                  }
-                }
               }
             }
           ],
