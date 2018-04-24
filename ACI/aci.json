@@ -10,7 +10,7 @@
       }
     },
     "variables": {
-      "container1name": "MainApp",
+      "container1name": "mainapp",
       "container1image": "[parameters('appimage')]",
       "container2name": "SQLServer",
       "container2image": "microsoft/mssql-server-windows-developer"
@@ -27,6 +27,12 @@
               "name": "[variables('container1name')]",
               "properties": {
                 "image": "[variables('container1image')]",
+                "environmentVariables": 
+                [
+                  { "name": "UseMockData", "value":"False" },
+                  { "name": "ConnectionString", "value":"Data Source=.;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"},
+                  { "name": "UseAzureActiveDirectory", "value": "false"}
+                ],
                 "resources": {
                   "requests": {
                     "cpu": 1,
@@ -44,6 +50,11 @@
               "name": "[variables('container2name')]",
               "properties": {
                 "image": "[variables('container2image')]",
+                "environmentVariables": 
+                [
+                  { "name": "SA_PASSWORD", "value":"Pass@word" },
+                  {  "name": "ACCEPT_EULA", "value":"Y"}
+                ],                
                 "resources": {
                   "requests": {
                     "cpu": 1,
