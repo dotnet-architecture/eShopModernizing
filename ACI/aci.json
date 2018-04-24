@@ -12,7 +12,7 @@
     "variables": {
       "container1name": "mainapp",
       "container1image": "[parameters('appimage')]",
-      "container2name": "SQLServer",
+      "container2name": "sqlsvr",
       "container2image": "microsoft/mssql-server-windows-developer"
     },
     "resources": [
