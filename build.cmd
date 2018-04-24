@@ -1,7 +1,4 @@
 @echo [93m Creating the 'deploy' folder tree[0m
-@mkdir -p deploy\wcf
-@mkdir -p deploy\mvc
-@mkdir -p deploy\webforms
 
 @echo [93m Building MVC project...[0m
 nuget restore eShopModernizedMVCSolution\eShopModernizedMVC.sln
@@ -10,10 +7,10 @@ msbuild eShopModernizedMVCSolution\src\eShopModernizedMVC\eShopModernizedMVC.csp
 nuget restore eShopModernizedWebFormsSolution\eShopModernizedWebForms.sln
 msbuild eShopModernizedWebFormsSolution\src\eShopModernizedWebForms\eShopModernizedWebForms.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\webforms\
 @echo [93m Building WCF project...[0m
-nuget restore eShopModernizedWinForms\eShopModernizedWinForms.sln
-msbuild eShopModernizedWinForms\src\eShopWCFService\eShopWCFService.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\wcf\
+nuget restore eShopModernizedNTier\eShopModernizedNTier.sln
+msbuild eShopModernizedNTier\src\eShopWCFService\eShopWCFService.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\wcf\
 @echo [93m Copying Dockerfiles to deploy folder[0m
-@copy /Y eShopModernizedWinForms\src\eShopWCFService\Dockerfile deploy\wcf\ 
+@copy /Y eShopModernizedNTier\src\eShopWCFService\Dockerfile deploy\wcf\ 
 @copy /Y eShopModernizedMVCSolution\src\eShopModernizedMVC\Dockerfile deploy\mvc
 @copy /Y eShopModernizedWebFormsSolution\src\eShopModernizedWebForms\Dockerfile deploy\webforms
 @echo [93m Building docker images... [0m
