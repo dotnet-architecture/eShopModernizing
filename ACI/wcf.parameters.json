@@ -6,7 +6,13 @@
            "value": "eshop/wcfservice:latest"
        },
        "groupname": {
-           "value": "wcf-and-mssql-windows-eshop-container-group"
-       }       
+           "value": "wcf-standalone-windows-eshop-container-group"
+       },
+       "constr": {
+        "value": "NOT NEEDED DUE MOCK DATA"
+       },
+       "usemock": {
+        "value": "true"
+      }           
     }
 }

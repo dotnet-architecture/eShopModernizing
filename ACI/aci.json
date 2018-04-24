@@ -7,6 +7,12 @@
       },
       "groupname": {
         "type": "string"
+      },
+      "constr": {
+        "type": "string"
+      },
+      "usemock": {
+        "type": "string"
       }
     },
     "variables": {
@@ -27,8 +33,8 @@
                 "image": "[variables('container1image')]",
                 "environmentVariables": 
                 [
-                  { "name": "UseMockData", "value":"True" },
-                  { "name": "ConnectionString", "value":"Data Source=NOT NEEDED (USING MOCK DATA)"},
+                  { "name": "UseMockData", "value":"[parameters('usemock')]" },
+                  { "name": "ConnectionString", "value":"[parameters('constr')]"},
                   { "name": "UseAzureActiveDirectory", "value": "false"}
                 ],
                 "resources": {

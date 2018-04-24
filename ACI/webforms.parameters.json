@@ -6,7 +6,13 @@
            "value": "eshop/modernizedwebforms:latest"
        },
        "groupname": {
-           "value": "webforms-and-mssql-windows-eshop-container-group"
+           "value": "webforms-standalone-windows-eshop-container-group"
+       },
+       "constr": {
+           "value": "NOT NEEDED DUE MOCK DATA"
+       },
+       "usemock": {
+           "value": "true"
        }
     }
 }

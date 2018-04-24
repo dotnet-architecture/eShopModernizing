@@ -6,7 +6,13 @@
            "value": "eshop/modernizedmvc:latest"
        },
        "groupname": {
-            "value": "mvc-and-mssql-windows-eshop-container-group"
-        }
+            "value": "mvc-standalone-windows-eshop-container-group"
+        },
+        "constr": {
+            "value": "NOT NEEDED DUE MOCK DATA"
+        },
+        "usemock": {
+            "value": "true"
+        }        
     }
 }
