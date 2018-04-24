@@ -69,7 +69,7 @@
     "outputs": {
       "containerIPv4Address": {
         "type": "string",
-        "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', [parameters('groupname')])).ipAddress.ip]"
+        "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('groupname'))).ipAddress.ip]"
       }
     }
   }
