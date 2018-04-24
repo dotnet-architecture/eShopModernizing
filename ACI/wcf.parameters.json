@@ -4,6 +4,9 @@
     "parameters": {
        "appimage": {
            "value": "eshop/wcfservice:latest"
-       }
+       },
+       "groupname": {
+           "value": "wcf-and-mssql-windows-eshop-container-group"
+       }       
     }
-  }
+}

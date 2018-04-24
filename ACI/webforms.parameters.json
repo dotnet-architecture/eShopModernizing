@@ -4,6 +4,9 @@
     "parameters": {
        "appimage": {
            "value": "eshop/modernizedwebforms:latest"
+       },
+       "groupname": {
+           "value": "webforms-and-mssql-windows-eshop-container-group"
        }
     }
-  }
+}

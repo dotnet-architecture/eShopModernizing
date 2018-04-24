@@ -4,6 +4,9 @@
     "parameters": {
       "appimage": {
         "type": "string"
+      },
+      "groupname": {
+        "type": "string"
       }
     },
     "variables": {
@@ -14,7 +17,7 @@
     },
     "resources": [
       {
-        "name": "eShopModernizedMVC",
+        "name": "[parameters('groupname')]",
         "type": "Microsoft.ContainerInstance/containerGroups",
         "apiVersion": "2018-04-01",
         "location": "[resourceGroup().location]",

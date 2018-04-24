@@ -4,6 +4,9 @@
     "parameters": {
        "appimage": {
            "value": "eshop/modernizedmvc:latest"
-       }
+       },
+       "groupname": {
+            "value": "mvc-and-mssql-windows-eshop-container-group"
+        }
     }
-  }
+}
