@@ -15,11 +15,11 @@ You can download its related guidance with this free guide/eBook (2nd Edition up
 
 ![image](https://user-images.githubusercontent.com/1712635/39776014-6b4f26b0-52b4-11e8-87f8-b43bf48fca27.png)
 
-.PDF download (PC): https://aka.ms/liftandshiftwithcontainersebook
+.PDF download (PC) - 2nd Edition: https://aka.ms/liftandshiftwithcontainersebook
 
-.MOBI download (Kindle): https://aka.ms/liftandshiftwithcontainersebookmobi
+.MOBI download (Kindle) - 1st Edition: https://aka.ms/liftandshiftwithcontainersebookmobi
 
-.EPUB download (Other eReaders): https://aka.ms/liftandshiftwithcontainersebookepub
+.EPUB download (Other eReaders) - 1st Edition: https://aka.ms/liftandshiftwithcontainersebookepub
 
 The modernization with Windows Containers significantly improves the deployments for DevOps, without having to change the app's architecture or C# code.
 
