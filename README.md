@@ -46,6 +46,9 @@ The WebFoms and MVC apps are pretty similiar in regards UI and business features
 
 The winforms application is a catalog management, and uses a WCF as a back-end. Read more about the Winforms + WCF sample [here](./winforms-wcf.md)
 
+### DEPLOYMENT TO AZURE CONTAINER INSTANCES
+![image](https://user-images.githubusercontent.com/1712635/38395601-9258dd0e-38e8-11e8-8b42-cafff5f93c57.png)
+
 ### DEPLOYMENT TO AZURE WINDOWS SERVER 2016 VM
 ![image](https://user-images.githubusercontent.com/1712635/30402804-d62632a2-9893-11e7-817a-f9f616cdf380.png)
 
