@@ -11,9 +11,9 @@ This repo provides three sample hypothetical legacy eShop web apps (traditional 
 All those mentioned environments can be deployed into Azure cloud (as explained in the Wiki) but you can also deploy all those environments into on-premises servers or even in other public clouds.
 
 ## Related Guide/eBook
-You can download its related guidance with this free guide/eBook:
+You can download its related guidance with this free guide/eBook (2nd Edition updated in mid-2018):
 
-![image](https://user-images.githubusercontent.com/1712635/31475227-74e43246-aeb4-11e7-8dba-44da5fc3874b.png)
+![image](https://user-images.githubusercontent.com/1712635/39776014-6b4f26b0-52b4-11e8-87f8-b43bf48fca27.png)
 
 .PDF download (PC): https://aka.ms/liftandshiftwithcontainersebook
 
