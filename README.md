@@ -4,12 +4,12 @@
 This repo provides three sample hypothetical legacy eShop web apps (traditional ASP.NET WebForms and MVC in .NET Framework and an N-Tier app based on a WCF service and a client WinForms desktop app) and how you can modernize them (Lift and Shift scenario) with Windows Containers and Azure Cloud into the following deployment options:
 
 - Local build and deployment in dev PC with Visual Studio and Docker for Windows
-- Azure Container Instances
+- Azure Container Instances (ACI)
 - Regular Windows Server 2016 VM (Virtual Machine)
-- Azure App Service with Windows Containers support (In Private Preview)
 - ACS-Kubernetes orchestrator cluster
 - Service Fabric orchestrators cluster
-- Service Fabric Mesh (In Private Preview)
+- Azure App Service with Windows Containers support (In Private Preview, not documented here, yet)
+- Service Fabric Mesh (In Private Preview, not documented here, yet)
 
 All those mentioned environments can be deployed into Azure cloud (as explained in the Wiki) but you can also deploy all those environments into on-premises servers or even in other public clouds.
 
@@ -20,9 +20,9 @@ You can download its related guidance with this free guide/eBook (2nd Edition up
 
 .PDF download (PC) - 2nd Edition: https://aka.ms/liftandshiftwithcontainersebook
 
-.MOBI download (Kindle) - 1st Edition: https://aka.ms/liftandshiftwithcontainersebookmobi
+.MOBI download (Kindle) - 2nd Edition: https://aka.ms/liftandshiftwithcontainersebookmobi
 
-.EPUB download (Other eReaders) - 1st Edition: https://aka.ms/liftandshiftwithcontainersebookepub
+.EPUB download (Other eReaders) - 2nd Edition: https://aka.ms/liftandshiftwithcontainersebookepub
 
 The modernization with Windows Containers significantly improves the deployments for DevOps, without having to change the app's architecture or C# code.
 
