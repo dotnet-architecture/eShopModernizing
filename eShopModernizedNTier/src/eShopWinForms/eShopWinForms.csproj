@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>eShopWinForms</RootNamespace>
     <AssemblyName>eShopWinForms</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
