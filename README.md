@@ -64,7 +64,7 @@ The winforms application is a catalog management, and uses a WCF as a back-end. 
 
 ## Quick start: Running all apps together in your local Windows 10 PC with "Docker for Windows" and VS 2017
 
-You have more detailed procedures at the [Wiki](https://github.com/dotnet-architecture/eShopModernizing/wiki), but for the quickest way to get started and run all samples together using Docker for Windows, open a **"Developer Command Prompt for VS 2017"** (to ensure you have right `msbuild` on `PATH`), go to the eShopModernizing root folder and run the `build.cmd` script. 
+You have more detailed procedures at the [Wiki](https://github.com/dotnet-architecture/eShopModernizing/wiki), but for the quickest way to get started and run all samples together using Docker for Windows, open a **"Developer Command Prompt for VS 2017 (or 2019)"** (to ensure you have right `msbuild` on `PATH`), go to the eShopModernizing root folder and run the `build.cmd` script. 
 
 This script will:
 
@@ -80,7 +80,7 @@ You can check the just created Docker images by running `docker images` from the
 
 ![image](https://user-images.githubusercontent.com/1712635/38949583-a2c11ba2-42f7-11e8-9c10-b74f2a005186.png)
 
-Finally just run `docker-compose up` (in the root of the repo) to start all three projects and one SQL Server container. Once containers are started:
+Finally just run `docker-compose up` (in the root of the repo) to start all three projects and one SQL Server container. Once the containers are started:
 
 * MVC web app listens in: 
      - Port 5115 on the Docker Host (PC) network card IP
@@ -92,9 +92,9 @@ Finally just run `docker-compose up` (in the root of the repo) to start all thre
      - Port 5113 on the Docker Host (PC) network card IP
      - Port 80 on the internal container's IP
 
->**Note** You should be able to use `http://localhost:<port>` to access the desired application but **due to a current limitation of Windows Containers this won't probably work (See belo the section "The localhost loopback limitation in Windows Containers Docker hosts")**. 
+>**Note** You should be able to use `http://localhost:<port>` to access the desired application but **due to a current limitation of Windows Containers this probably won't work (See the section below titled "The localhost loopback limitation in Windows Containers Docker hosts")**. 
 
-In order to test the apps/containers from within the Docker host itself (the dev Windows PC) yu need to use the internal IP (container's IP) to access the application. To find the internal IP, just type  `docker ps` to find the container ids:
+In order to test the apps/containers from within the Docker host itself (the dev Windows PC) you need to use the internal IP (container's IP) to access the application. To find the internal IP, just type  `docker ps` to find the container ids:
 
 ![docker ps output](./assets/docker-ps.png)
 
