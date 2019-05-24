@@ -54,7 +54,7 @@ namespace eShopWinForms
 
                 /* Item assets are stored relative to the program executable's directory. In the database, they have a filename.
                    We depend on the fact that this filename refences an image already in the "assets" directory */
-                string imagename = Environment.CurrentDirectory + "\\..\\..\\Assets\\Images\\Catalog\\" + catalogItem.Picturefilename;
+                string imagename = Environment.CurrentDirectory + "\\..\\..\\..\\Assets\\Images\\Catalog\\" + catalogItem.Picturefilename;
                 Image img = Image.FromFile(imagename);
                 Image thumb = img.GetThumbnailImage(384, 216, null, IntPtr.Zero);
 
