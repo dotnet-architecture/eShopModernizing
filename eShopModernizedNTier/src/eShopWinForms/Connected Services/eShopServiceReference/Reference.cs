@@ -606,7 +606,7 @@ namespace eShopWinForms.eShopServiceReference
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ICatalogService))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:5200/CatalogService.svc");
+                return new System.ServiceModel.EndpointAddress("http://localhost:5113/CatalogService.svc");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
