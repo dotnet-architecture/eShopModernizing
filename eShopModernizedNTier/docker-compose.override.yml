@@ -13,7 +13,7 @@ services:
       - SA_PASSWORD=Pass@word
       - ACCEPT_EULA=Y
     ports:
-      - "5435:1433"
+      - "5433:1433"
     healthcheck:
       test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "Pass@word", "-Q", "select 1" ]
       interval: 1s

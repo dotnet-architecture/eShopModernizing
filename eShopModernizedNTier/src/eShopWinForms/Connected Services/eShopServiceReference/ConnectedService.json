@@ -6,7 +6,7 @@
   },
   "ExtendedData": {
     "inputs": [
-      "http://localhost:5200/CatalogService.svc"
+      "http://localhost:5113/CatalogService.svc"
     ],
     "collectionTypes": [
       "System.Array",
