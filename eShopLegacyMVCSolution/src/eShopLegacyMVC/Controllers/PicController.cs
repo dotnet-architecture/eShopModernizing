@@ -1,17 +1,15 @@
 ﻿using eShopLegacyMVC.Services;
-using System;
-using System.Collections.Generic;
+using log4net;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Web;
-using System.Web.Hosting;
 using System.Web.Mvc;
 
 namespace eShopLegacyMVC.Controllers
 {
     public class PicController : Controller
     {
+        private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public const string GetPicRouteName = "GetPicRouteTemplate";
 
         private ICatalogService service;
@@ -26,6 +24,8 @@ namespace eShopLegacyMVC.Controllers
         [Route("items/{catalogItemId:int}/pic", Name = GetPicRouteName)]
         public ActionResult Index(int catalogItemId)
         {
+            _log.Info($"Now loading... /items/Index?{catalogItemId}/pic");
+
             if (catalogItemId <= 0)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

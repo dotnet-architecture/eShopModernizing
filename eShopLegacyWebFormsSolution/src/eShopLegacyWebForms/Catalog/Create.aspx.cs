@@ -1,18 +1,20 @@
 ﻿using eShopLegacyWebForms.Models;
 using eShopLegacyWebForms.Services;
+using log4net;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Web.ModelBinding;
 
 namespace eShopLegacyWebForms.Catalog
 {
     public partial class Create : System.Web.UI.Page
     {
+        private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public ICatalogService CatalogService { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            _log.Info($"Now loading... /Catalog/Create.aspx");
         }
 
         public IEnumerable<CatalogBrand> GetBrands()

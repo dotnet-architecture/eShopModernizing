@@ -4,16 +4,15 @@ using eShopModernizedWebForms.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.ModelBinding;
-using System.Web.Routing;
+using log4net;
 
 namespace eShopModernizedWebForms
 {
     public partial class _Default : Page
     {
+        private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public const int DefaultPageIndex = 0;
         public const int DefaultPageSize = 10;
 
@@ -25,6 +24,8 @@ namespace eShopModernizedWebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            _log.Info($"Now loading... /Default.aspx");
+
             PaginatedItemsViewModel<CatalogItem> paginatedItems;
 
             if (PaginationParamsAreSet())

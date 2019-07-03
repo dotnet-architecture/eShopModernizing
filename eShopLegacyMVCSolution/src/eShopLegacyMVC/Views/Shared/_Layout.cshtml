@@ -31,7 +31,11 @@
                 </section>
                 <section class="col-sm-6">
                     <img class="esh-app-footer-text hidden-xs" src="~/images/main_footer_text.png" width="335" height="26" alt="footer text image" />
+                    <br />
+                    @{ var sessionInfo = new HtmlString($"{HttpContext.Current.Session["MachineName"]}, {HttpContext.Current.Session["SessionStartTime"]}");}
+                    <small>@sessionInfo</small>
                 </section>
+                
             </article>
         </div>
     </footer>

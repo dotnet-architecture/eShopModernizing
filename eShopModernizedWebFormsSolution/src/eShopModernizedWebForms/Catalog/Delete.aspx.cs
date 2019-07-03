@@ -1,18 +1,18 @@
 ﻿using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Services;
+using log4net;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OpenIdConnect;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace eShopModernizedWebForms.Catalog
 {
     public partial class Delete : System.Web.UI.Page
     {
+        private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         protected CatalogItem productToDelete; 
 
         public ICatalogService CatalogService { get; set; }
@@ -25,6 +25,7 @@ namespace eShopModernizedWebForms.Catalog
                 Context.GetOwinContext().Authentication.Challenge(new AuthenticationProperties { RedirectUri = "/" }, OpenIdConnectAuthenticationDefaults.AuthenticationType);
             }
             var productId = Convert.ToInt32(Page.RouteData.Values["id"]);
+            _log.Info($"Now loading... /Catalog/Delete.aspx?id={productId}");
             productToDelete = CatalogService.FindCatalogItem(productId);
 
             this.DataBind();

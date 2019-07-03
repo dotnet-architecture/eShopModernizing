@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using Autofac.Integration.Web;
 using eShopModernizedWebForms.Services;
+using log4net;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -23,12 +23,16 @@ namespace eShopModernizedWebForms.Catalog
     [ScriptService]
     public class PicUploader : WebService
     {
+        private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private static ImageFormat[] ValidFormats = new[] { ImageFormat.Jpeg, ImageFormat.Png, ImageFormat.Gif };
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void UploadImage()
         {
+
+            _log.Info($"Now Processing... /Catalog/PicUploader.asmx");
             var cpa = (IContainerProviderAccessor)HttpContext.Current.ApplicationInstance;
             var cp = cpa.ContainerProvider;
             IImageService imageService = cp.RequestLifetime.Resolve<IImageService>();

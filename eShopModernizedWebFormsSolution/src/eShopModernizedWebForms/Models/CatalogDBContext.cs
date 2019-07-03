@@ -1,15 +1,18 @@
 ﻿using eShopModernizedWebForms.Models.Infrastructure;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
+using System.Data.SqlClient;
 
 namespace eShopModernizedWebForms.Models
 {
     public class CatalogDBContext : DbContext
     {
-        public CatalogDBContext() : base(CatalogConfiguration.ConnectionString)
-        {
-        }
+public CatalogDBContext(ISqlConnectionFactory provider)
+    : base(provider.CreateConnection(), true)
+{
+}
 
         public DbSet<CatalogItem> CatalogItems { get; set; }
 

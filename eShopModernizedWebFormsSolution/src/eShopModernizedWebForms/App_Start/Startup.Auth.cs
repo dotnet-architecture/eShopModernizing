@@ -22,9 +22,7 @@ namespace eShopModernizedWebForms
         private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
         private static string tenant = CatalogConfiguration.AzureActiveDirectoryTenant;
         private static string postLogoutRedirectUri = CatalogConfiguration.PostLogoutRedirectUri;
-
-        string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);
-
+        
         public void ConfigureAuth(IAppBuilder app)
         {
             app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
@@ -35,7 +33,7 @@ namespace eShopModernizedWebForms
                 new OpenIdConnectAuthenticationOptions
                 {
                     ClientId = clientId,
-                    Authority = authority,
+                    Authority = string.Format(CultureInfo.InvariantCulture, aadInstance, tenant),
                     PostLogoutRedirectUri = postLogoutRedirectUri,
                     RedirectUri = postLogoutRedirectUri,
                     Notifications = new OpenIdConnectAuthenticationNotifications
