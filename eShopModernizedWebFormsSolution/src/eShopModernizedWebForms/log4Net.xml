@@ -3,13 +3,15 @@
     <level value="ALL" />
     <appender-ref ref="azureAppendBlobAppender" />
   </root>
-
+  
   <!-- http://stemarie.github.io/log4net.Azure/ -->
+  <!--You can either specify a connection string or use the ConnectionStringName property instead-->
+  <!-- Uncomment to enable Azure output with an appropriate connection string
   <appender name="azureAppendBlobAppender" type="log4net.Appender.AzureAppendBlobAppender, log4net.Appender.Azure">
     <param name="ContainerName" value="modernizedwebstorage"/>
     <param name="DirectoryName" value="eShopModernizedLogs"/>
-    <!--You can either specify a connection string or use the ConnectionStringName property instead-->
-    <param name="ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=eshopwebformsblob;AccountKey=UNGI+M79e15Iq/1G7GftUh6y3uSiu6HA60iBcs4jP+ApA2NX0AeMW28lrBs6Hjzd7OdgSD2KAudDhLCUozW9Tw==;EndpointSuffix=core.windows.net"/>
+    <param name="ConnectionString" value="[ConnectionString]"/>
     <bufferSize value="1" />
-  </appender>
+  </appender>-->
+
 </log4net>
