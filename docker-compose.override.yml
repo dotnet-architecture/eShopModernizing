@@ -3,7 +3,7 @@ version: '3.4'
 services:
   eshop.modernized.mvc:
     environment:
-      - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
+      - CatalogDBContext=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
       - UseMockData=False
       - UseCustomizationData=False
       - UseAzureStorage=False
@@ -18,7 +18,7 @@ services:
 
   eshop.modernized.webforms:
     environment:
-      - ConnectionString=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
+      - CatalogDBContext=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
       - UseMockData=False
       - UseCustomizationData=False
       - UseAzureStorage=False
@@ -33,7 +33,7 @@ services:
 
   eshopwcfservice:
     environment:
-      - ConnectionString=Server=sql.data;Database=eShopDatabase;User Id=sa;Password=Pass@word
+      - CatalogDBContext=Server=sql.data;Database=eShopDatabase;User Id=sa;Password=Pass@word
     ports:   
      - "5113:80"       
   sql.data:

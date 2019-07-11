@@ -66,6 +66,8 @@
                     </section>
                     <section class="col-sm-6">
                         <img class="esh-app-footer-text hidden-xs" src="/images/main_footer_text.png" width="335" height="26" alt="footer text image" />
+                        <br />
+                        <small style="color:white"><asp:Label ID="SessionInfoLabel" runat="server"></asp:Label></small>
                     </section>
                 </article>
             </div>

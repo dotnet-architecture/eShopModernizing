@@ -35,11 +35,9 @@ namespace eShopModernizedMVC
         // The Post Logout Redirect Uri is the URL where the user will be redirected after they sign out.
         //
         private static string clientId = CatalogConfiguration.AzureActiveDirectoryClientId;
-        private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
+        private static string aadInstance = ConfigurationManager.AppSettings["AzureActiveDirectoryInstance"];
         private static string tenant = CatalogConfiguration.AzureActiveDirectoryTenant;
         private static string postLogoutRedirectUri = CatalogConfiguration.PostLogoutRedirectUri;
-
-        string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);
 
         public void ConfigureAuth(IAppBuilder app)
         {
@@ -51,12 +49,12 @@ namespace eShopModernizedMVC
                 new OpenIdConnectAuthenticationOptions
                 {
                     ClientId = clientId,
-                    Authority = authority,
+                    Authority = string.Format(CultureInfo.InvariantCulture, aadInstance, tenant),
                     PostLogoutRedirectUri = postLogoutRedirectUri,
                     RedirectUri = postLogoutRedirectUri,
                     Notifications = new OpenIdConnectAuthenticationNotifications
                     {
-                        AuthenticationFailed = context => 
+                        AuthenticationFailed = context =>
                         {
                             context.HandleResponse();
                             context.Response.Redirect("/Error?message=" + context.Exception.Message);

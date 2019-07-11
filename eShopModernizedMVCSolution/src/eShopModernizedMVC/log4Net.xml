@@ -1,0 +1,25 @@
+﻿<log4net>
+  <root>
+    <level value="ALL" />
+    <appender-ref ref="aiAppender" />
+    <appender-ref ref="azureAppendBlobAppender" />
+  </root>
+
+  <!-- https://blog.ehn.nu/2014/11/using-log4net-for-application-insights/ -->
+  <appender name="aiAppender" type="Microsoft.ApplicationInsights.Log4NetAppender.ApplicationInsightsAppender, Microsoft.ApplicationInsights.Log4NetAppender">
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %property{activity} %level %logger - %property{requestinfo}%newline%message%newline%newline" />
+    </layout>
+  </appender>
+  
+  <!-- http://stemarie.github.io/log4net.Azure/ -->
+  <!--You can either specify a connection string or use the ConnectionStringName property instead-->
+  <!-- Uncomment to enable Azure output with an appropriate connection string
+  <appender name="azureAppendBlobAppender" type="log4net.Appender.AzureAppendBlobAppender, log4net.Appender.Azure">
+    <param name="ContainerName" value="modernizedwebstorage"/>
+    <param name="DirectoryName" value="eShopModernizedLogs"/>
+    <param name="ConnectionString" value="[ConnectionString]"/>
+    <bufferSize value="1" />
+  </appender>-->
+
+</log4net>

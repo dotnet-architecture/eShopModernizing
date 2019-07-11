@@ -8,17 +8,6 @@ namespace eShopModernizedMVC
 {
     public class CatalogConfiguration
     {
-        private static readonly string configConnectionName = "CatalogDBContext";
-
-        public static string ConnectionString
-        {
-            get
-            {
-                var envConnectionString = Environment.GetEnvironmentVariable("ConnectionString");
-                return envConnectionString ?? $"name={configConnectionName}";
-            }
-        }
-
 
         public static bool UseMockData
         {
@@ -36,6 +25,14 @@ namespace eShopModernizedMVC
             }
         }
 
+        public static bool UseManagedIdentity
+        {
+            get
+            {
+                return IsEnabled("UseAzureManagedIdentity");
+            }
+        }
+
         public static bool UseCustomizationData
         {
             get
@@ -48,7 +45,7 @@ namespace eShopModernizedMVC
         {
             get
             {
-                return GetConfigurationValue("StorageConnectionString");
+                return ConfigurationManager.AppSettings["StorageConnectionString"];
             }
         }
 
@@ -56,7 +53,7 @@ namespace eShopModernizedMVC
         {
             get
             {
-                return Environment.GetEnvironmentVariable("AppInsightsInstrumentationKey");
+                return ConfigurationManager.AppSettings["AppInsightsInstrumentationKey"];
             }
         }
 
@@ -72,8 +69,7 @@ namespace eShopModernizedMVC
         {
             get
             {
-                return Environment.GetEnvironmentVariable("AzureActiveDirectoryClientId")??
-                    ConfigurationManager.AppSettings["ida:ClientId"];
+                return ConfigurationManager.AppSettings["AzureActiveDirectoryClientId"];
             }
         }
 
@@ -81,8 +77,7 @@ namespace eShopModernizedMVC
         {
             get
             {
-                return Environment.GetEnvironmentVariable("AzureActiveDirectoryTenant")??
-                    ConfigurationManager.AppSettings["ida:Tenant"];
+                return ConfigurationManager.AppSettings["AzureActiveDirectoryTenant"];
             }
         }
 
@@ -90,22 +85,13 @@ namespace eShopModernizedMVC
         {
             get
             {
-                return GetConfigurationValue("PostLogoutRedirectUri");
+                return ConfigurationManager.AppSettings["PostLogoutRedirectUri"];
             }
-        }
-
-        private static string GetConfigurationValue(string configurationKey)
-        {
-            var environmentValue = Environment.GetEnvironmentVariable(configurationKey);
-            return environmentValue ?? ConfigurationManager.AppSettings[configurationKey];
         }
 
         private static bool IsEnabled(string configurationKey)
         {
-            var environmentValue = Environment.GetEnvironmentVariable(configurationKey);
-            return environmentValue != null ?
-                bool.Parse(environmentValue) :
-                bool.Parse(ConfigurationManager.AppSettings[configurationKey]);
+            return bool.Parse(ConfigurationManager.AppSettings[configurationKey]);
         }
     }
 }

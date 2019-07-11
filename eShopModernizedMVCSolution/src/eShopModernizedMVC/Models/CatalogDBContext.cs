@@ -1,16 +1,18 @@
-﻿using eShopModernizedMVC.Models.Infrastructure;
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Configuration;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
+using System.Data.SqlClient;
 
 namespace eShopModernizedMVC.Models
 {
     public class CatalogDBContext : DbContext
     {
-        public CatalogDBContext() : base(CatalogConfiguration.ConnectionString)
+        public CatalogDBContext(ISqlConnectionFactory provider)
+            : base(provider.CreateConnection(), true)
         {
         }
+
 
         public DbSet<CatalogItem> CatalogItems { get; set; }
 
@@ -73,7 +75,7 @@ namespace eShopModernizedMVC.Models
                 .IsRequired();
 
             builder.Property(ci => ci.PictureFileName);
-               
+
 
             builder.Ignore(ci => ci.PictureUri);
             builder.Ignore(ci => ci.TempImageName);

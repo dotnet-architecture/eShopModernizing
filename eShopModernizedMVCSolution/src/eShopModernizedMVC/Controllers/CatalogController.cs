@@ -6,11 +6,14 @@ using eShopModernizedMVC.Services;
 using System.IO;
 using System;
 using System.Diagnostics;
+using log4net;
 
 namespace eShopModernizedMVC.Controllers
 {
     public class CatalogController : Controller
     {
+        private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private ICatalogService _service;
         private IImageService _imageService;
 
@@ -23,6 +26,7 @@ namespace eShopModernizedMVC.Controllers
         // GET /[?pageSize=3&pageIndex=10]
         public ActionResult Index(int pageSize = 10, int pageIndex = 0)
         {
+            _log.Info($"Now loading... /Catalog/Index?pageSize={pageSize}&pageIndex={pageIndex}");
             var paginatedItems = _service.GetCatalogItemsPaginated(pageSize, pageIndex);
             ChangeUriPlaceholder(paginatedItems.Data);
             return View(paginatedItems);
@@ -35,6 +39,7 @@ namespace eShopModernizedMVC.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            _log.Info($"Now loading... /Catalog/Details?id={id}");
             CatalogItem catalogItem = _service.FindCatalogItem(id.Value);
             if (catalogItem == null)
             {
@@ -49,7 +54,7 @@ namespace eShopModernizedMVC.Controllers
         [Authorize]
         public ActionResult Create()
         {
-
+            _log.Info($"Now loading... /Catalog/Create");
             ViewBag.CatalogBrandId = new SelectList(_service.GetCatalogBrands(), "Id", "Brand");
             ViewBag.CatalogTypeId = new SelectList(_service.GetCatalogTypes(), "Id", "Type");
             ViewBag.UseAzureStorage = CatalogConfiguration.UseAzureStorage;
@@ -67,6 +72,7 @@ namespace eShopModernizedMVC.Controllers
         [Authorize]
         public ActionResult Create([Bind(Include = "Id,Name,Description,Price,PictureFileName,CatalogTypeId,CatalogBrandId,AvailableStock,RestockThreshold,MaxStockThreshold,OnReorder,TempImageName")] CatalogItem catalogItem)
         {
+            _log.Info($"Now processing... /Catalog/Create?catalogItemName={catalogItem.Name}");
             if (ModelState.IsValid)
             {
                 if (!string.IsNullOrEmpty(catalogItem.TempImageName))
@@ -98,6 +104,7 @@ namespace eShopModernizedMVC.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            _log.Info($"Now loading... /Catalog/Edit?id={id}");
             CatalogItem catalogItem = _service.FindCatalogItem(id.Value);
 
             if (catalogItem == null)
@@ -118,6 +125,7 @@ namespace eShopModernizedMVC.Controllers
         [Authorize]
         public ActionResult Edit([Bind(Include = "Id,Name,Description,Price,PictureFileName,CatalogTypeId,CatalogBrandId,AvailableStock,RestockThreshold,MaxStockThreshold,OnReorder,TempImageName")] CatalogItem catalogItem)
         {
+            _log.Info($"Now processing... /Catalog/Edit?id={catalogItem.Id}");
             if (ModelState.IsValid)
             {
                 if (!string.IsNullOrEmpty(catalogItem.TempImageName))
@@ -140,6 +148,7 @@ namespace eShopModernizedMVC.Controllers
         [Authorize]
         public ActionResult Delete(int? id)
         {
+            _log.Info($"Now loading... /Catalog/Delete?id={id}");
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -159,6 +168,7 @@ namespace eShopModernizedMVC.Controllers
         [Authorize]
         public ActionResult DeleteConfirmed(int id)
         {
+            _log.Info($"Now processing... /Catalog/DeleteConfirmed?id={id}");
             CatalogItem catalogItem = _service.FindCatalogItem(id);
             _service.RemoveCatalogItem(catalogItem);
             return RedirectToAction("Index");
@@ -185,12 +195,6 @@ namespace eShopModernizedMVC.Controllers
         {
             item.PictureUri = _imageService.BuildUrlImage(item);
         }
-
-
-
     }
-
-
-
 }
 

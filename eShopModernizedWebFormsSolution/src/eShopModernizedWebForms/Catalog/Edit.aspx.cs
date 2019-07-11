@@ -1,19 +1,20 @@
 ﻿using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Services;
+using log4net;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OpenIdConnect;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace eShopModernizedWebForms.Catalog
 {
     public partial class Edit : System.Web.UI.Page
     {
+        private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         protected CatalogItem product;
 
         public ICatalogService CatalogService { get; set; }
@@ -22,6 +23,8 @@ namespace eShopModernizedWebForms.Catalog
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            _log.Info($"Now loading... /Catalog/Edit.aspx");
+
             if (!Page.IsPostBack)
             {
                 // Send an OpenID Connect sign-in request.

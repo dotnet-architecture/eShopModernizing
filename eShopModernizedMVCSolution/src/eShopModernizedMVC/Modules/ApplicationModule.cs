@@ -9,11 +9,13 @@ namespace eShopModernizedMVC.Modules
     {
         private bool useMockData;
         private bool useAzureStorage;
+        private bool useManagedIdentity;
 
-        public ApplicationModule(bool useMockData, bool useAzureStorage)
+        public ApplicationModule(bool useMockData, bool useAzureStorage, bool useManagedIdentity)
         {
             this.useMockData = useMockData;
             this.useAzureStorage = useAzureStorage;
+            this.useManagedIdentity = useManagedIdentity;
         }
         protected override void Load(ContainerBuilder builder)
         {
@@ -52,6 +54,19 @@ namespace eShopModernizedMVC.Modules
 
             builder.RegisterType<CatalogItemHiLoGenerator>()
                 .SingleInstance();
+
+            if (this.useManagedIdentity)
+            {
+                builder.RegisterType<ManagedIdentitySqlAccessTokenProvider>()
+                    .As<ISqlAccessTokenProvider>()
+                    .SingleInstance();
+            }
+            else
+            {
+                builder.RegisterType<AppSettingsSqlAccessTokenProvider>()
+                    .As<ISqlAccessTokenProvider>()
+                    .SingleInstance();
+            }
         }
     }
 }

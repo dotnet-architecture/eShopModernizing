@@ -1,4 +1,5 @@
 ﻿using eShopModernizedMVC.Services;
+using log4net;
 using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
@@ -17,6 +18,8 @@ namespace eShopModernizedMVC.Controllers
 {
     public class PicController : Controller
     {
+        private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         private static ImageFormat[] ValidFormats = new[] { ImageFormat.Jpeg, ImageFormat.Png, ImageFormat.Gif };
         private IImageService imageService;
 
@@ -29,6 +32,7 @@ namespace eShopModernizedMVC.Controllers
         [Route("uploadimage")]
         public ActionResult UploadImage()
         {
+            _log.Info($"Now processing... /Pic/UploadImage");
             HttpPostedFile image = System.Web.HttpContext.Current.Request.Files["HelpSectionImages"];
             var itemId = System.Web.HttpContext.Current.Request.Form["itemId"];
 
