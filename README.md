@@ -56,7 +56,7 @@ The winforms application is a catalog management, and uses a WCF as a back-end. 
 ![image](https://user-images.githubusercontent.com/1712635/30402804-d62632a2-9893-11e7-817a-f9f616cdf380.png)
 
 ### DEPLOYMENT TO KUBERNETES CLUSTER IN AZURE CONTAINER SERVICE
-![image](https://user-images.githubusercontent.com/1712635/30443383-264dd546-9934-11e7-8c86-6d0c892927bb.png)
+![image](https://user-images.githubusercontent.com/1899987/61177768-7526a100-a5aa-11e9-8279-bdfba19e1335.png)
 
 ### DEPLOYMENT TO SERVICE FABRIC CLUSTER
 ![image](https://user-images.githubusercontent.com/1712635/30446445-094e998a-993e-11e7-96d8-ed1dd9fef142.png)
