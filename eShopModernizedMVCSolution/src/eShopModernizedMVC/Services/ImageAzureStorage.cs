@@ -42,7 +42,6 @@ namespace eShopModernizedMVC.Services
             CloudBlobClient blobClient = _storageAccount.CreateCloudBlobClient();
             CloudBlobContainer container = blobClient.GetContainerReference("pics");
 
-            container = blobClient.GetContainerReference("pics");
             container.CreateIfNotExists();
 
             BlobContainerPermissions permissions = container.GetPermissions();
