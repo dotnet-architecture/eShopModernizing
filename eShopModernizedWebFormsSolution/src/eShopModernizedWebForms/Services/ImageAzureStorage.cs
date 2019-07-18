@@ -42,7 +42,6 @@ namespace eShopModernizedWebForms.Services
             CloudBlobClient blobClient = _storageAccount.CreateCloudBlobClient();
             CloudBlobContainer container = blobClient.GetContainerReference("pics");
 
-            container = blobClient.GetContainerReference("pics");
             container.CreateIfNotExists();
 
             BlobContainerPermissions permissions = container.GetPermissions();
@@ -62,8 +61,6 @@ namespace eShopModernizedWebForms.Services
             }
             var defaultImagePath = Path.Combine(webRoot, "default.png");
             UpLoadImageFromFile(container, "temp/default.png", defaultImagePath, "image/png");
-
-
         }
 
         public void UpdateImage(CatalogItem item)
