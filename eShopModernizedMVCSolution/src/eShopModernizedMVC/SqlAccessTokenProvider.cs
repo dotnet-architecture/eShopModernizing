@@ -1,6 +1,6 @@
 ﻿using Microsoft.Azure.Services.AppAuthentication;
 using System.Configuration;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace eShopModernizedMVC
 {
