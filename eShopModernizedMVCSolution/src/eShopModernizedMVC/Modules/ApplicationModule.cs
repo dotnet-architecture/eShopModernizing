@@ -55,18 +55,18 @@ namespace eShopModernizedMVC.Modules
             builder.RegisterType<CatalogItemHiLoGenerator>()
                 .SingleInstance();
 
-            if (this.useManagedIdentity)
-            {
-                builder.RegisterType<ManagedIdentitySqlAccessTokenProvider>()
-                    .As<ISqlAccessTokenProvider>()
-                    .SingleInstance();
-            }
-            else
-            {
-                builder.RegisterType<AppSettingsSqlAccessTokenProvider>()
-                    .As<ISqlAccessTokenProvider>()
-                    .SingleInstance();
-            }
+            //if (this.useManagedIdentity)
+            //{
+            //    builder.RegisterType<ManagedIdentitySqlAccessTokenProvider>()
+            //        .As<ISqlAccessTokenProvider>()
+            //        .SingleInstance();
+            //}
+            //else
+            //{
+            //    builder.RegisterType<AppSettingsSqlAccessTokenProvider>()
+            //        .As<ISqlAccessTokenProvider>()
+            //        .SingleInstance();
+            //}
         }
     }
 }
