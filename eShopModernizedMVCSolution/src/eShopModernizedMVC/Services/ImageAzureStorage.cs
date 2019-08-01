@@ -1,5 +1,4 @@
 ﻿using eShopModernizedMVC.Models;
-using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;

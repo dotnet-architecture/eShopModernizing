@@ -12,6 +12,5 @@ namespace eShopModernizedMVC.Services
         string UrlDefaultImage();
         string BuildUrlImage(CatalogItem item);
         void InitializeCatalogImages();
-
     }
 }
