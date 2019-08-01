@@ -1,6 +1,4 @@
-﻿
-
-using System.Web;
+﻿using System.Web;
 using eShopModernizedMVC.Models;
 using System.IO;
 
