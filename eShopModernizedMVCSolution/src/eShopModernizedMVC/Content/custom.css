@@ -3,6 +3,11 @@
 */
 .dl-horizontal dt {
     white-space: normal;
+    font-size: 20px;
+}
+
+.dl-horizontal dd {
+    margin-left: 5%;
 }
 
 /* Tables */

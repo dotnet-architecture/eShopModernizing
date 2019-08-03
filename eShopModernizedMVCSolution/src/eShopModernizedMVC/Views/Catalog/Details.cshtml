@@ -8,7 +8,9 @@
 
 <div class="container">
     <div class="row">
-        <img class="col-md-6 esh-picture" src="@Model.PictureUri" />
+        <div class="col-md-4">
+            <img class="col-md-6 esh-picture" src="@Model.PictureUri" />
+        </div>
         <dl class="col-md-6 dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.Name)
