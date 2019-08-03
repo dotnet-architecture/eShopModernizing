@@ -9,13 +9,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <img class="col-md-6 esh-picture" src="@Model.PictureUri" />
+            <img class="col-md-8 esh-picture" src="@Model.PictureUri" />
         </div>
-        <dl class="col-md-6 dl-horizontal">
+        <dl class="col-md-4 dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.Name)
             </dt>
-
             <dd>
                 @Html.DisplayFor(model => model.Name)
             </dd>
@@ -23,7 +22,6 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Description)
             </dt>
-
             <dd>
                 @Html.DisplayFor(model => model.Description)
             </dd>
@@ -31,7 +29,6 @@
             <dt>
                 @Html.DisplayNameFor(model => model.CatalogBrand.Brand)
             </dt>
-
             <dd>
                 @Html.DisplayFor(model => model.CatalogBrand.Brand)
             </dd>
@@ -39,7 +36,6 @@
             <dt>
                 @Html.DisplayNameFor(model => model.CatalogType.Type)
             </dt>
-
             <dd>
                 @Html.DisplayFor(model => model.CatalogType.Type)
             </dd>
@@ -47,15 +43,15 @@
             <dt>
                 @Html.DisplayNameFor(model => model.Price)
             </dt>
-
             <dd>
                 @Html.DisplayFor(model => model.Price)
             </dd>
+        </dl>
 
+        <dl class="col-md-4 dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.PictureFileName)
             </dt>
-
             <dd>
                 @Html.DisplayFor(model => model.PictureFileName)
             </dd>
@@ -63,7 +59,6 @@
             <dt>
                 @Html.DisplayNameFor(model => model.AvailableStock)
             </dt>
-
             <dd>
                 @Html.DisplayFor(model => model.AvailableStock)
             </dd>
@@ -71,7 +66,6 @@
             <dt>
                 @Html.DisplayNameFor(model => model.RestockThreshold)
             </dt>
-
             <dd>
                 @Html.DisplayFor(model => model.RestockThreshold)
             </dd>
@@ -79,11 +73,9 @@
             <dt>
                 @Html.DisplayNameFor(model => model.MaxStockThreshold)
             </dt>
-
             <dd>
                 @Html.DisplayFor(model => model.MaxStockThreshold)
             </dd>
-
         </dl>
     </div>
     <p class="esh-link-list esh-link-item--margin">
