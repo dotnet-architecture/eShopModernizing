@@ -76,10 +76,13 @@
             <dd>
                 @Html.DisplayFor(model => model.MaxStockThreshold)
             </dd>
+
+            <dd class="esh-button-actions">
+                
+                @Html.ActionLink("[ Back to List ]", "Index", null, new { @class = "btn esh-button esh-button-secondary" })
+                @Html.ActionLink("[ Edit ]", "Edit", new { id = Model.Id }, new { @class = "btn esh-button esh-button-primary" })
+                
+            </dd>
         </dl>
     </div>
-    <p class="esh-link-list esh-link-item--margin">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "esh-link-item" }) |
-        @Html.ActionLink("Back to List", "Index", null, new { @class = "esh-link-item" })
-    </p>
 </div>

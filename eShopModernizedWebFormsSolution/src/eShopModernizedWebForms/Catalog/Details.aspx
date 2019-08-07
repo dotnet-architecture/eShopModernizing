@@ -72,16 +72,18 @@
                 <dd>
                     <asp:Label runat="server" Text='<%#product.MaxStockThreshold%>' />
                 </dd>
+
+                <dd class="esh-button-actions">
+                    <a runat="server" href="~" class="btn esh-button esh-button-secondary">
+                        [ Back to list ]
+                    </a>
+                    <a runat="server" href='<%# GetRouteUrl("EditProductRoute", new {id =product.Id}) %>' class="btn esh-button esh-button-primary">
+                        [ Edit ]
+                    </a>
+
+            
+                </dd>
             </dl>
         </div>
-
-        <div class="form-actions no-color esh-link-list">
-            <a runat="server" href='<%# GetRouteUrl("EditProductRoute", new {id =product.Id}) %>' class="esh-link-item">Edit
-            </a>
-            |
-            <a runat="server" href="~" class="esh-link-item">Back to list
-            </a>
-        </div>
-
     </div>
 </asp:Content>
