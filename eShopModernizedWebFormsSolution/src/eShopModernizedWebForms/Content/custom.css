@@ -5,6 +5,10 @@
     white-space: normal;
 }
 
+.dl-horizontal dd {
+    margin-left: 5%;
+}
+
 /* Tables */
 .table thead > tr > th,
 .table tbody > tr > th,

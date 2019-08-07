@@ -5,8 +5,10 @@
 
     <div class="container">
         <div class="row">
-            <asp:Image runat="server" CssClass="col-md-6 esh-picture" ImageUrl='<%#"/Pics/" + product.PictureFileName%>' />
-            <dl class="col-md-6 dl-horizontal">
+            <div class="col-md-4">
+                <asp:Image runat="server" CssClass="col-md-8 esh-picture" ImageUrl='<%#"/Pics/" + product.PictureFileName%>' />
+            </div>
+            <dl class="col-md-4 dl-horizontal">
                 <dt>Name
                 </dt>
 
@@ -40,8 +42,10 @@
                 <dd>
                     <asp:Label CssClass="esh-price" runat="server" Text='<%#product.Price%>' />
                 </dd>
-
-                <dt>Picture name
+            </dl>
+            <dl class="col-md-4 dl-horizontal">
+                <dt>
+                    Picture name
                 </dt>
 
                 <dd>
@@ -68,7 +72,6 @@
                 <dd>
                     <asp:Label runat="server" Text='<%#product.MaxStockThreshold%>' />
                 </dd>
-
             </dl>
         </div>
 

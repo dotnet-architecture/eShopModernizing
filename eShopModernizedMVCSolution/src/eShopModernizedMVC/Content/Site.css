@@ -156,6 +156,7 @@
 .esh-link-list {
     font-size: 2rem;
     margin-left: 1rem;
+    text-align: right;
 }
 
 .esh-button-actions .esh-button + .esh-button {
