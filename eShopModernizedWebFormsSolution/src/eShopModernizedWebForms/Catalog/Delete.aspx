@@ -7,8 +7,10 @@
     <div class="container">
         <h3>Are you sure you want to delete this?</h3>
         <div class="row">
-            <asp:Image runat="server" CssClass="col-md-6 esh-picture" ImageUrl='<%#"/Pics/" + productToDelete.PictureFileName%>' />
-            <dl class="col-md-6 dl-horizontal">
+            <div class="col-md-4">
+                <asp:Image runat="server" CssClass="col-md-8 esh-picture" ImageUrl='<%#"/Pics/" + productToDelete.PictureFileName%>' />
+            </div>
+            <dl class="col-md-4 dl-horizontal">
                 <dt>Name
                 </dt>
 
@@ -42,6 +44,8 @@
                 <dd>
                     <asp:Label CssClass="esh-price" runat="server" Text='<%#productToDelete.Price%>' />
                 </dd>
+            </dl>
+            <dl class="col-md-4 dl-horizontal">
 
                 <dt>Picture name
                 </dt>
@@ -73,7 +77,7 @@
 
                 <dt></dt>
 
-                <dd class="text-right esh-button-actions">
+                <dd class="esh-button-actions">
                     <a runat="server" href="~" class="btn esh-button esh-button-secondary">[ Cancel ]
                     </a>
                     <asp:Button CssClass="btn esh-button esh-button-primary" runat="server" Text="[ Delete ]" OnClick="Delete_Click" />
@@ -81,11 +85,5 @@
 
             </dl>
         </div>
-
-        <%--<div class="form-actions no-color esh-link-list">
-            <a runat="server" href="~" class="esh-link-item">Back to list
-            </a>
-        </div>--%>
-
     </div>
 </asp:Content>
