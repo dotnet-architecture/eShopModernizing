@@ -1,17 +1,11 @@
 ﻿using eShopModernizedMVC.Services;
 using log4net;
-using Microsoft.Azure;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
-using System.Web.Hosting;
 using System.Web.Mvc;
 
 namespace eShopModernizedMVC.Controllers
@@ -20,12 +14,12 @@ namespace eShopModernizedMVC.Controllers
     {
         private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        private static ImageFormat[] ValidFormats = new[] { ImageFormat.Jpeg, ImageFormat.Png, ImageFormat.Gif };
-        private IImageService imageService;
+        private static readonly ImageFormat[] ValidFormats = { ImageFormat.Jpeg, ImageFormat.Png, ImageFormat.Gif };
+        private readonly IImageService _imageService;
 
         public PicController(ICatalogService service, IImageService imageService)
         {
-            this.imageService = imageService;
+            _imageService = imageService;
         }
 
         [HttpPost]
@@ -42,7 +36,7 @@ namespace eShopModernizedMVC.Controllers
             }
 
             int.TryParse(itemId, out var catalogItemId);
-            var urlImageTemp = imageService.UploadTempImage(image, catalogItemId);
+            var urlImageTemp = _imageService.UploadTempImage(image, catalogItemId);
             var tempImage = new
             {
                 name = new Uri(urlImageTemp).PathAndQuery,
