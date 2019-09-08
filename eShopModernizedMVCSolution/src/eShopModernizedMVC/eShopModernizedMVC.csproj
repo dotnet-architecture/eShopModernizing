@@ -481,12 +481,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="AuthenticationMiddleware.cs" />
-    <Compile Include="CatalogConfiguration.cs" />
+    <Compile Include="Middleware\AuthenticationMiddleware.cs" />
+    <Compile Include="App_Start\CatalogConfiguration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\PicController.cs" />
     <Compile Include="Filters\ActionTracerFilter.cs" />
-    <Compile Include="SqlAccessTokenProvider.cs" />
+    <Compile Include="App_Start\SqlAccessTokenProvider.cs" />
     <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
     <Compile Include="Models\CatalogItemHiLoGenerator.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
@@ -499,8 +499,8 @@
     <Compile Include="Models\CatalogType.cs" />
     <Compile Include="Models\Infrastructure\PreconfiguredData.cs" />
     <Compile Include="Modules\ApplicationModule.cs" />
-    <Compile Include="MyTelemetryInitializer.cs" />
-    <Compile Include="OptionalKeyVaultConfigurationBuilder.cs" />
+    <Compile Include="App_Start\MyTelemetryInitializer.cs" />
+    <Compile Include="App_Start\OptionalKeyVaultConfigurationBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ImageAzureStorage.cs" />
     <Compile Include="Services\CatalogService.cs" />
@@ -565,13 +565,6 @@
     <Content Include="fonts\Montserrat-Regular.ttf" />
     <Content Include="fonts\Montserrat-Regular.woff" />
     <Content Include="fonts\Montserrat-Regular.woff2" />
-    <Content Include="Dockerfile">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <None Include=".dockerignore">
-      <DependentUpon>Dockerfile</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />

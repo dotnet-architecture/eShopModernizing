@@ -1,8 +1,8 @@
-﻿using Microsoft.Owin;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.Owin;
 
-namespace eShopModernizedMVC
+namespace eShopModernizedMVC.Middleware
 {
     public class AuthenticationMiddleware : OwinMiddleware
     {
