@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using eShopModernizedWebForms.Middleware;
+using Microsoft.Owin;
 using Owin;
 
 [assembly: OwinStartup(typeof(eShopModernizedWebForms.Startup))]

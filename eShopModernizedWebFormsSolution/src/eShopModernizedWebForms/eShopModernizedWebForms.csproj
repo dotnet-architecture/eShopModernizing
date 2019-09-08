@@ -442,13 +442,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx" />
     <Content Include="Catalog\Create.aspx" />
     <Content Include="Catalog\Delete.aspx" />
     <Content Include="Catalog\Details.aspx" />
     <Content Include="Catalog\Edit.aspx" />
     <Content Include="Catalog\PicUploader.asmx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\base.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -579,17 +577,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="About.aspx.designer.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="AuthenticationMiddleware.cs" />
-    <Compile Include="CatalogConfiguration.cs" />
+    <Compile Include="Middleware\AuthenticationMiddleware.cs" />
+    <Compile Include="App_Start\CatalogConfiguration.cs" />
     <Compile Include="Catalog\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -622,13 +613,6 @@
       <DependentUpon>PicUploader.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -647,8 +631,8 @@
     <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
     <Compile Include="Models\Infrastructure\PreconfiguredData.cs" />
     <Compile Include="Modules\ApplicationModule.cs" />
-    <Compile Include="MyTelemetryInitializer.cs" />
-    <Compile Include="OptionalKeyVaultConfigurationBuilder.cs" />
+    <Compile Include="App_Start\MyTelemetryInitializer.cs" />
+    <Compile Include="App_Start\OptionalKeyVaultConfigurationBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CatalogService.cs" />
     <Compile Include="Services\CatalogServiceMock.cs" />
@@ -670,7 +654,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="SqlAccessTokenProvider.cs" />
+    <Compile Include="App_Start\SqlAccessTokenProvider.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\PaginatedItemsViewModel.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
