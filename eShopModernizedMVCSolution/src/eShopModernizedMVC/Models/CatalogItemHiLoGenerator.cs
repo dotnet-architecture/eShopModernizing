@@ -1,33 +1,30 @@
-﻿using eShopModernizedMVC.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Web;
 
 namespace eShopModernizedMVC.Models
 {
     public class CatalogItemHiLoGenerator
     {
         private const int HiLoIncrement = 10;
-        private int sequenceId = -1;
-        private int remainningLoIds = 0;
+        private int _sequenceId = -1;
+        private int _remainningLoIds = 0;
         private object sequenceLock = new object();
 
         public int GetNextSequenceValue(CatalogDBContext db)
         {
             lock (sequenceLock)
             {
-                if (remainningLoIds == 0)
+                if (_remainningLoIds == 0)
                 {
                     var rawQuery = db.Database.SqlQuery<Int64>("SELECT NEXT VALUE FOR catalog_hilo;");
-                    sequenceId = (int)rawQuery.Single();
-                    remainningLoIds = HiLoIncrement - 1;
-                    return sequenceId;
+                    _sequenceId = (int)rawQuery.Single();
+                    _remainningLoIds = HiLoIncrement - 1;
+                    return _sequenceId;
                 }
                 else
                 {
-                    remainningLoIds--;
-                    return ++sequenceId;
+                    _remainningLoIds--;
+                    return ++_sequenceId;
                 }
             }
         }
