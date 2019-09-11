@@ -4,8 +4,6 @@ using System.Web.Mvc;
 using eShopModernizedMVC.Models;
 using eShopModernizedMVC.Services;
 using System.IO;
-using System;
-using System.Diagnostics;
 using log4net;
 
 namespace eShopModernizedMVC.Controllers
@@ -14,8 +12,8 @@ namespace eShopModernizedMVC.Controllers
     {
         private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        private ICatalogService _service;
-        private IImageService _imageService;
+        private readonly ICatalogService _service;
+        private readonly IImageService _imageService;
 
         public CatalogController(ICatalogService service, IImageService imageService)
         {

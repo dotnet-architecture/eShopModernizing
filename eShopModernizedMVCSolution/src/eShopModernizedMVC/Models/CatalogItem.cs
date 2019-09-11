@@ -1,17 +1,9 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace eShopModernizedMVC.Models
 {
     public class CatalogItem
     {
-       
-
-        public CatalogItem()
-        {
-          
-        }
         public int Id { get; set; }
 
         [Required]
