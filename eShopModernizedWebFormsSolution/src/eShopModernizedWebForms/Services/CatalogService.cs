@@ -1,8 +1,6 @@
-﻿using System;
-using eShopModernizedWebForms.Models;
+﻿using eShopModernizedWebForms.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.SqlClient;
 using System.Linq;
 using eShopModernizedWebForms.ViewModel;
 

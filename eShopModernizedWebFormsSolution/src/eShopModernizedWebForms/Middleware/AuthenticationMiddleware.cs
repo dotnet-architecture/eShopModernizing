@@ -2,7 +2,7 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace eShopModernizedWebForms
+namespace eShopModernizedWebForms.Middleware
 {
     public class AuthenticationMiddleware : OwinMiddleware
     {
