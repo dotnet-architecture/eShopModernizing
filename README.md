@@ -52,6 +52,8 @@ The winforms application is a catalog management, and uses a WCF as a back-end. 
 ### DEPLOYMENT TO KUBERNETES CLUSTER IN AKS (Azure Kubernetes Service)
 ![image](https://user-images.githubusercontent.com/1899987/61177768-7526a100-a5aa-11e9-8279-bdfba19e1335.png)
 
+### DEPLOYMENT TO AZURE WEB APP FOR CONTAINERS
+![image](https://docs.microsoft.com/en-us/dotnet/architecture/modernize-with-azure-containers/media/image5-11.png)
 
 ## Quick start: Running all apps together in your local Windows 10 PC with "Docker for Windows"
 
@@ -106,8 +108,6 @@ Although that [limitation has been removed beginning with Build 17025](https://b
 ## Review the Wiki for detailed instructions on how to set it up and deploy to multiple environments
 
 Wiki: https://github.com/dotnet-architecture/eShopModernizing/wiki
-
-
 
 ### Choose in-memory mock-data or real database connection to a SQL Server database
 
