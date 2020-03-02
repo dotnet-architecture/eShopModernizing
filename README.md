@@ -6,9 +6,8 @@ This repo provides three sample hypothetical legacy eShop web apps (traditional 
 - Local build and deployment in dev PC with Visual Studio and Docker for Windows
 - Azure Container Instances (ACI)
 - Regular Windows Server 2016 VM (Virtual Machine)
-- AKS-Kubernetes orchestrator cluster
-- Service Fabric orchestrators cluster
-- Azure App Service with Windows Containers support
+- AKS Kubernetes orchestrator cluster
+- Azure Web App for Containers (Windows Containers)
 
 All those mentioned environments can be deployed into Azure cloud (as explained in the Wiki) but you can also deploy all those environments into on-premises servers or even in other public clouds.
 
@@ -50,11 +49,8 @@ The winforms application is a catalog management, and uses a WCF as a back-end. 
 ### DEPLOYMENT TO AZURE WINDOWS SERVER 2016 VM
 ![image](https://user-images.githubusercontent.com/1712635/30402804-d62632a2-9893-11e7-817a-f9f616cdf380.png)
 
-### DEPLOYMENT TO KUBERNETES CLUSTER IN AZURE CONTAINER SERVICE
+### DEPLOYMENT TO KUBERNETES CLUSTER IN AKS (Azure Kubernetes Service)
 ![image](https://user-images.githubusercontent.com/1899987/61177768-7526a100-a5aa-11e9-8279-bdfba19e1335.png)
-
-### DEPLOYMENT TO SERVICE FABRIC CLUSTER
-![image](https://user-images.githubusercontent.com/1712635/30446445-094e998a-993e-11e7-96d8-ed1dd9fef142.png)
 
 
 ## Quick start: Running all apps together in your local Windows 10 PC with "Docker for Windows"
