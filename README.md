@@ -6,23 +6,18 @@ This repo provides three sample hypothetical legacy eShop web apps (traditional 
 - Local build and deployment in dev PC with Visual Studio and Docker for Windows
 - Azure Container Instances (ACI)
 - Regular Windows Server 2016 VM (Virtual Machine)
-- ACS-Kubernetes orchestrator cluster
+- AKS-Kubernetes orchestrator cluster
 - Service Fabric orchestrators cluster
-- Azure App Service with Windows Containers support (In Private Preview, not documented here, yet)
-- Service Fabric Mesh (In Private Preview, not documented here, yet)
+- Azure App Service with Windows Containers support
 
 All those mentioned environments can be deployed into Azure cloud (as explained in the Wiki) but you can also deploy all those environments into on-premises servers or even in other public clouds.
 
 ## Related Guide/eBook
-You can download its related guidance with this free guide/eBook (2nd Edition updated in mid-2018):
+You can download its related guidance with this free guide/eBook (2nd Edition):
 
-![image](https://user-images.githubusercontent.com/1712635/39776014-6b4f26b0-52b4-11e8-87f8-b43bf48fca27.png)
+<img src="https://github.com/dotnet/docs/raw/master/docs/architecture/modernize-with-azure-containers/media/index/web-application-guide-cover-image.png" width="300">
 
-.PDF download (PC) - 2nd Edition: https://aka.ms/liftandshiftwithcontainersebook
-
-.MOBI download (Kindle) - 2nd Edition: https://aka.ms/liftandshiftwithcontainersebookmobi
-
-.EPUB download (Other eReaders) - 2nd Edition: https://aka.ms/liftandshiftwithcontainersebookepub
+.PDF download: https://aka.ms/liftandshiftwithcontainersebook
 
 The modernization with Windows Containers significantly improves the deployments for DevOps, without having to change the app's architecture or C# code.
 
