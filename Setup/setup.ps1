@@ -34,7 +34,7 @@ New-AzSqlServer -ServerName $servername -ResourceGroupName $resourcegroupname -L
 
 # Open the SQL Database server firewall to allow access to services hosted in Azure.
 New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname -ServerName $servername -FirewallRuleName "AllowedIPs" -StartIpAddress "0.0.0.0" -EndIpAddress "0.0.0.0"
-    ```
+
 # Create a database on the SQL Database server.
 # The database will be populated later, when you migrate the web app.
 New-AzSqlDatabase  -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $dbName -RequestedServiceObjectiveName "S0"
