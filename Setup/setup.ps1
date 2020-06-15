@@ -1,3 +1,6 @@
+# Tag the resource group
+Set-AzResourceGroup -Name $resourcegroupname -Tag @{Name="webappresourcegroup"} 
+
 # Create an Azure App Service plan. The App Service plan specifies the location, size, and features of the web server farm that hosts your app.
 New-AzAppServicePlan -Name $webappplanname -ResourceGroup $resourcegroupname -Location $location
 
