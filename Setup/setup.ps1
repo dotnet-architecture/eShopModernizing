@@ -5,7 +5,7 @@
 New-AzAppServicePlan -Name $webappplanname -ResourceGroup $resourcegroupname -Location $location
 
 # Create an Azure Web App using the App Service plan. You'll deploy the code for the on-premises web app to this web app in a later exercise.
-New-AzWebApp -Name $webappname -AppServicePlan $webappplanname -ResourceGroup $resourcegroupname
+New-AzWebApp -Name $webappname -AppServicePlan $webappplanname -ResourceGroup $resourcegroupname -Location $location
 
 # Assign a managed identity to the web app. You'll require this identity later.
 Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName $resourcegroupname
