@@ -1,3 +1,5 @@
+$ErrorActionPreference = 'SilentlyContinue'
+
 $plan = Get-AzAppServicePlan -Name $webappplanname -ResourceGroup $resourcegroupname
 if ($plan) { Write-Host("The app service plan was created") } else { Write-Host("The app service plan was not created") }
 
