@@ -1,0 +1,101 @@
+﻿@model eShopLegacyMVC.Models.CatalogItem
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 class="esh-body-title">Delete</h2>
+
+<div class="container">
+    <h3>Are you sure you want to delete this?</h3>
+    <div class="row">
+        <img class="col-md-6 esh-picture" src="@Model.PictureUri" />
+        <dl class="col-md-6 dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CatalogBrand.Brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CatalogBrand.Brand)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CatalogType.Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CatalogType.Type)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PictureFileName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PictureFileName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AvailableStock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AvailableStock)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RestockThreshold)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RestockThreshold)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MaxStockThreshold)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaxStockThreshold)
+            </dd>
+
+            <dt>
+            </dt>
+
+            <dd class="text-right esh-button-actions">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ActionLink("[ Cancel ]", "Index", null, new { @class = "btn esh-button esh-button-secondary" })
+                    <button type="submit" class="btn esh-button esh-button-primary">[ Delete ]</button>
+                }
+            </dd>
+
+        </dl>
+
+    </div>
+
+</div>

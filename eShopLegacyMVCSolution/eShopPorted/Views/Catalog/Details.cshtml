@@ -1,0 +1,91 @@
+﻿@model eShopLegacyMVC.Models.CatalogItem
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="esh-body-title">Details</h2>
+
+<div class="container">
+    <div class="row">
+        <img class="col-md-6 esh-picture" src="@Model.PictureUri" />
+        <dl class="col-md-6 dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CatalogBrand.Brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CatalogBrand.Brand)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CatalogType.Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CatalogType.Type)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PictureFileName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PictureFileName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AvailableStock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AvailableStock)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RestockThreshold)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RestockThreshold)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MaxStockThreshold)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MaxStockThreshold)
+            </dd>
+
+        </dl>
+    </div>
+    <p class="esh-link-list esh-link-item--margin">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "esh-link-item" }) |
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "esh-link-item" })
+    </p>
+</div>

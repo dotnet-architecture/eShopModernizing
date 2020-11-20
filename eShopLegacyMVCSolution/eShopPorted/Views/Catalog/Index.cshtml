@@ -1,0 +1,46 @@
+﻿@model eShopLegacyMVC.ViewModel.PaginatedItemsViewModel<eShopLegacyMVC.Models.CatalogItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="esh-table">
+    <p class="esh-link-wrapper">
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn esh-button esh-button-primary" })
+    </p>
+
+    @Html.Partial("CatalogTable", Model.Data)
+
+    <div class="esh-pager">
+        <div class="container">
+            <article class="esh-pager-wrapper row">
+                <nav>
+
+                    @if (Model.ActualPage > 0)
+                    {
+                        @Html.ActionLink("Previous", "Index", new { pageSize = Model.ItemsPerPage, pageIndex = Model.ActualPage - 1 }, new { @class = "esh-pager-item esh-pager-item--navigable" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Previous", "Index", new { pageSize = Model.ItemsPerPage, pageIndex = Model.ActualPage - 1 }, new { @class = "esh-pager-item esh-pager-item--navigable esh-pager-item--hidden" })
+                    }
+
+                    <span class="esh-pager-item">
+                        Showing @Model.ItemsPerPage of @Model.TotalItems products - Page @(Model.ActualPage + 1) - @Model.TotalPages
+                    </span>
+
+                    @if (Model.ActualPage < Model.TotalPages - 1)
+                    {
+                        @Html.ActionLink("Next", "Index", new { pageSize = Model.ItemsPerPage, pageIndex = Model.ActualPage + 1 }, new { @class = "esh-pager-item esh-pager-item--navigable" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Next", "Index", new { pageSize = Model.ItemsPerPage, pageIndex = Model.ActualPage + 1 }, new { @class = "esh-pager-item esh-pager-item--navigable esh-pager-item--hidden" })
+                    }
+
+            </nav>
+        </article>
+    </div>
+</div>
+
+</div>
