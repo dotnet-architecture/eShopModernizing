@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
@@ -21,11 +22,11 @@ namespace eShopPorted.Models.Infrastructure
         private CatalogItemHiLoGenerator indexGenerator;
         private bool useCustomizationData;
 
-        public CatalogDBInitializer(CatalogItemHiLoGenerator indexGenerator)
+        public CatalogDBInitializer(CatalogItemHiLoGenerator indexGenerator,
+            IConfiguration configuration)
         {
             this.indexGenerator = indexGenerator;
-            // TODO: Fix config access
-            //useCustomizationData = bool.Parse(ConfigurationManager.AppSettings["UseCustomizationData"]);
+            useCustomizationData = configuration.GetValue<bool>("UseCustomizationData");
         }
 
         protected override void Seed(CatalogDBContext context)
