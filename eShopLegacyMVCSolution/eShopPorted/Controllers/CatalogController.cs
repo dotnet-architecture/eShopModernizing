@@ -2,11 +2,11 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using eShopLegacyMVC.Models;
-using eShopLegacyMVC.Services;
+using eShopPorted.Models;
+using eShopPorted.Services;
 using log4net;
 
-namespace eShopLegacyMVC.Controllers
+namespace eShopPorted.Controllers
 {
     public class CatalogController : Controller
     {

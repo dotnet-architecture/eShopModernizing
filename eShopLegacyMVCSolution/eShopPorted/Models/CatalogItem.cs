@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace eShopLegacyMVC.Models
+namespace eShopPorted.Models
 {
     public class CatalogItem
     {

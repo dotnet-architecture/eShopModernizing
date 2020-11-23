@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using eShopLegacyMVC.Models;
-using eShopLegacyMVC.Models.Infrastructure;
-using eShopLegacyMVC.ViewModel;
+using eShopPorted.Models;
+using eShopPorted.Models.Infrastructure;
+using eShopPorted.ViewModel;
 
-namespace eShopLegacyMVC.Services
+namespace eShopPorted.Services
 {
     public class CatalogServiceMock : ICatalogService
     {

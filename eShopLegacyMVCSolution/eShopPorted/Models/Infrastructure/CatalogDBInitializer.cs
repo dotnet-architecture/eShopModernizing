@@ -8,7 +8,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace eShopLegacyMVC.Models.Infrastructure
+namespace eShopPorted.Models.Infrastructure
 {
     public class CatalogDBInitializer : CreateDatabaseIfNotExists<CatalogDBContext>
     {

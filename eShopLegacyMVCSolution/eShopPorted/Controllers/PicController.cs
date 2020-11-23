@@ -1,10 +1,10 @@
-﻿using eShopLegacyMVC.Services;
+﻿using eShopPorted.Services;
 using log4net;
 using System.IO;
 using System.Net;
 using System.Web.Mvc;
 
-namespace eShopLegacyMVC.Controllers
+namespace eShopPorted.Controllers
 {
     public class PicController : Controller
     {

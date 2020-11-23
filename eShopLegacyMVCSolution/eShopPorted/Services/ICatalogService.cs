@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using eShopLegacyMVC.Models;
+using eShopPorted.Models;
 using System;
-using eShopLegacyMVC.ViewModel;
+using eShopPorted.ViewModel;
 
-namespace eShopLegacyMVC.Services
+namespace eShopPorted.Services
 {
     public interface ICatalogService : IDisposable
     {

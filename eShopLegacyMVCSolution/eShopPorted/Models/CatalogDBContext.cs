@@ -1,9 +1,9 @@
-﻿using eShopLegacyMVC.Models.Infrastructure;
+﻿using eShopPorted.Models.Infrastructure;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 
-namespace eShopLegacyMVC.Models
+namespace eShopPorted.Models
 {
     public class CatalogDBContext : DbContext
     {
