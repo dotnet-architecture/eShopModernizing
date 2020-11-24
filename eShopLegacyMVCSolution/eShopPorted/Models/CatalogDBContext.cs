@@ -1,5 +1,4 @@
-﻿using eShopPorted.Models.Infrastructure;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 
@@ -7,6 +6,10 @@ namespace eShopPorted.Models
 {
     public class CatalogDBContext : DbContext
     {
+        public CatalogDBContext(string connectionString) : base(connectionString)
+        {
+        }
+
         public CatalogDBContext() : base("name=CatalogDBContext")
         {
         }

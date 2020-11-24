@@ -29,7 +29,8 @@ namespace eShopPorted
             var builder = new ContainerBuilder();
             builder.Populate(services);
             bool useMockData = Configuration.GetValue<bool>("UseMockData");
-            builder.RegisterModule(new ApplicationModule(useMockData));
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
+            builder.RegisterModule(new ApplicationModule(useMockData, connectionString));
 
             ILifetimeScope container = builder.Build();
 

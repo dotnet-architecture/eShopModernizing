@@ -7,15 +7,17 @@ namespace eShopPorted.Modules
 {
     public class ApplicationModule : Module
     {
-        private bool useMockData;
+        private bool _useMockData;
+        private readonly string _connectionString;
 
-        public ApplicationModule(bool useMockData)
+        public ApplicationModule(bool useMockData, string connectionString)
         {
-            this.useMockData = useMockData;
+            _useMockData = useMockData;
+            _connectionString = connectionString;
         }
         protected override void Load(ContainerBuilder builder)
         {
-            if (this.useMockData)
+            if (_useMockData)
             {
                 builder.RegisterType<CatalogServiceMock>()
                     .As<ICatalogService>()
@@ -29,6 +31,7 @@ namespace eShopPorted.Modules
             }
 
             builder.RegisterType<CatalogDBContext>()
+                .WithParameter("connectionString", _connectionString)
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<CatalogDBInitializer>()
