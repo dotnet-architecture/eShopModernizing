@@ -8,12 +8,10 @@ namespace eShopPorted.Modules
     public class ApplicationModule : Module
     {
         private bool _useMockData;
-        private readonly string _connectionString;
 
-        public ApplicationModule(bool useMockData, string connectionString)
+        public ApplicationModule(bool useMockData)
         {
             _useMockData = useMockData;
-            _connectionString = connectionString;
         }
         protected override void Load(ContainerBuilder builder)
         {
@@ -29,16 +27,6 @@ namespace eShopPorted.Modules
                     .As<ICatalogService>()
                     .InstancePerLifetimeScope();
             }
-
-            builder.RegisterType<CatalogDBContext>()
-                .WithParameter("connectionString", _connectionString)
-                .InstancePerLifetimeScope();
-
-            builder.RegisterType<CatalogDBInitializer>()
-                .InstancePerLifetimeScope();
-
-            builder.RegisterType<CatalogItemHiLoGenerator>()
-                .SingleInstance();
         }
     }
 }
