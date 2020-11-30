@@ -160,9 +160,7 @@ public ActionResult Create([Bind("Id,Name,Description,Price,PictureFileName,Cata
 
         private void AddUriPlaceHolder(CatalogItem item)
         {
-            //TODO: Reference pic from wwwroot
-            //item.PictureUri = $"/Pics/{item.Id}.png";
-            //item.PictureUri = this.Url.RouteUrl(PicController.GetPicRouteName, new { catalogItemId = item.Id }, this.Request.Url.Scheme);            
+            item.PictureUri = $"/Pics/{item.Id}.png";
         }
     }
 }
