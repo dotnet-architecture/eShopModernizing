@@ -265,7 +265,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\CatalogController.cs" />
     <Compile Include="Controllers\PicController.cs" />
-    <Compile Include="Controllers\WebApi\CatalogApiController.cs" />
+    <Compile Include="Controllers\WebApi\BrandsController.cs" />
     <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
     <Compile Include="Models\CatalogItemHiLoGenerator.cs" />
     <Compile Include="Controllers\CatalogController.cs" />
