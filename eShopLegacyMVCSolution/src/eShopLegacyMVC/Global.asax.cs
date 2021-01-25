@@ -1,31 +1,33 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using eShopLegacyMVC.Models;
 using eShopLegacyMVC.Models.Infrastructure;
 using eShopLegacyMVC.Modules;
 using log4net;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
 using System.Diagnostics;
-using System.Linq;
+using System.Reflection;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
 namespace eShopLegacyMVC
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
-        private static readonly ILog _log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly ILog _log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         IContainer container;
 
         protected void Application_Start()
         {
             container = RegisterContainer();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
@@ -59,13 +61,21 @@ namespace eShopLegacyMVC
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            var thisAssembly = Assembly.GetExecutingAssembly();
+            builder.RegisterControllers(thisAssembly);
+            builder.RegisterApiControllers(thisAssembly);
 
             var mockData = bool.Parse(ConfigurationManager.AppSettings["UseMockData"]);
             builder.RegisterModule(new ApplicationModule(mockData));
 
             var container = builder.Build();
+
+            // set mvc resolver
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
+            // set webapi resolver
+            var resolver = new AutofacWebApiDependencyResolver(container);
+            GlobalConfiguration.Configuration.DependencyResolver = resolver;
 
             return container;
         }
