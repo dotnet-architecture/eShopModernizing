@@ -1,13 +1,12 @@
-﻿using System;
-using eShopLegacyMVC.Models;
+﻿using eShopLegacyMVC.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.SqlClient;
 using System.Linq;
 using eShopLegacyMVC.ViewModel;
 
 namespace eShopLegacyMVC.Services
 {
+
     public class CatalogService : ICatalogService
     {
         private CatalogDBContext db;

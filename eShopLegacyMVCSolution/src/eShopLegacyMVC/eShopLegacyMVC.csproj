@@ -265,6 +265,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\CatalogController.cs" />
     <Compile Include="Controllers\PicController.cs" />
+    <Compile Include="Controllers\WebApi\FilesController.cs" />
     <Compile Include="Controllers\WebApi\BrandsController.cs" />
     <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
     <Compile Include="Models\CatalogItemHiLoGenerator.cs" />
@@ -562,5 +563,11 @@
     <PackageReference Include="Respond">
       <Version>1.4.2</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\eShopLegacy.Utilities\eShopLegacy.Utilities.csproj">
+      <Project>{d466562e-f48c-4ef1-ae08-3a80b0ed9671}</Project>
+      <Name>eShopLegacy.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
