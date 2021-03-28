@@ -18,7 +18,6 @@ namespace eShopPorted
             Configuration = configuration;
         }
         public static DateTime StartTime { get; } = DateTime.UtcNow;
-        public static string MachineName { get; } = Environment.MachineName;
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
