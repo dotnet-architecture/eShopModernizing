@@ -3,8 +3,8 @@ version: '3.4'
 services:
   eshop.modernized.mvc:
     environment:
-      - CatalogDBContext=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
-      - UseMockData=True
+      - CatalogDBContext=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=P@ssword2021!
+      - UseMockData=False
       - UseCustomizationData=False
       - UseAzureStorage=False
       - StorageConnectionString=${ESHOP_AZURE_STORAGE_CONNECTION_STRING}
@@ -18,8 +18,8 @@ services:
 
   eshop.modernized.webforms:
     environment:
-      - CatalogDBContext=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word
-      - UseMockData=True
+      - CatalogDBContext=Server=sql.data;Database=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=P@ssword2021!
+      - UseMockData=False
       - UseCustomizationData=False
       - UseAzureStorage=False
       - StorageConnectionString=${ESHOP_AZURE_STORAGE_CONNECTION_STRING}
@@ -33,17 +33,17 @@ services:
 
   eshopwcfservice:
     environment:
-      - CatalogDBContext=Server=sql.data;Database=eShopDatabase;User Id=sa;Password=Pass@word
+      - CatalogDBContext=Server=sql.data;Database=eShopDatabase;User Id=sa;Password=P@ssword2021!
     ports:   
      - "5113:80"       
   sql.data:
     environment:
-      - SA_PASSWORD=Pass@word
+      - SA_PASSWORD=P@ssword2021!
       - ACCEPT_EULA=Y
     ports:
       - "5433:1433"
     healthcheck:
-      test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "Pass@word", "-Q", "select 1" ]
+      test: [ "CMD", "sqlcmd", "-U", "sa", "-P", "P@ssword2021!", "-Q", "select 1" ]
       interval: 1s
       retries: 20
 

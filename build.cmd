@@ -1,3 +1,19 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @echo [93m Creating the 'deploy' folder tree[0m
 
 @echo [93m Building MVC project...[0m

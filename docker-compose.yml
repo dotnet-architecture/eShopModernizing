@@ -4,6 +4,7 @@ services:
 
   eshopwcfservice:
     image: eshop/wcfservice:${TAG:-latest}
+    platform: windows/amd64
     build:
       context: ./deploy/wcf
       dockerfile: Dockerfile
@@ -12,6 +13,7 @@ services:
 
   eshop.modernized.webforms:
     image: eshop/modernizedwebforms:${TAG:-latest}
+    platform: windows/amd64
     build:
       context: ./deploy/webforms
       dockerfile: Dockerfile
@@ -20,6 +22,7 @@ services:
 
   eshop.modernized.mvc:
     image: eshop/modernizedmvc:${TAG:-latest}
+    platform: windows/amd64
     build:
       context: ./deploy/mvc
       dockerfile: Dockerfile
@@ -28,4 +31,4 @@ services:
     
   sql.data:
     image: microsoft/mssql-server-windows-developer
-
+    platform: windows/amd64
