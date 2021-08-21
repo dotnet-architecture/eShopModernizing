@@ -9,7 +9,7 @@ WORKDIR /inetpub/wwwroot
 COPY ["eShopModernizedMVC/eShopModernizedMVC.csproj", "eShopModernizedMVC/"]
 RUN dotnet restore "eShopModernizedMVC/eShopModernizedMVC.csproj"
 COPY . .
-WORKDIR "/src/AzureDevopsDockerTest"
+WORKDIR "eShopModernizedMVC"
 RUN dotnet build "eShopModernizedMVC.csproj" -c Release -o /app/build
 
 FROM build AS publish
