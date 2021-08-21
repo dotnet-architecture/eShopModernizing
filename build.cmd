@@ -1,21 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @echo [93m Creating the 'deploy' folder tree[0m
-
 @echo [93m Building MVC project...[0m
 nuget restore eShopModernizedMVCSolution\eShopModernizedMVC.sln
 msbuild eShopModernizedMVCSolution\src\eShopModernizedMVC\eShopModernizedMVC.csproj /nologo /p:PublishProfile=FolderProfile.pubxml /p:DeployOnBuild=true /p:docker_publish_root=..\..\..\deploy\mvc\
