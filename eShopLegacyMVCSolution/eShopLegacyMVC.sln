@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.8
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopLegacyMVC", "src\eShopLegacyMVC\eShopLegacyMVC.csproj", "{C4E50A92-30E2-4592-9A9A-A9D2B1B13A7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShopPorted", "eShopPorted\eShopPorted.csproj", "{FCDA7C08-360A-4152-8A99-2A45B5917E93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopLegacy.Utilities", "eShopLegacy.Utilities\eShopLegacy.Utilities.csproj", "{D466562E-F48C-4EF1-AE08-3A80B0ED9671}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{C4E50A92-30E2-4592-9A9A-A9D2B1B13A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4E50A92-30E2-4592-9A9A-A9D2B1B13A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4E50A92-30E2-4592-9A9A-A9D2B1B13A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCDA7C08-360A-4152-8A99-2A45B5917E93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCDA7C08-360A-4152-8A99-2A45B5917E93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCDA7C08-360A-4152-8A99-2A45B5917E93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCDA7C08-360A-4152-8A99-2A45B5917E93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D466562E-F48C-4EF1-AE08-3A80B0ED9671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D466562E-F48C-4EF1-AE08-3A80B0ED9671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D466562E-F48C-4EF1-AE08-3A80B0ED9671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D466562E-F48C-4EF1-AE08-3A80B0ED9671}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

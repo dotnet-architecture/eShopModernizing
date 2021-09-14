@@ -1,0 +1,233 @@
+﻿/* Slider */
+.esh-app-hero {
+    background-image: url("../images/main_banner.png");
+    background-size: cover;
+    height: 12.5vw;
+    width: 100%;
+}
+
+/* Header */
+.esh-header {
+    height: 100%;
+}
+
+.esh-header:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+.esh-header-brand {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.esh-header-title {
+    font-family: Montserrat, sans-serif;
+    position: relative;
+    font-size: 4vw;
+    font-weight: 600;
+    color: #FFFFFF;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.esh-header-title > span {
+    font-weight:300;
+}
+
+/* Footer */
+.esh-app-footer {
+    background-color: #000000;
+    border-top: 1px solid #EEEEEE;
+    margin-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    padding-top: 2.5rem;
+    width: 100%;
+    float: left;
+}
+
+.esh-app-footer-brand {
+    height: 50px;
+    width: 230px;
+}
+
+/* Body */
+.esh-body-title {
+    font-family: Montserrat, sans-serif;
+    padding-left: 3rem;
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    margin: 0px;
+    margin-bottom: 2rem;
+    background-color: #00A69C;
+    font-size: 3rem;
+    color: #FFFFFF;
+}
+
+/* Table */
+.esh-table {
+    max-width: 1440px;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.esh-table-header {
+    border-bottom: none;
+}
+
+.esh-table th {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.esh-table td {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.esh-table-price {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.esh-table-link {
+    color: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.35s;
+}
+
+.esh-table-link:hover {
+    color: #75b918;
+    transition: color 0.35s;
+}
+
+.esh-thumbnail {
+    max-width: 120px;
+    height: auto;
+}
+
+.esh-picture {
+    max-width: 370px;
+    height: auto;
+    width: 100%;
+}
+
+.esh-link-wrapper {
+    line-height: 3rem;
+    position: relative;
+    text-align: left;
+}
+
+.esh-link-item {
+    color: inherit;
+    font-size: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.35s;
+}
+
+.esh-link-item:hover {
+    color: #75b918;
+    transition: color 0.35s;
+}
+
+.esh-link-item--margin {
+    margin-left: 1rem;
+}
+
+.esh-link-list {
+    font-size: 2rem;
+    margin-left: 1rem;
+}
+
+.esh-button-actions .esh-button + .esh-button {
+    margin-left: 1rem;
+}
+
+.esh-button {
+    border: 0;
+    border-radius: 0;
+    color: #FFFFFF;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 1rem;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.35s;
+}
+
+.esh-button-primary {
+    background-color: #83D01B;
+}
+
+.esh-button-primary:hover {
+    background-color: #4a760f;
+    color: white;
+}
+
+.esh-button-secondary {
+    background-color: #E52638;
+}
+
+.esh-button-secondary:hover {
+    background-color: #b20000;
+    color: white;
+}
+
+.esh-button-primary:hover {
+    background-color: #4a760f;
+    transition: all 0.35s;
+}
+
+.esh-form-information {
+    padding-top: 7px;
+    color: #888888;
+}
+
+/*Pager*/
+.esh-pager-wrapper {
+    padding-top: 1rem;
+    text-align: center;
+}
+
+.esh-pager-item {
+    margin: 0 5vw;
+    color: #333333;
+}
+
+.esh-pager-item--hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.esh-pager-item--navigable {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.esh-pager-item--navigable:hover {
+    color: #83D01B;
+}
+
+@media screen and (max-width: 1280px) {
+    .esh-pager-item {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .esh-pager-item {
+        margin: 0 2.5vw;
+    }
+
+    .esh-app-hero {
+        height: 20vw;
+    }
+}
+

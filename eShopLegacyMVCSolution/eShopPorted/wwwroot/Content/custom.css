@@ -1,0 +1,22 @@
+﻿/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Tables */
+.table thead > tr > th,
+.table tbody > tr > th,
+.table tfoot > tr > th,
+.table thead > tr > td,
+.table tbody > tr > td,
+.table tfoot > tr > td {
+    border: none;
+    white-space: nowrap;
+}
+
+.table tbody tr > td {
+    vertical-align: middle;
+    border-bottom: 1px solid #eee;
+}
