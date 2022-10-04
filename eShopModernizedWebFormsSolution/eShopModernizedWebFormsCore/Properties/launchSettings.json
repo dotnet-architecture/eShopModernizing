@@ -1,0 +1,30 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:28760",
+      "sslPort": 44362
+    }
+  },
+  "profiles": {
+    "eShopModernizedWebFormsCore": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7098;http://localhost:5203",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ReverseProxy__Clusters__fallbackCluster__Destinations__fallbackApp__Address": "https://localhost:44322"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ReverseProxy__Clusters__fallbackCluster__Destinations__fallbackApp__Address": "https://localhost:44322"
+      }
+    }
+  }
+}
