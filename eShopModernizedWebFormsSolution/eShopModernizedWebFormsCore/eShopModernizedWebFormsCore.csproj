@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,7 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.CoreServices" Version="1.0.0-rc.1.22477.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.CoreServices" Version="1.0.0-rc.2.22503.1" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI" Version="0.1.0-ci0188" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI.DynamicCompilation" Version="0.1.0-ci0188" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI.Extensions" Version="0.1.0-ci0188" />
     <PackageReference Include="Yarp.ReverseProxy" Version="1.1.0" />
   </ItemGroup>
 
