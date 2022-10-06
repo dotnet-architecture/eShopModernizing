@@ -8,9 +8,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.CoreServices" Version="1.0.0-rc.2.22503.1" />
-    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI" Version="0.1.0-ci0193" />
-    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI.DynamicCompilation" Version="0.1.0-ci0193" />
-    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI.Extensions" Version="0.1.0-ci0193" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI" Version="0.1.0-ci0197" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI.DynamicCompilation" Version="0.1.0-ci0197" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI.Extensions" Version="0.1.0-ci0197" />
     <PackageReference Include="Yarp.ReverseProxy" Version="1.1.0" />
   </ItemGroup>
 

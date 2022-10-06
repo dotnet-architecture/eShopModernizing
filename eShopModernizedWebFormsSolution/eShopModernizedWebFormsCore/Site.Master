@@ -10,9 +10,12 @@
 
     <asp:PlaceHolder runat="server">
     </asp:PlaceHolder>
+    <link href="/Content/bootstrap.css" rel="stylesheet"/>
+<link href="/Content/custom.css" rel="stylesheet"/>
+<link href="/Content/base.css" rel="stylesheet"/>
+<link href="/Content/site.css" rel="stylesheet"/>
 
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 <body>
     <form runat="server">
@@ -81,10 +84,12 @@
                         <img class="esh-app-footer-text hidden-xs" src="/images/main_footer_text.png" width="335" height="26" alt="footer text image" />
                         <br />
                         <small style="color:white"><asp:Label ID="SessionInfoLabel" runat="server"></asp:Label></small>
+                        <br />
+                        <small style="color:white"><%: System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription %></small>
                     </section>
                 </article>
             </div>
-        </footer>
+        </footer> 
 
     </form>
 </body>

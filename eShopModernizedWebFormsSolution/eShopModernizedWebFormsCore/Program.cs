@@ -8,7 +8,19 @@ builder.Services.AddSystemWebAdapters()
     .AddDynamicPages(options =>
     {
         options.AddTypeNamespace(typeof(ScriptManager), "asp");
-    });
+    })
+    .AddJsonSessionSerializer(options =>
+    {
+        options.RegisterKey<string>("MachineName");
+        options.RegisterKey<DateTime>("SessionStartTime");
+    })
+    .AddRemoteAppClient(options =>
+    {
+        options.ApiKey = "{50745152-82F5-402B-A270-7276480ABF9A}";
+        options.RemoteAppUrl = new(builder.Configuration["ReverseProxy:Clusters:fallbackCluster:Destinations:fallbackApp:Address"]);
+    })
+    .AddSessionClient()
+    .AddAuthenticationClient(true);
 
 builder.Services.AddReverseProxy().LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
@@ -27,6 +39,6 @@ app.UseAuthorization();
 app.UseSystemWebAdapters();
 
 app.MapDynamicAspxPages(app.Environment.ContentRootFileProvider);
-//app.MapReverseProxy();
+app.MapReverseProxy();
 
 app.Run();

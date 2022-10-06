@@ -37,6 +37,20 @@ namespace eShopModernizedWebForms
             InitializeCatalogImages();
             InitializePipeline();
             this.BeginRequest += Application_BeginRequest;
+
+            SystemWebAdapterConfiguration.AddSystemWebAdapters(this)
+                .AddProxySupport(options => options.UseForwardedHeaders = true)
+                .AddJsonSessionSerializer(options =>
+                {
+                    options.RegisterKey<string>("MachineName");
+                    options.RegisterKey<DateTime>("SessionStartTime");
+                })
+                .AddRemoteAppServer(options =>
+                {
+                    options.ApiKey = "{50745152-82F5-402B-A270-7276480ABF9A}";
+                })
+                .AddAuthenticationServer()
+                .AddSessionServer();
         }
 
         /// <summary>
