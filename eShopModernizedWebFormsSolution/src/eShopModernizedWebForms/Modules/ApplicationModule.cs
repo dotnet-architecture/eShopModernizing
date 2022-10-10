@@ -33,6 +33,7 @@ namespace eShopModernizedWebForms.Modules
                     .InstancePerLifetimeScope();
             }
 
+#if NETFRAMEWORK
             if (this.useAzureStorage)
             {
                 builder.RegisterType<ImageAzureStorage>()
@@ -40,6 +41,7 @@ namespace eShopModernizedWebForms.Modules
                     .InstancePerLifetimeScope();
             }
             else
+#endif
             {
                 builder.RegisterType<ImageMockStorage>()
                   .As<IImageService>()
@@ -55,6 +57,7 @@ namespace eShopModernizedWebForms.Modules
             builder.RegisterType<CatalogItemHiLoGenerator>()
                 .SingleInstance();
 
+#if NETFRAMEWORK
             if (this.useManagedIdentity)
             {
                 builder.RegisterType<ManagedIdentitySqlConnectionFactory>()
@@ -67,6 +70,10 @@ namespace eShopModernizedWebForms.Modules
                     .As<ISqlConnectionFactory>()
                     .SingleInstance();
             }
+#else
+            builder.RegisterInstance(new ConnectionStringFactory("Server=tcp:127.0.0.1,5433;Initial Catalog=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"))
+                .As<ISqlConnectionFactory>();
+#endif
         }
     }
 }

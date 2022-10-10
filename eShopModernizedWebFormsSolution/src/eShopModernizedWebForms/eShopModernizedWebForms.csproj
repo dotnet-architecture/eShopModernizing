@@ -534,15 +534,6 @@
     <Content Include="images\main_banner.png" />
     <Content Include="images\main_footer_text.png" />
     <Content Include="log4Net.xml" />
-    <Content Include="Models\Infrastructure\dbo.catalog_brand_hilo.Sequence.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Infrastructure\dbo.catalog_hilo.Sequence.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Models\Infrastructure\dbo.catalog_type_hilo.Sequence.sql">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Pics\1.png" />
     <Content Include="Pics\10.png" />
     <Content Include="Pics\11.png" />
@@ -633,7 +624,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Middleware\AuthenticationMiddleware.cs" />
-    <Compile Include="App_Start\CatalogConfiguration.cs" />
     <Compile Include="Catalog\Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -676,23 +666,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\CatalogBrand.cs" />
-    <Compile Include="Models\CatalogDBContext.cs" />
-    <Compile Include="Models\CatalogItem.cs" />
-    <Compile Include="Models\CatalogItemHiLoGenerator.cs" />
-    <Compile Include="Models\CatalogType.cs" />
-    <Compile Include="Models\Infrastructure\CatalogDBInitializer.cs" />
-    <Compile Include="Models\Infrastructure\PreconfiguredData.cs" />
     <Compile Include="Modules\ApplicationModule.cs" />
     <Compile Include="App_Start\MyTelemetryInitializer.cs" />
     <Compile Include="App_Start\OptionalKeyVaultConfigurationBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\CatalogService.cs" />
-    <Compile Include="Services\CatalogServiceMock.cs" />
-    <Compile Include="Services\ICatalogService.cs" />
-    <Compile Include="Services\IImageService.cs" />
-    <Compile Include="Services\ImageAzureStorage.cs" />
-    <Compile Include="Services\ImageMockStorage.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -709,7 +686,6 @@
     </Compile>
     <Compile Include="App_Start\SqlAccessTokenProvider.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModel\PaginatedItemsViewModel.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -720,6 +696,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Setup\CatalogBrands.csv" />
@@ -750,6 +727,12 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\eShopModels\eShopModels.csproj">
+      <Project>{8453bb03-e3f1-4f34-a525-9b713b637f8c}</Project>
+      <Name>eShopModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

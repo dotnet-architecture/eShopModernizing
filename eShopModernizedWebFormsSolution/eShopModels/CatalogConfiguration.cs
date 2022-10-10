@@ -87,7 +87,7 @@ namespace eShopModernizedWebForms
 
         private static bool IsEnabled(string configurationKey)
         {
-            return bool.Parse(ConfigurationManager.AppSettings[configurationKey]);
+            return bool.TryParse(ConfigurationManager.AppSettings[configurationKey], out var result) && result;
         }
     }
 }

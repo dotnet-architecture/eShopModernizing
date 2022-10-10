@@ -6,7 +6,10 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
+
+#if NETFRAMEWORK
 using System.Web.Hosting;
+#endif
 
 namespace eShopModernizedWebForms.Models.Infrastructure
 {
@@ -89,9 +92,16 @@ namespace eShopModernizedWebForms.Models.Infrastructure
             context.SaveChanges();
         }
 
+        private static string ContentRoot { get; } =
+#if NETFRAMEWORK
+                HostingEnvironment.ApplicationPhysicalPath;
+#else
+                AppContext.BaseDirectory;
+#endif
+
         private IEnumerable<CatalogType> GetCatalogTypesFromFile()
         {
-            var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
+            var contentRootPath = ContentRoot;
             string csvFileCatalogTypes = Path.Combine(contentRootPath, "Setup", "CatalogTypes.csv");
 
             if (!File.Exists(csvFileCatalogTypes))
@@ -127,7 +137,7 @@ namespace eShopModernizedWebForms.Models.Infrastructure
 
         static IEnumerable<CatalogBrand> GetCatalogBrandsFromFile()
         {
-            var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
+            var contentRootPath = ContentRoot;
             string csvFileCatalogBrands = Path.Combine(contentRootPath, "Setup", "CatalogBrands.csv");
 
             if (!File.Exists(csvFileCatalogBrands))
@@ -163,7 +173,7 @@ namespace eShopModernizedWebForms.Models.Infrastructure
 
         static IEnumerable<CatalogItem> GetCatalogItemsFromFile(CatalogDBContext context)
         {
-            var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
+            var contentRootPath = ContentRoot;
             string csvFileCatalogItems = Path.Combine(contentRootPath, "Setup", "CatalogItems.csv");
 
             if (!File.Exists(csvFileCatalogItems))
@@ -298,7 +308,7 @@ namespace eShopModernizedWebForms.Models.Infrastructure
 
             if (csvheaders.Count() < requiredHeaders.Count())
             {
-                throw new Exception($"requiredHeader count '{ requiredHeaders.Count()}' is bigger then csv header count '{csvheaders.Count()}' ");
+                throw new Exception($"requiredHeader count '{requiredHeaders.Count()}' is bigger then csv header count '{csvheaders.Count()}' ");
             }
 
             if (optionalHeaders != null)
@@ -339,7 +349,7 @@ namespace eShopModernizedWebForms.Models.Infrastructure
             {
                 return;
             }
-            var contentRootPath = HostingEnvironment.ApplicationPhysicalPath;
+            var contentRootPath = ContentRoot;
             DirectoryInfo picturePath = new DirectoryInfo(Path.Combine(contentRootPath, "Pics"));
             foreach (FileInfo file in picturePath.GetFiles())
             {

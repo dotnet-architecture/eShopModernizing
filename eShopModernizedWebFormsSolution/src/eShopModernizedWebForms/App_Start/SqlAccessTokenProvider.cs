@@ -4,11 +4,6 @@ using System.Data.SqlClient;
 
 namespace eShopModernizedWebForms
 {
-    public interface ISqlConnectionFactory
-    {
-        SqlConnection CreateConnection();
-    }
-
     public class ManagedIdentitySqlConnectionFactory : ISqlConnectionFactory
     {
         private readonly AzureServiceTokenProvider _provider;
