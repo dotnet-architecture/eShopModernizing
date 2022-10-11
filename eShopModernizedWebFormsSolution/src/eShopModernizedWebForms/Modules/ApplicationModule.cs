@@ -65,15 +65,12 @@ namespace eShopModernizedWebForms.Modules
                     .SingleInstance();
             }
             else
+#endif
             {
                 builder.RegisterType<AppSettingsSqlConnectionFactory>()
                     .As<ISqlConnectionFactory>()
                     .SingleInstance();
             }
-#else
-            builder.RegisterInstance(new ConnectionStringFactory("Server=tcp:127.0.0.1,5433;Initial Catalog=Microsoft.eShopOnContainers.Services.CatalogDb;User Id=sa;Password=Pass@word"))
-                .As<ISqlConnectionFactory>();
-#endif
         }
     }
 }

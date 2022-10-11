@@ -1,10 +1,22 @@
-﻿using System.Data.SqlClient;
+﻿using System.Configuration;
+using System.Data.SqlClient;
 
 namespace eShopModernizedWebForms
 {
     public interface ISqlConnectionFactory
     {
         SqlConnection CreateConnection();
+    }
+
+    public class AppSettingsSqlConnectionFactory : ISqlConnectionFactory
+    {
+        public SqlConnection CreateConnection()
+        {
+            return new SqlConnection
+            {
+                ConnectionString = ConfigurationManager.ConnectionStrings["CatalogDBContext"].ConnectionString
+            };
+        }
     }
 
     public class ConnectionStringFactory : ISqlConnectionFactory

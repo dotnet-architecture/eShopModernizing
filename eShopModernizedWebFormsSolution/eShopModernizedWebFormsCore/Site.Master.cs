@@ -14,7 +14,7 @@ namespace eShopModernizedWebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Login.Visible = CatalogConfiguration.UseAzureActiveDirectory;
+            Login.Visible = CatalogConfiguration.UseAzureActiveDirectory;
 
             // Example of a legacy session usage - left intact with minimal code changes to use Azure Redis Cache to back it
             SessionInfoLabel.Text = $"{HttpContext.Current.Session["MachineName"]}, {HttpContext.Current.Session["SessionStartTime"]}";

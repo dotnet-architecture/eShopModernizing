@@ -25,15 +25,4 @@ namespace eShopModernizedWebForms
         private string AccessToken
             => _provider.GetAccessTokenAsync("https://database.windows.net/").ConfigureAwait(false).GetAwaiter().GetResult();
     }
-
-    public class AppSettingsSqlConnectionFactory : ISqlConnectionFactory
-    {
-        public SqlConnection CreateConnection()
-        {
-            return new SqlConnection
-            {
-                ConnectionString = ConfigurationManager.ConnectionStrings["CatalogDBContext"].ConnectionString
-            };
-        }
-    }
 }

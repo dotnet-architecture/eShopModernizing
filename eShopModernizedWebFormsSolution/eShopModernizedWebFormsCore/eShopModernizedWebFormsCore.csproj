@@ -7,11 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.4.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="log4net" Version="2.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.CoreServices" Version="1.0.0-rc.2.22503.1" />
-    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI" Version="0.1.0-ci0202" />
-    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI.DynamicCompilation" Version="0.1.0-ci0202" />
-    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI.Extensions" Version="0.1.0-ci0202" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI" Version="0.1.0-ci0228" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI.DynamicCompilation" Version="0.1.0-ci0228" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters.UI.Extensions" Version="0.1.0-ci0228" />
+    <PackageReference Include="Swick.ConfigurationManagerAdapter" Version="0.1.0-ci0228" />
     <PackageReference Include="Yarp.ReverseProxy" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\src\eShopModernizedWebForms\Modules\ApplicationModule.cs" Link="ApplicationModule.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\eShopModels\eShopModels.csproj" />
   </ItemGroup>
 
 </Project>
