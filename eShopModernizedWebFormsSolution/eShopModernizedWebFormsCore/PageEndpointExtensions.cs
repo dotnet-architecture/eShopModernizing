@@ -10,6 +10,7 @@ namespace eShopModernizedWebForms
         public static void Redirect(this System.Web.HttpResponse response, string path)
         {
             var core = (Microsoft.AspNetCore.Http.HttpResponse)response;
+            var handler = ((System.Web.HttpContext)core.HttpContext).GetHandler();
 
             path = path.Trim('~');
 
@@ -24,6 +25,7 @@ namespace eShopModernizedWebForms
             }
 
             core.Redirect(path);
+            response.End();
         }
     }
 }

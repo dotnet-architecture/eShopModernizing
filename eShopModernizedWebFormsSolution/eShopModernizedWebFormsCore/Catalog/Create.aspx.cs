@@ -49,7 +49,7 @@ namespace eShopModernizedWebForms.Catalog
 
         protected void Create_Click(object sender, EventArgs e)
         {
-            if (this.ModelState.IsValid)
+            if (this.IsValid)
             {
                 var catalogItem = new CatalogItem
                 {

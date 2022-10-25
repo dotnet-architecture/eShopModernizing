@@ -9,7 +9,6 @@ using eShopModernizedWebForms;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddWebConfig();
-builder.Services.AddConfigurationManager();
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(builder =>
@@ -17,6 +16,7 @@ builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
         builder.RegisterModule(new ApplicationModule(CatalogConfiguration.UseMockData, CatalogConfiguration.UseAzureStorage, CatalogConfiguration.UseManagedIdentity));
     });
 
+builder.Services.AddConfigurationManager();
 
 builder.Services.AddSystemWebAdapters()
     .AddWebForms()
@@ -66,10 +66,6 @@ app.UseRouting();
 // Use cookies to disable endpoints
 app.Use((ctx, next) =>
 {
-    var j = ctx.RequestServices.GetRequiredService<IConfiguration>();
-    var config = System.Configuration.ConfigurationManager.AppSettings;
-    var s = System.Configuration.ConfigurationManager.ConnectionStrings;
-
     if (ctx.Request.Cookies.TryGetValue("skip_core", out var existing) && bool.TryParse(existing, out var result) && result)
     {
         ctx.SetEndpoint(null);
